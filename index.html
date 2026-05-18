@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Harsh Rathore — Cinematic luxury portfolio with brutalist fashion campaign design, premium typography, and experimental digital craft." />
+  <title>HARSH RATHORE · ARCHIVE</title>
+
+  <!-- Premium Fonts: Syncopate (ultra-wide structural luxury), Bodoni Moda (couture high-contrast serif), Space Grotesk (tech sans), Space Mono (industrial monospace) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&family=Syncopate:wght@700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="luxury-aesthetic">
+
+  <!-- ─────────────── LUXURY CURSOR ─────────────── -->
+  <div class="custom-cursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+  </div>
+
+  <!-- ─────────────── FILM GRAIN OVERLAY ─────────────── -->
+  <div class="film-grain"></div>
+  <div class="lens-flare"></div>
+
+  <!-- ─────────────── CINEMATIC INTRO SCENE ─────────────── -->
+  <div id="intro-scene" class="intro-active">
+    <div class="intro-noise-overlay"></div>
+    <div class="intro-vignette"></div>
+
+    <!-- Premium Skip Button -->
+    <button id="skip-intro-btn" class="skip-intro-btn" aria-label="Skip Intro">[ SKIP INTRO // ]</button>
+
+    <!-- Watermark layer that gets populated at the climax -->
+    <div class="bg-depth-watermark" id="intro-watermark">HARSH</div>
+
+    <div class="intro-stage">
+      <div class="intro-brand-container">
+        <!-- Spelled out letter-by-letter dynamically -->
+        <h1 class="intro-brand-main" id="intro-brand-first"></h1>
+        <h1 class="intro-brand-sub" id="intro-brand-second">RATHORE</h1>
+      </div>
+    </div>
+
+    <div class="intro-footer-ui">
+      <div class="footer-col-left">
+        <span class="spec-label">CREATIVE ARCHIVE</span>
+        <span class="spec-value">ISSUE 01 / 2026</span>
+      </div>
+      <div class="footer-col-center">
+        <!-- Premium ticker counter -->
+        <div class="counter-display">
+          <span class="counter-num" id="intro-counter">00</span>
+          <span class="counter-unit">%</span>
+        </div>
+      </div>
+      <div class="footer-col-right">
+        <span class="spec-label">LOCATION</span>
+        <span class="spec-value">NEW DELHI, IN</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────── MAIN PORTFOLIO WRAPPER ─────────────── -->
+  <main id="main-content" class="content-hidden">
+
+    <!-- ─────────────── ASYMMETRIC HEADER ─────────────── -->
+    <header id="main-header">
+      <div class="header-inner">
+        <!-- Logo / Artist Brand -->
+        <a href="#" class="header-brand">H.RATHORE</a>
+
+        <!-- Desktop Navigation -->
+        <nav class="editorial-nav">
+          <ul class="nav-links">
+            <li><a href="#about" class="nav-item"><span>01 /</span> ABOUT</a></li>
+            <li><a href="#projects" class="nav-item"><span>02 /</span> SELECTED WORK</a></li>
+            <li><a href="#skills" class="nav-item"><span>03 /</span> EXPERTISE</a></li>
+            <li><a href="#contact" class="nav-item"><span>04 /</span> INQUIRE</a></li>
+          </ul>
+        </nav>
+
+        <!-- Animated Asymmetric Luxury Hamburger Toggle -->
+        <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+          <span class="menu-toggle-circle"></span>
+          <span class="hamburger-box">
+            <span class="hamburger-line line-top"></span>
+            <span class="hamburger-line line-bottom"></span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Fullscreen Cinematic Mobile Navigation Overlay -->
+      <div class="mobile-nav-overlay" id="mobile-nav">
+        <!-- Parallax Depth Sweep Curtain (First Layer) -->
+        <div class="mobile-nav-curtain"></div>
+        
+        <!-- Main Luxury Nav Sheet (Second Layer) -->
+        <div class="mobile-nav-sheet">
+          <!-- Film Noise Overlay for tactile texture -->
+          <div class="mobile-nav-grain"></div>
+          
+          <!-- Subtle outlined watermark projection in background -->
+          <div class="mobile-nav-watermark">HR // ARCHIVE</div>
+
+          <div class="mobile-nav-content">
+            <div class="mobile-nav-header">
+              <span class="mobile-brand">H.RATHORE</span>
+            </div>
+            
+            <nav class="mobile-nav-body">
+              <ul class="mobile-menu-links">
+                <li>
+                  <div class="mobile-menu-item-wrapper">
+                    <a href="#about" class="mobile-menu-link">
+                      <span class="link-num">01 /</span>
+                      <span class="link-text">ABOUT</span>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <div class="mobile-menu-item-wrapper">
+                    <a href="#projects" class="mobile-menu-link">
+                      <span class="link-num">02 /</span>
+                      <span class="link-text">SELECTED WORK</span>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <div class="mobile-menu-item-wrapper">
+                    <a href="#skills" class="mobile-menu-link">
+                      <span class="link-num">03 /</span>
+                      <span class="link-text">EXPERTISE</span>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <div class="mobile-menu-item-wrapper">
+                    <a href="#contact" class="mobile-menu-link">
+                      <span class="link-num">04 /</span>
+                      <span class="link-text">INQUIRE</span>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+            
+            <div class="mobile-nav-footer">
+              <div class="mobile-nav-footer-col">
+                <span class="mobile-footer-label">SOCIAL SYSTEM</span>
+                <div class="mobile-footer-links">
+                  <a href="https://github.com/harsh-pratap-singh-rathore" target="_blank" class="magnetic-element">GITHUB</a>
+                  <a href="https://www.linkedin.com/in/harsh-rathore-1597012aa/" target="_blank" class="magnetic-element">LINKEDIN</a>
+                </div>
+              </div>
+              <div class="mobile-nav-footer-col">
+                <span class="mobile-footer-label">DIRECT CHANNEL</span>
+                <a href="mailto:harshpratapsinghrathore555@gmail.com" class="mobile-footer-email magnetic-element">HARSHPRATAPSINGHRATHORE555@GMAIL.COM</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ─────────────── HERO / EXHIBITION ─────────────── -->
+    <section id="hero-exhibition">
+      <!-- Ambient Liquid Glass Gradient Blobs -->
+      <div class="glass-bg-blob blob-one"></div>
+      <div class="glass-bg-blob blob-two"></div>
+      <div class="glass-bg-blob blob-three"></div>
+
+      <div class="hero-editorial-grid">
+        <div class="hero-title-area">
+          <span class="hero-category">PORTFOLIO ISSUE — 01 // CREATIVE ARCHIVE</span>
+          <h1 class="hero-main-title">
+            HARSH <br />
+            RATHORE
+          </h1>
+          <div class="hero-typing-container">
+            <span class="typing-label">// ARCHITECT OF</span>
+            <span id="typing-text"></span><span class="typing-cursor">█</span>
+          </div>
+        </div>
+
+        <div class="hero-canvas-frame">
+          <div class="editorial-image-container">
+            <div class="image-overlay-filter"></div>
+            <img src="profile.png" alt="Exhibition frame" class="editorial-img" />
+          </div>
+          <div class="frame-spec-sheet">
+            <div class="spec-row">
+              <span>ARTIST</span>
+              <span>HARSH RATHORE</span>
+            </div>
+            <div class="spec-row">
+              <span>DISCIPLINE</span>
+              <span>JAVASCRIPT DEVELOPMENT</span>
+            </div>
+            <div class="spec-row">
+              <span>CURATORIAL</span>
+              <span>BRUTALIST FASHION CAMPAIGN</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-statement-area">
+          <p class="editorial-lead-para">
+            Developing high-performance, conceptually driven digital architecture. A strict devotion to structural
+            details, premium cinematic spacing, and absolute typographical excellence.
+          </p>
+          <div class="cta-strip">
+            <a href="#projects" class="editorial-btn">EXPLORE SELECTED ARCHIVE <span class="btn-arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Interactive Code Shells -->
+      <div class="code-shell-float shell-manifesto magnetic-element">
+        <div class="code-shell-header">
+          <div class="code-shell-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="code-shell-title">sys_manifesto.js</span>
+        </div>
+        <div class="code-shell-body">
+          <pre><code><span class="code-keyword">const</span> design = (concept) => {
+  <span class="code-keyword">return</span> rendering * performance;
+};</code></pre>
+        </div>
+      </div>
+
+      <div class="code-shell-float shell-stylist magnetic-element">
+        <div class="code-shell-header">
+          <div class="code-shell-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="code-shell-title">visual_engine.css</span>
+        </div>
+        <div class="code-shell-body">
+          <pre><code><span class="code-selector">#rathore</span> {
+  <span class="code-property">framerate</span>: 120fps;
+  <span class="code-property">precision</span>: subpixel;
+  <span class="code-property">motion</span>: cinematic;
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="code-shell-float shell-loop magnetic-element">
+        <div class="code-shell-header">
+          <div class="code-shell-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="code-shell-title">infinite_drive.cpp</span>
+        </div>
+        <div class="code-shell-body">
+          <pre><code><span class="code-keyword">while</span> (creative_drive) {
+  innovate();
+  craft_beautiful_code();
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────── ABOUT / MANIFESTO ─────────────── -->
+    <section id="about" class="editorial-section">
+      <div class="section-header-brutalist">
+        <span class="section-index">01 /</span>
+        <h2 class="section-title-brutalist">MANIFESTO</h2>
+      </div>
+
+      <div class="manifesto-grid">
+        <div class="manifesto-left">
+          <h3 class="manifesto-heading">
+            Rejecting the generic UI template. Embracing <span class="italic-serif text-accent">extreme intent</span>.
+          </h3>
+        </div>
+        <div class="manifesto-right">
+          <div class="manifesto-body">
+            <p class="drop-cap-p">
+              <span class="drop-cap">I</span> believe the web is a canvas for visceral experiences, not just plain
+              containers. Drawing heavy influence from upscale luxury print, architectural structural forms, and
+              avant-garde fashion campaigns, I build web ecosystems that feel premium, heavy, and extremely deliberate.
+            </p>
+            <p>
+              Focused intensely on standardizing modern JavaScript workflows, mastering layouts, and optimizing
+              pixel-level transitions. Every motion curve is tuned, every font size is curated, and every design is
+              constructed to command respect.
+            </p>
+          </div>
+
+          <div class="manifesto-footer">
+            <div class="manifesto-sign">
+              <span class="sign-label">SIGNATURE OF CRAFT</span>
+              <span class="signature-text">Harsh Rathore</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────── SELECTED PROJECTS ─────────────── -->
+    <section id="projects" class="editorial-section">
+      <div class="section-header-brutalist">
+        <span class="section-index">02 /</span>
+        <h2 class="section-title-brutalist">SELECTED WORKS</h2>
+      </div>
+
+      <div class="projects-list-brutalist">
+
+        <!-- PROJECT 01 -->
+        <article class="project-strip" id="strip-quiz">
+          <div class="strip-num">01 //</div>
+          <div class="strip-main">
+            <div class="strip-text-group">
+              <span class="project-tag-mini">LEARNING PLATFORM</span>
+              <h3 class="strip-title">JS QUIZ ENGINE</h3>
+            </div>
+            <p class="strip-desc">An interactive JavaScript engine covering closures, hoisting, prototypes, and core
+              scopes with instant cinematic visual feedback.</p>
+            <div class="strip-specs">
+              <span>JS CORE</span>
+              <span>VANILLA SYSTEM</span>
+              <span>2026</span>
+            </div>
+          </div>
+          <a href="#" class="strip-link-overlay" aria-label="View Project"></a>
+        </article>
+
+        <!-- PROJECT 02 -->
+        <article class="project-strip" id="strip-dashboard">
+          <div class="strip-num">02 //</div>
+          <div class="strip-main">
+            <div class="strip-text-group">
+              <span class="project-tag-mini">DATA VISUALIZATION</span>
+              <h3 class="strip-title">TASK DASHBOARD</h3>
+            </div>
+            <p class="strip-desc">High-fidelity productivity hub incorporating horizontal timeline graphs, custom task
+              states, and pure architectural layouts.</p>
+            <div class="strip-specs">
+              <span>CSS GRID</span>
+              <span>TIMELINE API</span>
+              <span>2026</span>
+            </div>
+          </div>
+          <a href="#" class="strip-link-overlay" aria-label="View Project"></a>
+        </article>
+
+        <!-- PROJECT 03 -->
+        <article class="project-strip" id="strip-chatbot">
+          <div class="strip-num">03 //</div>
+          <div class="strip-main">
+            <div class="strip-text-group">
+              <span class="project-tag-mini">AI INTEGRATION</span>
+              <h3 class="strip-title">AI CHATBOT UI</h3>
+            </div>
+            <p class="strip-desc">A premium luxury chat terminal integrating dual API keys for OpenAI and Gemini with
+              smooth custom transition structures.</p>
+            <div class="strip-specs">
+              <span>API INTEGRATION</span>
+              <span>CUSTOM CORE</span>
+              <span>2026</span>
+            </div>
+          </div>
+          <a href="#" class="strip-link-overlay" aria-label="View Project"></a>
+        </article>
+
+        <!-- PROJECT 04 -->
+        <article class="project-strip" id="strip-portfolio">
+          <div class="strip-num">04 //</div>
+          <div class="strip-main">
+            <div class="strip-text-group">
+              <span class="project-tag-mini">EXHIBITION SYSTEM</span>
+              <h3 class="strip-title">LUXURY ARCHIVE</h3>
+            </div>
+            <p class="strip-desc">This very website — designed to challenge standard layouts, introducing editorial
+              spacing, film noise, and high-fashion aesthetics.</p>
+            <div class="strip-specs">
+              <span>BRUTALIST CSS</span>
+              <span>CINEMATIC INTRO</span>
+              <span>2026</span>
+            </div>
+          </div>
+          <a href="#" class="strip-link-overlay" aria-label="View Project"></a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ─────────────── EXPERTISE / SKILLS ─────────────── -->
+    <section id="skills" class="editorial-section">
+      <div class="section-header-brutalist">
+        <span class="section-index">03 /</span>
+        <h2 class="section-title-brutalist">EXPERTISE</h2>
+      </div>
+
+      <div class="expertise-grid">
+        <div class="expertise-column">
+          <h4 class="expertise-group-title">CORE DISCIPLINE</h4>
+          <ul class="expertise-list">
+            <li class="expertise-item">
+              <span class="item-name">JAVASCRIPT (ES6+)</span>
+              <span class="item-level">ADVANCED Scopes &amp; Core Engine</span>
+            </li>
+            <li class="expertise-item">
+              <span class="item-name">CSS ARCHITECTURE</span>
+              <span class="item-level">Brutalist layout design, custom typography systems</span>
+            </li>
+            <li class="expertise-item">
+              <span class="item-name">HTML5 SEMANTICS</span>
+              <span class="item-level">High structural fidelity, SEO optimized structures</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="expertise-column">
+          <h4 class="expertise-group-title">UTILITIES &amp; FLOW</h4>
+          <ul class="expertise-list">
+            <li class="expertise-item">
+              <span class="item-name">GIT / GITHUB</span>
+              <span class="item-level">Clean daily commits, versioning structures</span>
+            </li>
+            <li class="expertise-item">
+              <span class="item-name">RESPONSIVE ADAPTATION</span>
+              <span class="item-level">Strict device-agnostic layouts</span>
+            </li>
+            <li class="expertise-item">
+              <span class="item-name">UX MOTION CURVES</span>
+              <span class="item-level">Custom easing, timing, state changes</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="expertise-column">
+          <h4 class="expertise-group-title">DEVELOPMENTAL VECTORS</h4>
+          <ul class="expertise-list">
+            <li class="expertise-item">
+              <span class="item-name">NODE.JS</span>
+              <span class="item-level">Currently expanding local environments</span>
+            </li>
+            <li class="expertise-item">
+              <span class="item-name">RESTful APIs</span>
+              <span class="item-level">Provider integration systems</span>
+            </li>
+            <li class="expertise-item">
+              <span class="item-name">FULL-STACK ARTIFACTS</span>
+              <span class="item-level">Connecting design systems to server states</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────── CONNECT / INQUIRE ─────────────── -->
+    <section id="contact" class="editorial-section">
+      <!-- Section Header -->
+      <div class="section-header-brutalist">
+        <span class="section-index">04 /</span>
+        <h2 class="section-title-brutalist">INQUIRE</h2>
+      </div>
+
+      <!-- Redesigned Split Grid -->
+      <div class="contact-grid">
+        <!-- Left Side: Cinematic Info Pane -->
+        <div class="contact-info-pane">
+          <div class="contact-lead-container">
+            <span class="contact-meta-label">// AVAILABLE FOR COLLABORATION</span>
+            <h3 class="contact-lead-text">
+              Initiate <span class="serif-italic-accent">collaboration</span>. Let's create an <span class="serif-italic-accent text-accent animate-glow">extraordinary</span> digital presence.
+            </h3>
+          </div>
+          
+          <div class="contact-manifesto-para">
+            <p>
+              I am currently accepting inquiries for high-end digital art direction, custom creative engineering contracts, and forward-thinking frontend roles that demand extreme visual execution.
+            </p>
+          </div>
+
+          <!-- Creative Availability HUD Status Widget -->
+          <div class="contact-status-hud">
+            <div class="status-indicator">
+              <span class="status-pulse-dot"></span>
+              <span class="status-mono-text">STATUS: ACTIVE &amp; DISPATCH READY</span>
+            </div>
+            <div class="hud-spec-table">
+              <div class="hud-spec-row">
+                <span class="hud-label">CURRENT LOCAL TIME</span>
+                <span class="hud-value" id="hud-time">16:03:40 GMT+0530</span>
+              </div>
+              <div class="hud-spec-row">
+                <span class="hud-label">CURRENT COORDINATES</span>
+                <span class="hud-value">28.6139° N, 77.2090° E</span>
+              </div>
+              <div class="hud-spec-row">
+                <span class="hud-label">SERVICE RANGE</span>
+                <span class="hud-value">GLOBAL / REMOTE &amp; SELECTED TRAVEL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Interactive Action Pane -->
+        <div class="contact-action-pane">
+          
+          <!-- Premium Contact Table -->
+          <div class="contact-table">
+            <span class="table-header-mono">// CHANNELS</span>
+            
+            <!-- Email Row -->
+            <a href="mailto:harshpratapsinghrathore555@gmail.com" class="contact-table-row magnetic-element" id="contact-email">
+              <div class="row-meta">
+                <span class="row-index">01 /</span>
+                <span class="row-label">EMAIL ADDRESS</span>
+              </div>
+              <div class="row-content">
+                <span class="row-value">harshpratapsinghrathore555@gmail.com</span>
+                <span class="row-sub-value">Direct Inquiry Line</span>
+              </div>
+              <div class="row-arrow">
+                <span class="arrow-symbol">→</span>
+              </div>
+              <div class="row-underline-anim"></div>
+            </a>
+
+            <!-- GitHub Row -->
+            <a href="https://github.com/harsh-pratap-singh-rathore" target="_blank" class="contact-table-row magnetic-element" id="contact-github">
+              <div class="row-meta">
+                <span class="row-index">02 /</span>
+                <span class="row-label">GITHUB ARCHIVE</span>
+              </div>
+              <div class="row-content">
+                <span class="row-value">github.com/harsh-pratap-singh-rathore</span>
+                <span class="row-sub-value">Source Code &amp; Repos</span>
+              </div>
+              <div class="row-arrow">
+                <span class="arrow-symbol">→</span>
+              </div>
+              <div class="row-underline-anim"></div>
+            </a>
+
+            <!-- LinkedIn Row -->
+            <a href="https://www.linkedin.com/in/harsh-rathore-1597012aa/" target="_blank" class="contact-table-row magnetic-element" id="contact-linkedin">
+              <div class="row-meta">
+                <span class="row-index">03 /</span>
+                <span class="row-label">LINKEDIN MATRIX</span>
+              </div>
+              <div class="row-content">
+                <span class="row-value">linkedin.com/in/harsh-rathore-1597012aa</span>
+                <span class="row-sub-value">Professional Network</span>
+              </div>
+              <div class="row-arrow">
+                <span class="arrow-symbol">→</span>
+              </div>
+              <div class="row-underline-anim"></div>
+            </a>
+          </div>
+
+          <!-- Redesigned Cinematic Submit Button -->
+          <div class="contact-button-wrapper">
+            <a href="mailto:harshpratapsinghrathore555@gmail.com" class="btn-cinematic-contact magnetic-element">
+              <span class="btn-shine"></span>
+              <span class="btn-bg"></span>
+              <span class="btn-border"></span>
+              <div class="btn-content-inner">
+                <span class="btn-text">SEND DIRECT MESSAGE</span>
+                <span class="btn-icon">
+                  <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────── FOOTER ─────────────── -->
+    <footer id="main-footer">
+      <div class="footer-grid">
+        <div class="footer-brand">HARSH RATHORE ARCHIVE ©2026</div>
+        <div class="footer-designation">JAVASCRIPT DEVELOPER // FASHION CAMPAIGN AESTHETIC</div>
+        <div class="footer-spec">MADE WITH VANILLA SYSTEM. NO FRAMEWORKS. NO SHORTCUTS.</div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
