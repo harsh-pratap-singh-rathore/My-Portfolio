@@ -580,11 +580,16 @@ body.shake-active {
   color: var(--text-color);
   text-decoration: none;
   z-index: 1001;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .header-brand:hover {
   color: var(--accent-color);
+}
+
+.menu-open .header-brand {
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 /* Mobile Asymmetric Hamburger Toggle Button */
@@ -1985,6 +1990,10 @@ body.shake-active {
     --section-padding: 80px;
   }
 
+  #hero-exhibition {
+    padding: 40px 0 80px;
+  }
+
   /* Hide Custom Cursor on tablets & mobiles to ensure absolute native performance and scrolling fluidness */
   .custom-cursor {
     display: none !important;
@@ -2063,6 +2072,10 @@ body.shake-active {
 
   .hero-editorial-grid {
     padding: 0 20px;
+  }
+
+  #hero-exhibition {
+    padding: 24px 0 60px !important;
   }
 
   .editorial-section {
