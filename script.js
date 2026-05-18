@@ -174,11 +174,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const typingTextEl = document.getElementById('typing-text');
   if (typingTextEl) {
     const phrases = [
-      "modern websites.",
-      "future logics.",
-      "conceptually driven architectures.",
-      "high-performance engines.",
-      "cinematic user experiences."
+      "custom e-commerce engines.",
+      "high-performance PHP & JS systems.",
+      "interactive visual canvases.",
+      "secure MySQL data pipelines.",
+      "robust Node.js environments."
     ];
     let phraseIdx = 0;
     let charIdx = 0;
