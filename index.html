@@ -21,14 +21,14 @@
 <body class="luxury-aesthetic">
 
   <!-- ─────────────── LUXURY CURSOR ─────────────── -->
-  <div class="custom-cursor">
+  <div class="custom-cursor" aria-hidden="true">
     <div class="cursor-dot"></div>
     <div class="cursor-ring"></div>
   </div>
 
   <!-- ─────────────── FILM GRAIN OVERLAY ─────────────── -->
-  <div class="film-grain"></div>
-  <div class="lens-flare"></div>
+  <div class="film-grain" aria-hidden="true"></div>
+  <div class="lens-flare" aria-hidden="true"></div>
 
   <!-- ─────────────── CINEMATIC INTRO SCENE ─────────────── -->
   <div id="intro-scene" class="intro-active">
@@ -198,7 +198,7 @@
         <div class="hero-canvas-frame">
           <div class="editorial-image-container">
             <div class="image-overlay-filter"></div>
-            <img src="profile.jpg" alt="Harsh Rathore profile exhibition" class="editorial-img" />
+            <img src="profile.jpg" width="800" height="1000" alt="Harsh Rathore profile exhibition" class="editorial-img" />
           </div>
           <div class="frame-spec-sheet">
             <div class="spec-row">
@@ -224,7 +224,7 @@
           <div class="cta-strip">
             <a href="#projects" class="editorial-btn">EXPLORE SELECTED ARCHIVE <span class="btn-arrow">→</span></a>
           </div>
-          <div class="editorial-stamp-badge">
+          <div class="editorial-stamp-badge" aria-hidden="true">
             <svg class="stamp-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" />
               <path d="M30 50h40M50 30v40" stroke="currentColor" stroke-width="0.5" />

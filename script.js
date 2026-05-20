@@ -36,10 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
   let startTimeout = null;
   let isIntroFinished = false;
 
+  // Make main page focus-inert during the active intro loading sequence
+  if (mainContent) {
+    mainContent.setAttribute('inert', '');
+  }
+
+  // Animation synchronization hooks
+  let typingStarted = false;
+  let startTypingAnimation = () => {};
+
   // Start Intro sequence automatically on every reload
   startTimeout = setTimeout(() => {
     revealNextLetter();
-    runCounter();
+    counterTimer = requestAnimationFrame(runCounter);
   }, 300);
 
   // ── 1. Spells out 'HARSH' letter by letter ──────
@@ -53,33 +62,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
       brandFirst.textContent = currentString;
 
-      // Trigger animation using hardware accelerated transforms & minimal layout impact
-      brandFirst.classList.remove('letter-reveal-active');
-      brandFirst.offsetHeight; // Minimum reflow to reset animation
-      brandFirst.classList.add('letter-reveal-active');
+      // Trigger hardware-accelerated letter reveal with zero layout reflows via Web Animations API
+      if (typeof brandFirst.animate === 'function') {
+        brandFirst.animate([
+          { filter: 'blur(6px)', transform: 'translate3d(0, 30px, 0) scale(0.96)', opacity: 0 },
+          { filter: 'blur(0px)', transform: 'translate3d(0, 0, 0) scale(1)', opacity: 1 }
+        ], {
+          duration: 500,
+          easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+          fill: 'forwards'
+        });
+      } else {
+        brandFirst.classList.remove('letter-reveal-active');
+        brandFirst.offsetHeight; // Legacy browser fallback
+        brandFirst.classList.add('letter-reveal-active');
+      }
 
       letterTimeout = setTimeout(revealNextLetter, letterIntervalMs);
     }
   }
 
-  // ── 2. Loading Counter counting naturally from 00 to 100 in 3.0s ────────────────────────
+  // ── 2. Loading Counter counting naturally from 00 to 100 in 3.0s using requestAnimationFrame ────────────────────────
   let currentCount = 0;
-  const counterTickInterval = 30; // 30ms interval = 100 ticks over 3000ms
-  const tickAmount = 1; // 1% natural increment per tick
+  const counterDurationMs = 3000; // 3 seconds visual duration
+  let startTimestamp = null;
 
-  function runCounter() {
+  function runCounter(timestamp) {
     if (isIntroFinished) return;
-    counterTimer = setInterval(() => {
-      currentCount += tickAmount;
-      if (currentCount >= 100) {
-        currentCount = 100;
-        clearInterval(counterTimer);
-        triggerCinematicImpact();
-      }
+    if (!startTimestamp) startTimestamp = timestamp;
+    const elapsed = timestamp - startTimestamp;
 
-      const formatted = Math.floor(currentCount).toString().padStart(2, '0');
+    const progress = Math.min(elapsed / counterDurationMs, 1);
+    currentCount = progress * 100;
+
+    const formatted = Math.floor(currentCount).toString().padStart(2, '0');
+    if (counterVal) {
       counterVal.textContent = formatted;
-    }, counterTickInterval);
+    }
+
+    if (progress < 1) {
+      counterTimer = requestAnimationFrame(runCounter);
+    } else {
+      triggerCinematicImpact();
+    }
   }
 
   // ── 3. Skip Intro Action ──────────────────────────────────────────
@@ -89,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Clear all active timers
     clearTimeout(letterTimeout);
-    clearInterval(counterTimer);
+    cancelAnimationFrame(counterTimer);
     clearTimeout(impactTimeout1);
     clearTimeout(impactTimeout2);
     clearTimeout(impactTimeout3);
@@ -100,6 +125,12 @@ document.addEventListener('DOMContentLoaded', () => {
     introScene.classList.add('exit-aperture');
     mainContent.classList.remove('content-hidden');
     mainContent.classList.add('content-visible');
+
+    // Restore background keyboard navigation focus
+    mainContent.removeAttribute('inert');
+
+    // Immediately kick off typography sequences reflow-free
+    startTypingAnimation();
 
     setTimeout(() => {
       introScene.style.display = 'none';
@@ -135,6 +166,12 @@ document.addEventListener('DOMContentLoaded', () => {
       mainContent.classList.remove('content-hidden');
       mainContent.classList.add('content-visible');
       isIntroFinished = true;
+
+      // Restore background keyboard navigation focus
+      mainContent.removeAttribute('inert');
+
+      // Start typing loop without delays
+      startTypingAnimation();
 
       impactTimeout4 = setTimeout(() => {
         introScene.style.display = 'none';
@@ -210,13 +247,26 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(typeCycle, typingSpeed);
     }
 
-    // Delay start to sync with aperture open transition
-    setTimeout(typeCycle, 3500);
+    startTypingAnimation = () => {
+      if (typingStarted) return;
+      typingStarted = true;
+      typeCycle();
+    };
+
+    // Fallback auto-start to sync with standard aperture open transition
+    setTimeout(startTypingAnimation, 3500);
   }
 
   // ── 7. GPU-Accelerated Cursor & Magnetic Engine (60fps Optimized) ───────────────────
 
-  if (!window.matchMedia('(pointer: coarse)').matches) {
+  let hasTouch = false;
+  window.addEventListener('touchstart', function onFirstTouch() {
+    hasTouch = true;
+    document.body.classList.add('disable-custom-cursor');
+    window.removeEventListener('touchstart', onFirstTouch);
+  }, { passive: true });
+
+  if (true) {
     let mouseX = 0, mouseY = 0; // Target position
     let ringX = 0, ringY = 0;   // LERP position
     let ringScale = 1;          // Current LERP scale factor
@@ -230,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mouseY = e.clientY;
     }, { passive: true });
 
-    // Cache magnetic coordinates initially and on scroll/resize to completely eliminate Layout Thrashing
+    // Cache magnetic coordinates initially and on window resize (Removed scroll listener to completely eliminate Layout Thrashing)
     let magneticBounds = [];
     function cacheMagneticBounds() {
       magneticBounds = Array.from(magneticElements).map(el => {
@@ -245,20 +295,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cacheMagneticBounds();
     window.addEventListener('resize', cacheMagneticBounds);
-    window.addEventListener('scroll', cacheMagneticBounds, { passive: true });
 
     // LERP easing factor (0.15 = smooth/controlled, 1 = instant)
     const lerp = (start, end, factor) => start + (end - start) * factor;
 
     function updateAnimations() {
-      // 1. Update Dot (Instant GPU Translate3d)
-      cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate3d(-50%, -50%, 0)`;
+      // 1. Update Dot (Instant GPU Translate3d with safety checks)
+      if (cursorDot) {
+        cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate3d(-50%, -50%, 0)`;
+      }
 
-      // 2. LERP Ring position & scale (Pure GPU accelerated matrices)
+      // 2. LERP Ring position & scale (Pure GPU accelerated matrices with safety checks)
       ringX = lerp(ringX, mouseX, 0.15);
       ringY = lerp(ringY, mouseY, 0.15);
       ringScale = lerp(ringScale, targetScale, 0.15);
-      cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate3d(-50%, -50%, 0) scale(${ringScale})`;
+      if (cursorRing) {
+        cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate3d(-50%, -50%, 0) scale(${ringScale})`;
+      }
 
       // 3. Lens Flare Parallax (Slow GPU Translate3d)
       if (lensFlare) {
@@ -292,11 +345,15 @@ document.addEventListener('DOMContentLoaded', () => {
     magneticElements.forEach(el => {
       el.addEventListener('mouseenter', () => {
         targetScale = 2.0; // GPU double scale multiplier
-        cursorRing.classList.add('hover');
+        if (cursorRing) {
+          cursorRing.classList.add('hover');
+        }
       });
       el.addEventListener('mouseleave', () => {
         targetScale = 1.0;
-        cursorRing.classList.remove('hover');
+        if (cursorRing) {
+          cursorRing.classList.remove('hover');
+        }
       });
     });
 
@@ -318,8 +375,14 @@ document.addEventListener('DOMContentLoaded', () => {
       // Prevent body scrolling when fullscreen overlay is active
       if (isOpen) {
         document.body.style.overflow = 'hidden';
+        if (mainContent) {
+          mainContent.setAttribute('inert', ''); // Trap focus inside overlay
+        }
       } else {
         document.body.style.overflow = '';
+        if (mainContent) {
+          mainContent.removeAttribute('inert');
+        }
       }
     });
 
@@ -330,6 +393,9 @@ document.addEventListener('DOMContentLoaded', () => {
         menuToggle.setAttribute('aria-expanded', 'false');
         mobileNav.classList.remove('active');
         document.body.style.overflow = '';
+        if (mainContent) {
+          mainContent.removeAttribute('inert');
+        }
       });
     });
   }
