@@ -407,11 +407,12 @@
         </nav>
       </div>
 
-      <!-- Full-Length Liquid Glass Projects Stream -->
-      <div class="projects-liquid-stream" id="projectsStream">
+      <!-- iOS 27 Liquid Glass Swipable Deck Stage (Swipe / Next Controls) -->
+      <div class="projects-deck-slider-container" id="projectsDeckContainer">
+        <div class="projects-deck-stage" id="projectsDeckStage">
 
-        <!-- ═══════════════ PROJECT 01: SHREE KARNI TEXTILES ═══════════════ -->
-        <article class="project-liquid-card float-card-1" id="project-shree-karni" data-project-id="shree-karni">
+          <!-- ═══════════════ PROJECT 01: SHREE KARNI TEXTILES ═══════════════ -->
+          <article class="project-liquid-card deck-slide is-active" id="project-shree-karni" data-project-id="shree-karni" data-slide-index="0">
           <div class="card-glass-substrate" aria-hidden="true"></div>
           <div class="card-specular-sheen" aria-hidden="true"></div>
 
@@ -525,7 +526,7 @@
         </article>
 
         <!-- ═══════════════ PROJECT 02: CODE CANVAS ═══════════════ -->
-        <article class="project-liquid-card float-card-2" id="project-code-canvas" data-project-id="code-canvas">
+        <article class="project-liquid-card deck-slide" id="project-code-canvas" data-project-id="code-canvas" data-slide-index="1">
           <div class="card-glass-substrate" aria-hidden="true"></div>
           <div class="card-specular-sheen" aria-hidden="true"></div>
 
@@ -635,7 +636,7 @@
         </article>
 
         <!-- ═══════════════ PROJECT 03: MY VOICE ═══════════════ -->
-        <article class="project-liquid-card float-card-3" id="project-my-voice" data-project-id="my-voice">
+        <article class="project-liquid-card deck-slide" id="project-my-voice" data-project-id="my-voice" data-slide-index="2">
           <div class="card-glass-substrate" aria-hidden="true"></div>
           <div class="card-specular-sheen" aria-hidden="true"></div>
 
@@ -747,8 +748,40 @@
             </div>
           </div>
         </article>
+        </div><!-- /.projects-deck-stage -->
 
-      </div>
+        <!-- iOS 27 Liquid Glass Swiper Navigation HUD -->
+        <div class="projects-swiper-hud" id="projectsSwiperHud">
+          <button type="button" class="swiper-nav-pill prev-pill magnetic-element" id="projPrevBtn" aria-label="Previous Project">
+            <span class="nav-arr">←</span>
+            <span class="nav-text">PREV</span>
+          </button>
+
+          <!-- Interactive Glass Slide Indicators -->
+          <div class="swiper-indicator-bar" id="projPagination">
+            <button type="button" class="deck-step-pill is-active" data-slide="0" aria-label="Slide 1: Shree Karni Textiles">
+              <span class="step-num">01</span>
+              <span class="step-dot"></span>
+              <span class="step-title">SHREE KARNI</span>
+            </button>
+            <button type="button" class="deck-step-pill" data-slide="1" aria-label="Slide 2: Code Canvas">
+              <span class="step-num">02</span>
+              <span class="step-dot"></span>
+              <span class="step-title">CODE CANVAS</span>
+            </button>
+            <button type="button" class="deck-step-pill" data-slide="2" aria-label="Slide 3: My Voice">
+              <span class="step-num">03</span>
+              <span class="step-dot"></span>
+              <span class="step-title">MY VOICE</span>
+            </button>
+          </div>
+
+          <button type="button" class="swiper-nav-pill next-pill magnetic-element" id="projNextBtn" aria-label="Next Project">
+            <span class="nav-text">NEXT</span>
+            <span class="nav-arr">→</span>
+          </button>
+        </div>
+      </div><!-- /.projects-deck-slider-container -->
     </section>
 
     <!-- ─────────────── CURRENTLY BUILDING / LEARNING PROGRESS ─────────────── -->
@@ -1350,62 +1383,25 @@
 
       <!-- iOS Liquid Glass Inquire Grid -->
       <div class="contact-grid">
-        <!-- Left Side: Futuristic Command & Telemetry Pane -->
+        <!-- Left Side: Sleek Minimalist Command Strip (Non-text heavy, liquid glass) -->
         <div class="contact-info-pane">
           <!-- Active Status Capsule with Radar Ring -->
           <div class="inquire-status-badge">
             <span class="status-pulse-dot">
               <span class="status-radar-ring"></span>
             </span>
-            <span class="status-badge-text">STATUS: ACTIVE &amp; DISPATCH READY</span>
-            <span class="status-badge-latency">LATENCY &lt; 15MS</span>
+            <span class="status-badge-text">STATUS: ACTIVE // DISPATCH READY</span>
+            <span class="status-badge-latency">SURAT, IN</span>
           </div>
 
-          <!-- Editorial Lead -->
+          <!-- Editorial Lead — Punchy & Crisp -->
           <div class="contact-lead-container">
             <h3 class="contact-lead-text">
               LET'S ARCHITECT SOMETHING <span class="serif-italic-accent text-accent">EXTRAORDINARY</span>.
             </h3>
             <p class="contact-clean-desc">
-              Available for full-stack engineering contracts, scalable MERN web platforms, and autonomous AI systems demanding surgical engineering and high-throughput execution.
+              Available for full-stack MERN platforms, autonomous AI systems, and high-throughput contracts.
             </p>
-          </div>
-
-          <!-- iOS 27 Liquid Glass Telemetry Card -->
-          <div class="inquire-telemetry-pod">
-            <div class="telemetry-pod-header">
-              <span class="telemetry-mono-title">// TELEMETRY &amp; ORIGIN SPEC</span>
-              <span class="telemetry-signal-tag">LIVE FEED</span>
-            </div>
-            <div class="telemetry-pill-matrix">
-              <!-- Location Capsule -->
-              <div class="telemetry-pill">
-                <div class="telemetry-pill-left">
-                  <span class="telemetry-dot"></span>
-                  <span class="telemetry-lbl">ORIGIN:</span>
-                </div>
-                <span class="telemetry-val">SURAT, GUJARAT (IN)</span>
-                <span class="telemetry-subval">21.1702° N, 72.8311° E</span>
-              </div>
-              <!-- Chronometer Capsule -->
-              <div class="telemetry-pill">
-                <div class="telemetry-pill-left">
-                  <span class="telemetry-dot pulse"></span>
-                  <span class="telemetry-lbl">LOCAL TIME:</span>
-                </div>
-                <span class="telemetry-val" id="hud-time">16:03:40 GMT+0530 (IST)</span>
-                <span class="telemetry-subval">INDIAN STANDARD TIME</span>
-              </div>
-              <!-- Core Vector Capsule -->
-              <div class="telemetry-pill">
-                <div class="telemetry-pill-left">
-                  <span class="telemetry-dot"></span>
-                  <span class="telemetry-lbl">FOCUS:</span>
-                </div>
-                <span class="telemetry-val">MERN · AGENTIC AI · VECTOR RAG</span>
-                <span class="telemetry-subval">FULL-LIFECYCLE SYSTEMS</span>
-              </div>
-            </div>
           </div>
 
           <!-- Dual Fast-Action Glass Capsules -->
@@ -1418,8 +1414,8 @@
                 </svg>
               </div>
               <div class="btn-resume-copy">
-                <span class="resume-title">DOWNLOAD RESUME . CV</span>
-                <span class="resume-meta">2026 VERIFIED ARCHIVE</span>
+                <span class="resume-title">DOWNLOAD CV</span>
+                <span class="resume-meta">2026 ARCHIVE</span>
               </div>
               <span class="resume-arr">↓</span>
             </a>
@@ -1432,7 +1428,7 @@
                   <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
                 </svg>
               </div>
-              <span class="btn-copy-text">COPY EMAIL ADDRESS</span>
+              <span class="btn-copy-text">COPY EMAIL</span>
               <span class="btn-copy-badge">1-TAP</span>
             </button>
           </div>

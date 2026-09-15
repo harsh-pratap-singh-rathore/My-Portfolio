@@ -192,11 +192,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const typingTextEl = document.getElementById('typing-text');
   if (typingTextEl) {
     const phrases = [
-      "full-stack MERN & agentic AI systems.",
-      "autonomous LLM pipelines & reactive UIs.",
-      "intelligent React 19 & scalable Node.js apps.",
-      "MongoDB vector embeddings & semantic search.",
-      "low-latency REST APIs & real-time inference."
+      "MERN & Agentic AI Systems",
+      "Autonomous LLM Pipelines",
+      "React 19 & Scalable Node.js",
+      "Vector Embeddings & RAG",
+      "Low-Latency Cloud APIs"
     ];
     let phraseIdx = 0;
     let charIdx = 0;
@@ -991,51 +991,138 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ─────────────────────────────────────────────
      15. iOS 27 Liquid Glass Projects Showcase Engine
      ───────────────────────────────────────────── */
+  /* ─────────────────────────────────────────────
+     15. iOS 27 Liquid Glass Swipable Projects Deck Engine
+     ───────────────────────────────────────────── */
   function initProjectsShowcase() {
     const dockTabs = document.querySelectorAll('.proj-dock-tab');
-    const projectCards = document.querySelectorAll('.project-liquid-card');
+    const projectCards = document.querySelectorAll('.project-liquid-card.deck-slide');
+    const prevBtn = document.getElementById('projPrevBtn');
+    const nextBtn = document.getElementById('projNextBtn');
+    const stepPills = document.querySelectorAll('.deck-step-pill');
+    const deckStage = document.getElementById('projectsDeckStage');
 
-    // Quick-Jump Navigation Dock
-    dockTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const filter = tab.getAttribute('data-filter');
-        dockTabs.forEach(t => t.classList.remove('is-active'));
-        tab.classList.add('is-active');
+    if (!projectCards.length) return;
 
-        if (filter === 'all') {
-          const firstCard = document.getElementById('project-shree-karni');
-          if (firstCard) {
-            firstCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
+    let currentSlide = 0;
+    const totalSlides = projectCards.length;
+
+    function goToSlide(newIndex) {
+      if (newIndex < 0) newIndex = totalSlides - 1;
+      if (newIndex >= totalSlides) newIndex = 0;
+
+      currentSlide = newIndex;
+
+      // Update Slides
+      projectCards.forEach((card, idx) => {
+        if (idx === currentSlide) {
+          card.classList.add('is-active');
+          card.style.display = 'block';
+          requestAnimationFrame(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translate3d(0, 0, 0) scale(1)';
+          });
         } else {
-          const target = document.getElementById(`project-${filter}`);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
+          card.classList.remove('is-active');
+          card.style.opacity = '0';
+          card.style.transform = idx < currentSlide ? 'translate3d(-24px, 0, 0) scale(0.985)' : 'translate3d(24px, 0, 0) scale(0.985)';
+          setTimeout(() => {
+            if (!card.classList.contains('is-active')) {
+              card.style.display = 'none';
+            }
+          }, 350);
+        }
+      });
+
+      // Update Swiper HUD Step Pills
+      stepPills.forEach((pill, idx) => {
+        if (idx === currentSlide) {
+          pill.classList.add('is-active');
+        } else {
+          pill.classList.remove('is-active');
+        }
+      });
+
+      // Update Top Segmented Dock
+      dockTabs.forEach((tab, idx) => {
+        if (idx === currentSlide + 1) {
+          dockTabs.forEach(t => t.classList.remove('is-active'));
+          tab.classList.add('is-active');
+        }
+      });
+    }
+
+    // Initialize first slide
+    goToSlide(0);
+
+    // Prev / Next Navigation Click
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToSlide(currentSlide - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToSlide(currentSlide + 1);
+      });
+    }
+
+    // Indicator Step Pills Click
+    stepPills.forEach(pill => {
+      pill.addEventListener('click', (e) => {
+        e.preventDefault();
+        const slideIdx = parseInt(pill.getAttribute('data-slide'), 10);
+        if (!isNaN(slideIdx)) {
+          goToSlide(slideIdx);
         }
       });
     });
 
-    // Auto-sync Active Dock Tab via Scroll Intersection
-    if ('IntersectionObserver' in window && projectCards.length > 0) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('data-project-id');
-            dockTabs.forEach(t => {
-              if (t.getAttribute('data-filter') === id) {
-                dockTabs.forEach(tab => tab.classList.remove('is-active'));
-                t.classList.add('is-active');
-              }
-            });
-          }
-        });
-      }, {
-        rootMargin: '-20% 0px -40% 0px',
-        threshold: 0.3
+    // Top Quick-Jump Navigation Dock
+    dockTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const filter = tab.getAttribute('data-filter');
+        if (filter === 'all' || filter === 'shree-karni') {
+          goToSlide(0);
+        } else if (filter === 'code-canvas') {
+          goToSlide(1);
+        } else if (filter === 'my-voice') {
+          goToSlide(2);
+        }
       });
+    });
 
-      projectCards.forEach(card => observer.observe(card));
+    // Mobile Touch Swipe Gesture Support
+    if (deckStage) {
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchEndX = 0;
+      let touchEndY = 0;
+
+      deckStage.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].clientX;
+        touchStartY = e.changedTouches[0].clientY;
+      }, { passive: true });
+
+      deckStage.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        touchEndY = e.changedTouches[0].clientY;
+
+        const diffX = touchStartX - touchEndX;
+        const diffY = touchStartY - touchEndY;
+
+        // Horizontal swipe threshold
+        if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+          if (diffX > 0) {
+            goToSlide(currentSlide + 1);
+          } else {
+            goToSlide(currentSlide - 1);
+          }
+        }
+      }, { passive: true });
     }
 
     // 3D Specular Tilt on Desktop Hover — Optimized with Cached Rect & rAF
@@ -1059,7 +1146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const centerY = cardRect.height / 2;
             const rotateX = ((y - centerY) / centerY) * -2.5;
             const rotateY = ((x - centerX) / centerX) * 2.5;
-            card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px)`;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
           });
         });
 
