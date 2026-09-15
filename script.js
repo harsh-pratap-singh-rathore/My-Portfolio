@@ -1,18 +1,19 @@
 /* ─────────────────────────────────────────────
-   script.js — Immersive Cinema Luxury Engine (Optimized)
+   script.js — Production Full-Stack Architecture Engine
    ───────────────────────────────────────────── */
 
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Elements
+  // ── Elements ──────────────────────────────────────
   const introScene    = document.getElementById('intro-scene');
   const mainContent   = document.getElementById('main-content');
   const brandFirst    = document.getElementById('intro-brand-first');
   const brandSecond   = document.getElementById('intro-brand-second');
   const watermark     = document.getElementById('intro-watermark');
   const counterVal    = document.getElementById('intro-counter');
+  const skipBtn       = document.getElementById('skip-intro-btn');
 
   // Cursor Elements
   const cursorDot     = document.querySelector('.cursor-dot');
@@ -23,35 +24,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const nameToSpell   = "HARSH";
   const nameLength    = nameToSpell.length;
 
-  // Timing variables (Intentional, highly polished cinematic 3.0s loading sequence)
-  const letterIntervalMs = 600; // Total 3000ms duration (5 letters * 600ms = 3000ms)
-
-  // Track timeouts & intervals for robust instant skipping
-  let letterTimeout = null;
-  let counterTimer = null;
-  let impactTimeout1 = null;
-  let impactTimeout2 = null;
-  let impactTimeout3 = null;
-  let impactTimeout4 = null;
-  let startTimeout = null;
+  // Timing variables (Fast, high-performance cinematic intro)
+  const letterIntervalMs = 120;
+  let letterTimeout   = null;
+  let counterTimer    = null;
+  let impactTimeouts  = [];
+  let startTimeout    = null;
   let isIntroFinished = false;
 
-  // Make main page focus-inert during the active intro loading sequence
+  // Set inert accessibility attribute during preloader
   if (mainContent) {
     mainContent.setAttribute('inert', '');
   }
 
-  // Animation synchronization hooks
+  // Animation synchronization hook
   let typingStarted = false;
   let startTypingAnimation = () => {};
+  let refreshNavCapsule = () => {};
 
-  // Start Intro sequence automatically on every reload
-  startTimeout = setTimeout(() => {
-    revealNextLetter();
-    counterTimer = requestAnimationFrame(runCounter);
-  }, 300);
-
-  // ── 1. Spells out 'HARSH' letter by letter ──────
+  // ── 1. Spells out 'HARSH' letter-by-letter ────────
   let currentLetterIdx = 0;
 
   function revealNextLetter() {
@@ -60,31 +51,27 @@ document.addEventListener('DOMContentLoaded', () => {
       currentLetterIdx++;
       const currentString = nameToSpell.substring(0, currentLetterIdx);
 
-      brandFirst.textContent = currentString;
+      if (brandFirst) {
+        brandFirst.textContent = currentString;
 
-      // Trigger hardware-accelerated letter reveal with zero layout reflows via Web Animations API
-      if (typeof brandFirst.animate === 'function') {
-        brandFirst.animate([
-          { filter: 'blur(6px)', transform: 'translate3d(0, 30px, 0) scale(0.96)', opacity: 0 },
-          { filter: 'blur(0px)', transform: 'translate3d(0, 0, 0) scale(1)', opacity: 1 }
-        ], {
-          duration: 500,
-          easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-          fill: 'forwards'
-        });
-      } else {
-        brandFirst.classList.remove('letter-reveal-active');
-        brandFirst.offsetHeight; // Legacy browser fallback
-        brandFirst.classList.add('letter-reveal-active');
+        if (typeof brandFirst.animate === 'function') {
+          brandFirst.animate([
+            { filter: 'blur(4px)', transform: 'translate3d(0, 14px, 0) scale(0.97)', opacity: 0 },
+            { filter: 'blur(0px)', transform: 'translate3d(0, 0, 0) scale(1)', opacity: 1 }
+          ], {
+            duration: 250,
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            fill: 'forwards'
+          });
+        }
       }
 
       letterTimeout = setTimeout(revealNextLetter, letterIntervalMs);
     }
   }
 
-  // ── 2. Loading Counter counting naturally from 00 to 100 in 3.0s using requestAnimationFrame ────────────────────────
-  let currentCount = 0;
-  const counterDurationMs = 3000; // 3 seconds visual duration
+  // ── 2. Fast Loading Counter 00 -> 100% via requestAnimationFrame ──
+  const counterDurationMs = 800;
   let startTimestamp = null;
 
   function runCounter(timestamp) {
@@ -93,11 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const elapsed = timestamp - startTimestamp;
 
     const progress = Math.min(elapsed / counterDurationMs, 1);
-    currentCount = progress * 100;
+    const currentCount = progress * 100;
 
-    const formatted = Math.floor(currentCount).toString().padStart(2, '0');
     if (counterVal) {
-      counterVal.textContent = formatted;
+      counterVal.textContent = Math.floor(currentCount).toString().padStart(2, '0');
     }
 
     if (progress < 1) {
@@ -107,38 +93,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ── 3. Skip Intro Action ──────────────────────────────────────────
+  // Start sequence immediately
+  startTimeout = setTimeout(() => {
+    revealNextLetter();
+    counterTimer = requestAnimationFrame(runCounter);
+  }, 60);
+
+  // ── 3. Skip Intro Action (Instant & Smooth) ────────
   function skipIntro() {
     if (isIntroFinished) return;
     isIntroFinished = true;
 
     // Clear all active timers
     clearTimeout(letterTimeout);
-    cancelAnimationFrame(counterTimer);
-    clearTimeout(impactTimeout1);
-    clearTimeout(impactTimeout2);
-    clearTimeout(impactTimeout3);
-    clearTimeout(impactTimeout4);
+    if (counterTimer) cancelAnimationFrame(counterTimer);
     clearTimeout(startTimeout);
+    impactTimeouts.forEach(t => clearTimeout(t));
 
-    // Perform smooth, snappy aperture exit animation
-    introScene.classList.add('exit-aperture');
-    mainContent.classList.remove('content-hidden');
-    mainContent.classList.add('content-visible');
+    document.body.classList.remove('shake-active', 'flash-active');
 
-    // Restore background keyboard navigation focus
-    mainContent.removeAttribute('inert');
+    if (introScene) {
+      introScene.classList.add('exit-aperture');
+    }
 
-    // Immediately kick off typography sequences reflow-free
+    if (mainContent) {
+      mainContent.classList.remove('content-hidden');
+      mainContent.classList.add('content-visible');
+      mainContent.removeAttribute('inert');
+    }
+
+    // Immediately start hero typing
     startTypingAnimation();
+    setTimeout(() => refreshNavCapsule(true), 150);
 
     setTimeout(() => {
-      introScene.style.display = 'none';
-    }, 1200);
+      if (introScene) {
+        introScene.style.display = 'none';
+      }
+    }, 800);
   }
 
-  // Wire up Skip Intro Button
-  const skipBtn = document.getElementById('skip-intro-btn');
   if (skipBtn) {
     skipBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -146,105 +140,90 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── 4. Cinematic Impact Climax Transition at 100% ───────────────────────────────────
+  // Keyboard shortcut: Escape skips preloader
+  window.addEventListener('keydown', (e) => {
+    if (!isIntroFinished && (e.key === 'Escape' || e.code === 'Space')) {
+      skipIntro();
+    }
+  });
+
+  // ── 4. Climax Impact Transition at 100% (Snappy & Fluid) ────────────
   function triggerCinematicImpact() {
     if (isIntroFinished) return;
     document.body.classList.add('flash-active', 'shake-active');
-    brandFirst.classList.add('brand-zoom-out');
-    watermark.classList.add('watermark-revealed');
 
-    impactTimeout1 = setTimeout(() => {
+    if (brandFirst) brandFirst.classList.add('brand-zoom-out');
+    if (watermark) watermark.classList.add('watermark-revealed');
+
+    impactTimeouts.push(setTimeout(() => {
       document.body.classList.remove('shake-active');
-    }, 350);
+    }, 180));
 
-    impactTimeout2 = setTimeout(() => {
-      brandSecond.classList.add('rise-active');
-    }, 100);
+    impactTimeouts.push(setTimeout(() => {
+      if (brandSecond) brandSecond.classList.add('rise-active');
+    }, 60));
 
-    impactTimeout3 = setTimeout(() => {
-      introScene.classList.add('exit-aperture');
-      mainContent.classList.remove('content-hidden');
-      mainContent.classList.add('content-visible');
+    impactTimeouts.push(setTimeout(() => {
+      if (introScene) introScene.classList.add('exit-aperture');
+      if (mainContent) {
+        mainContent.classList.remove('content-hidden');
+        mainContent.classList.add('content-visible');
+        mainContent.removeAttribute('inert');
+      }
       isIntroFinished = true;
-
-      // Restore background keyboard navigation focus
-      mainContent.removeAttribute('inert');
-
-      // Start typing loop without delays
       startTypingAnimation();
+      setTimeout(() => {
+        refreshNavCapsule(true);
+        if (typeof window.refreshBottomDockCapsule === 'function') {
+          window.refreshBottomDockCapsule(true);
+        }
+      }, 100);
 
-      impactTimeout4 = setTimeout(() => {
-        introScene.style.display = 'none';
-      }, 1200);
-    }, 1000); // Exquisite transition timings matching premium art campaign standards
+      impactTimeouts.push(setTimeout(() => {
+        if (introScene) introScene.style.display = 'none';
+      }, 500));
+    }, 320));
   }
 
-  // ── 5. Main Portfolio Interactivity (Scroll Reveals) ──────────────────────────────────
-  const revealTargets = document.querySelectorAll(
-    '.hero-title-area, .hero-canvas-frame, .hero-statement-area, .editorial-section, .project-strip, .expertise-column, .contact-grid'
-  );
-
-  revealTargets.forEach(el => el.classList.add('reveal'));
-
-  const revealObserver = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Handle staggered reveal if part of a grid/list
-          const parent = entry.target.parentElement;
-          if (parent && (parent.classList.contains('expertise-grid') || parent.classList.contains('projects-list-brutalist'))) {
-            const index = Array.from(parent.children).indexOf(entry.target);
-            entry.target.style.setProperty('--delay', `${index * 0.1}s`);
-          }
-
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.05 }
-  );
-
-  revealTargets.forEach(el => revealObserver.observe(el));
-
-  // ── 6. Hero Typing Animation (Universal across Mobile and Desktop) ───────────────────
+  // ── 5. Hero Typing Animation (Full-Stack & MERN Stack Phrasing) ──
   const typingTextEl = document.getElementById('typing-text');
   if (typingTextEl) {
     const phrases = [
-      "custom e-commerce engines.",
-      "high-performance PHP & JS systems.",
-      "interactive visual canvases.",
-      "secure MySQL data pipelines.",
-      "robust Node.js environments."
+      "full-stack MERN & agentic AI systems.",
+      "autonomous LLM pipelines & reactive UIs.",
+      "intelligent React 19 & scalable Node.js apps.",
+      "MongoDB vector embeddings & semantic search.",
+      "low-latency REST APIs & real-time inference."
     ];
     let phraseIdx = 0;
     let charIdx = 0;
     let isDeleting = false;
-    let typingSpeed = 100;
+    let typingSpeed = 90;
+    let typeTimer = null;
 
     function typeCycle() {
       const currentPhrase = phrases[phraseIdx];
-      
+
       if (isDeleting) {
-        typingTextEl.textContent = currentPhrase.substring(0, charIdx - 1);
-        charIdx--;
-        typingSpeed = 40; // Fast deletion
+        charIdx = Math.max(0, charIdx - 1);
+        typingTextEl.textContent = currentPhrase.substring(0, charIdx);
+        typingSpeed = 35;
       } else {
-        typingTextEl.textContent = currentPhrase.substring(0, charIdx + 1);
-        charIdx++;
-        typingSpeed = 90; // Balanced typing speed
+        charIdx = Math.min(currentPhrase.length, charIdx + 1);
+        typingTextEl.textContent = currentPhrase.substring(0, charIdx);
+        typingSpeed = 80;
       }
 
       if (!isDeleting && charIdx === currentPhrase.length) {
         isDeleting = true;
-        typingSpeed = 2200; // Deep luxury pause at the end
+        typingSpeed = 2000; // Pause at end of sentence
       } else if (isDeleting && charIdx === 0) {
         isDeleting = false;
         phraseIdx = (phraseIdx + 1) % phrases.length;
-        typingSpeed = 500; // Pause before typing next phrase
+        typingSpeed = 450; // Pause before typing next
       }
 
-      setTimeout(typeCycle, typingSpeed);
+      typeTimer = setTimeout(typeCycle, typingSpeed);
     }
 
     startTypingAnimation = () => {
@@ -253,193 +232,896 @@ document.addEventListener('DOMContentLoaded', () => {
       typeCycle();
     };
 
-    // Fallback auto-start to sync with standard aperture open transition
-    setTimeout(startTypingAnimation, 3500);
+    // Auto-start fallback
+    setTimeout(startTypingAnimation, 3600);
   }
 
-  // ── 7. GPU-Accelerated Cursor & Magnetic Engine (60fps Optimized) ───────────────────
+  // ── 6. Scroll Reveal & Intersection Observer ───────
+  const revealTargets = document.querySelectorAll(
+    '.hero-title-area, .hero-canvas-frame, .hero-statement-area, .editorial-section, .projects-deck-stage, .project-deck-card, .progress-card, .expertise-column, .contact-grid'
+  );
 
-  let hasTouch = false;
-  window.addEventListener('touchstart', function onFirstTouch() {
-    hasTouch = true;
-    document.body.classList.add('disable-custom-cursor');
-    window.removeEventListener('touchstart', onFirstTouch);
-  }, { passive: true });
+  revealTargets.forEach(el => el.classList.add('reveal'));
 
-  if (true) {
-    let mouseX = 0, mouseY = 0; // Target position
-    let ringX = 0, ringY = 0;   // LERP position
-    let ringScale = 1;          // Current LERP scale factor
-    let targetScale = 1;        // Target scale factor
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
 
-    const magneticElements = document.querySelectorAll('a, .editorial-btn, .nav-item, .code-shell-float');
-    magneticElements.forEach(el => el.classList.add('magnetic-element'));
+          // Staggered delay for grid elements
+          const parent = target.parentElement;
+          if (parent && (parent.classList.contains('expertise-grid') || parent.classList.contains('progress-grid'))) {
+            const index = Array.from(parent.children).indexOf(target);
+            target.style.setProperty('--delay', `${index * 0.12}s`);
+          }
 
+          target.classList.add('visible');
+
+          // If progress card, animate progress bar fill width
+          if (target.classList.contains('progress-card')) {
+            const fill = target.querySelector('.progress-bar-fill');
+            const percent = target.getAttribute('data-percentage');
+            if (fill && percent) {
+              fill.style.width = `${percent}%`;
+            }
+          }
+
+          observer.unobserve(target);
+        }
+      });
+    },
+    { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  revealTargets.forEach(el => revealObserver.observe(el));
+
+  // ── 7. Luxury Cursor & Precision Magnetic Hover Engine ──
+  const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!isTouchDevice && !prefersReducedMotion) {
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+    let ringScale = 1;
+    let targetScale = 1;
+    let hasMoved = false;
+
+    // Show cursor on first pointer movement
     window.addEventListener('mousemove', e => {
       mouseX = e.clientX;
       mouseY = e.clientY;
+
+      if (!hasMoved) {
+        hasMoved = true;
+        if (cursorDot) cursorDot.style.opacity = '1';
+        if (cursorRing) cursorRing.style.opacity = '1';
+      }
     }, { passive: true });
 
-    // Cache magnetic coordinates initially and on window resize (Removed scroll listener to completely eliminate Layout Thrashing)
-    let magneticBounds = [];
-    function cacheMagneticBounds() {
-      magneticBounds = Array.from(magneticElements).map(el => {
-        const rect = el.getBoundingClientRect();
-        return {
-          el: el,
-          centerX: rect.left + rect.width / 2 + window.scrollX,
-          centerY: rect.top + rect.height / 2 + window.scrollY
-        };
-      });
-    }
-
-    cacheMagneticBounds();
-    window.addEventListener('resize', cacheMagneticBounds);
-
-    // LERP easing factor (0.15 = smooth/controlled, 1 = instant)
+    // LERP math
     const lerp = (start, end, factor) => start + (end - start) * factor;
 
-    function updateAnimations() {
-      // 1. Update Dot (Instant GPU Translate3d with safety checks)
+    function renderCursor() {
+      // 1. Instant dot position
       if (cursorDot) {
         cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate3d(-50%, -50%, 0)`;
       }
 
-      // 2. LERP Ring position & scale (Pure GPU accelerated matrices with safety checks)
-      ringX = lerp(ringX, mouseX, 0.15);
-      ringY = lerp(ringY, mouseY, 0.15);
-      ringScale = lerp(ringScale, targetScale, 0.15);
+      // 2. Trailing ring with smooth easing
+      ringX = lerp(ringX, mouseX, 0.16);
+      ringY = lerp(ringY, mouseY, 0.16);
+      ringScale = lerp(ringScale, targetScale, 0.16);
+
       if (cursorRing) {
         cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate3d(-50%, -50%, 0) scale(${ringScale})`;
       }
 
-      // 3. Lens Flare Parallax (Slow GPU Translate3d)
+      // 3. Subtle lens flare parallax
       if (lensFlare) {
-        const flareX = (ringX / window.innerWidth - 0.5) * 40;
-        const flareY = (ringY / window.innerHeight - 0.5) * 40;
+        const flareX = (ringX / window.innerWidth - 0.5) * 30;
+        const flareY = (ringY / window.innerHeight - 0.5) * 30;
         lensFlare.style.transform = `translate3d(${flareX}px, ${flareY}px, 0)`;
       }
 
-      // 4. Super-Smooth Magnetic Pull using Cached Math
-      const currentScrollX = window.scrollX;
-      const currentScrollY = window.scrollY;
-
-      magneticBounds.forEach(bound => {
-        const centerX = bound.centerX - currentScrollX;
-        const centerY = bound.centerY - currentScrollY;
-        const dist = Math.hypot(mouseX - centerX, mouseY - centerY);
-
-        if (dist < 100) {
-          const pullX = (mouseX - centerX) * 0.18;
-          const pullY = (mouseY - centerY) * 0.18;
-          bound.el.style.transform = `translate3d(${pullX}px, ${pullY}px, 0)`;
-        } else {
-          bound.el.style.transform = `translate3d(0, 0, 0)`;
-        }
-      });
-
-      requestAnimationFrame(updateAnimations);
+      requestAnimationFrame(renderCursor);
     }
 
-    // Handle Cursor Hover States by adjusting GPU target scale
-    magneticElements.forEach(el => {
+    requestAnimationFrame(renderCursor);
+
+    // Discrete interactive targets for magnetic interaction (excludes large cards to preserve native scrolling and CSS 3D float keyframes)
+    const interactiveElements = document.querySelectorAll(
+      '.editorial-btn, .btn-cinematic-contact, .btn-contact-resume, .inquire-glass-capsule, .btn-copy-email-pill, .intent-pill, .dispatch-send-btn, .capsule-chip-copy, .capsule-arrow-box, .telemetry-pill, .btn-card-primary, .btn-card-secondary, .deck-nav-btn, .deck-pill-dot, .preview-blur-toggle, .browser-open-btn, .skip-intro-btn, .menu-toggle, .nav-item, .proj-dock-tab, .proj-launch-btn, .tech-icon-pill, .card-feat-capsule'
+    );
+
+    interactiveElements.forEach(el => {
       el.addEventListener('mouseenter', () => {
-        targetScale = 2.0; // GPU double scale multiplier
-        if (cursorRing) {
-          cursorRing.classList.add('hover');
-        }
+        targetScale = 1.8;
+        if (cursorRing) cursorRing.classList.add('hover');
       });
+
       el.addEventListener('mouseleave', () => {
         targetScale = 1.0;
-        if (cursorRing) {
-          cursorRing.classList.remove('hover');
-        }
+        if (cursorRing) cursorRing.classList.remove('hover');
+        el.style.transform = 'translate3d(0, 0, 0)';
+      });
+
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const pullX = (e.clientX - centerX) * 0.22;
+        const pullY = (e.clientY - centerY) * 0.22;
+        el.style.transform = `translate3d(${pullX}px, ${pullY}px, 0)`;
       });
     });
-
-    requestAnimationFrame(updateAnimations);
+  } else {
+    document.body.classList.add('disable-custom-cursor');
   }
 
-  // ── 7. Cinematic Mobile Navigation Overlay Engine ────────────────────────────────
-  const menuToggle = document.querySelector('.menu-toggle');
-  const mobileNav = document.getElementById('mobile-nav');
-  const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+  // ── 8. iOS Liquid Glass Floating Bottom Dock Engine (Mobile / Tablet) ──
+  function initBottomDock() {
+    const dock = document.getElementById('iosBottomDock');
+    const glass = dock ? dock.querySelector('.bottom-dock-glass') : null;
+    const capsule = document.getElementById('bottomDockCapsule');
+    const dockLinks = document.querySelectorAll('.bottom-dock-link');
 
-  if (menuToggle && mobileNav) {
-    menuToggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      const isOpen = document.body.classList.toggle('menu-open');
-      menuToggle.setAttribute('aria-expanded', isOpen);
-      mobileNav.classList.toggle('active', isOpen);
-      
-      // Prevent body scrolling when fullscreen overlay is active
-      if (isOpen) {
-        document.body.style.overflow = 'hidden';
-        if (mainContent) {
-          mainContent.setAttribute('inert', ''); // Trap focus inside overlay
-        }
+    if (!dock || !glass || !capsule || !dockLinks.length) return;
+
+    let activeLink = document.querySelector('.bottom-dock-link.is-active') || dockLinks[0];
+    let isClickScrolling = false;
+    let scrollTimeout = null;
+
+    function moveBottomCapsule(targetEl, animate = true) {
+      if (!targetEl) return;
+      const glassRect = glass.getBoundingClientRect();
+      const targetRect = targetEl.getBoundingClientRect();
+
+      if (glassRect.width === 0 || targetRect.width === 0) return;
+
+      const leftOffset = targetRect.left - glassRect.left;
+      const targetWidth = targetRect.width;
+
+      if (!animate) {
+        capsule.style.transition = 'none';
       } else {
-        document.body.style.overflow = '';
-        if (mainContent) {
-          mainContent.removeAttribute('inert');
-        }
+        capsule.style.transition = 'transform 0.44s cubic-bezier(0.34, 1.35, 0.64, 1), width 0.44s cubic-bezier(0.34, 1.35, 0.64, 1), opacity 0.25s ease';
       }
-    });
 
-    // Elegant auto-close when mobile nav overlay item is clicked
-    mobileMenuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        document.body.classList.remove('menu-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        mobileNav.classList.remove('active');
-        document.body.style.overflow = '';
-        if (mainContent) {
-          mainContent.removeAttribute('inert');
+      capsule.style.transform = `translate3d(${leftOffset}px, 0, 0)`;
+      capsule.style.width = `${targetWidth}px`;
+      capsule.style.opacity = '1';
+    }
+
+    function setActiveDockLink(link, animate = true) {
+      if (!link) return;
+      dockLinks.forEach(l => l.classList.remove('is-active'));
+      link.classList.add('is-active');
+      activeLink = link;
+      moveBottomCapsule(link, animate);
+    }
+
+    window.refreshBottomDockCapsule = (animate = false) => {
+      const cur = document.querySelector('.bottom-dock-link.is-active') || activeLink;
+      moveBottomCapsule(cur, animate);
+    };
+
+    // Initial calculation after render
+    setTimeout(() => {
+      setActiveDockLink(activeLink, false);
+      requestAnimationFrame(() => {
+        capsule.style.transition = '';
+      });
+    }, 150);
+
+    // Tab Click: smooth spring glide + smooth scroll to target section
+    dockLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const targetHref = link.getAttribute('href');
+        if (targetHref && targetHref.startsWith('#')) {
+          const targetSection = document.querySelector(targetHref);
+          if (targetSection) {
+            e.preventDefault();
+            isClickScrolling = true;
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+              isClickScrolling = false;
+            }, 850);
+
+            setActiveDockLink(link, true);
+
+            // Synchronize with desktop nav if active
+            const desktopLink = document.querySelector(`.editorial-nav a[href="${targetHref}"]`);
+            if (desktopLink && typeof refreshNavCapsule === 'function') {
+              document.querySelectorAll('.editorial-nav .nav-item').forEach(n => n.classList.remove('active'));
+              desktopLink.classList.add('active');
+              refreshNavCapsule(true);
+            }
+
+            const headerOffset = 64;
+            const elementPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = Math.max(0, elementPosition - headerOffset);
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
         }
       });
     });
+
+    // Resize calculation for responsive docks
+    window.addEventListener('resize', () => {
+      if (window.innerWidth <= 820) {
+        window.refreshBottomDockCapsule(false);
+      }
+    }, { passive: true });
+
+    // Dynamic hook for ScrollSpy to glide the capsule on scroll
+    window.updateBottomDockActive = (targetId) => {
+      if (isClickScrolling) return;
+      const matching = document.querySelector(`.bottom-dock-link[href="#${targetId}"]`);
+      if (matching && !matching.classList.contains('is-active')) {
+        setActiveDockLink(matching, true);
+      }
+    };
   }
 
-  // ── 8. Real-Time Delhi India local time update for status HUD ─────────────────────
+  initBottomDock();
+
+  // ── 9. Live India (IST) Status HUD Clock ─────
   const hudTimeEl = document.getElementById('hud-time');
   if (hudTimeEl) {
     function updateHUDTime() {
-      // Calculate India Standard Time (GMT+5.30)
-      const now = new Date();
-      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-      const istTime = new Date(utc + (3600000 * 5.5)); // IST is UTC + 5.5 hours
-      
-      let hours = istTime.getHours();
-      let minutes = istTime.getMinutes();
-      let seconds = istTime.getSeconds();
-      
-      // Zero padding
-      hours = hours.toString().padStart(2, '0');
-      minutes = minutes.toString().padStart(2, '0');
-      seconds = seconds.toString().padStart(2, '0');
-      
-      hudTimeEl.textContent = `${hours}:${minutes}:${seconds} GMT+0530 (IST)`;
+      try {
+        const istFormatter = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Asia/Kolkata',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        });
+        hudTimeEl.textContent = `${istFormatter.format(new Date())} GMT+0530 (IST)`;
+      } catch (err) {
+        // Fallback calculation
+        const now = new Date();
+        const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+        const ist = new Date(utc + (3600000 * 5.5));
+        const h = ist.getHours().toString().padStart(2, '0');
+        const m = ist.getMinutes().toString().padStart(2, '0');
+        const s = ist.getSeconds().toString().padStart(2, '0');
+        hudTimeEl.textContent = `${h}:${m}:${s} GMT+0530 (IST)`;
+      }
     }
-    
-    // Update immediately and then every second
+
     updateHUDTime();
     setInterval(updateHUDTime, 1000);
   }
 
-  // ── 9. Resilient Breakpoint Resize Watcher ───────────────────────────────────────
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 1024) {
-      if (document.body.classList.contains('menu-open')) {
-        document.body.classList.remove('menu-open');
-        document.body.style.overflow = '';
+  // ── 10. iOS Liquid Glass Floating Dock & Dynamic Capsule Engine ──
+  function initLiquidGlassNav() {
+    const track = document.getElementById('glass-pill-track');
+    const capsule = document.getElementById('nav-active-capsule');
+    const navItems = document.querySelectorAll('.editorial-nav .nav-item');
+
+    if (!track || !capsule || !navItems.length) return;
+
+    let activeItem = document.querySelector('.editorial-nav .nav-item.active') || navItems[0];
+    let isClickScrolling = false;
+    let scrollTimeout = null;
+
+    function moveCapsule(targetEl, animate = true) {
+      if (!targetEl) return;
+      const trackRect = track.getBoundingClientRect();
+      const targetRect = targetEl.getBoundingClientRect();
+
+      // Ensure elements have rendered dimensions
+      if (trackRect.width === 0 || targetRect.width === 0) return;
+
+      const leftOffset = targetRect.left - trackRect.left;
+      const targetWidth = targetRect.width;
+
+      if (!animate) {
+        capsule.style.transition = 'none';
+      } else {
+        capsule.style.transition = 'transform 0.44s cubic-bezier(0.34, 1.35, 0.64, 1), width 0.44s cubic-bezier(0.34, 1.35, 0.64, 1), opacity 0.25s ease';
       }
-      if (menuToggle) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-      }
-      if (mobileNav) {
-        mobileNav.classList.remove('active');
-      }
+
+      capsule.style.transform = `translate3d(${leftOffset}px, 0, 0)`;
+      capsule.style.width = `${targetWidth}px`;
+      capsule.style.opacity = '1';
     }
-  });
+
+    refreshNavCapsule = (animate = false) => {
+      const currentActive = document.querySelector('.editorial-nav .nav-item.active') || activeItem;
+      moveCapsule(currentActive, animate);
+    };
+
+    // Initial calculation
+    setTimeout(() => {
+      moveCapsule(activeItem, false);
+      requestAnimationFrame(() => {
+        capsule.style.transition = '';
+      });
+    }, 150);
+
+    // Click event on any nav item: slide capsule with spring animation and set active
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        isClickScrolling = true;
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          isClickScrolling = false;
+        }, 850);
+
+        navItems.forEach(nav => nav.classList.remove('active'));
+        item.classList.add('active');
+        activeItem = item;
+        moveCapsule(item, true);
+
+        const href = item.getAttribute('href');
+        if (href && typeof window.updateBottomDockActive === 'function') {
+          window.updateBottomDockActive(href.replace('#', ''));
+        }
+      });
+
+      // Subtle hover preview gliding
+      item.addEventListener('mouseenter', () => {
+        moveCapsule(item, true);
+      });
+    });
+
+    // When mouse leaves the track, return smoothly to active item
+    track.addEventListener('mouseleave', () => {
+      const currentActive = document.querySelector('.editorial-nav .nav-item.active') || activeItem;
+      moveCapsule(currentActive, true);
+    });
+
+    // Window resize: recompute position
+    window.addEventListener('resize', () => {
+      refreshNavCapsule(false);
+    }, { passive: true });
+
+    // ScrollSpy: auto-glide capsule as sections scroll into view
+    const sectionIds = ['about', 'projects', 'progress', 'skills', 'contact'];
+    const sectionElements = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    if ('IntersectionObserver' in window && sectionElements.length) {
+      const spyObserver = new IntersectionObserver((entries) => {
+        if (isClickScrolling) return;
+
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const targetId = entry.target.id;
+            const matchingLink = document.querySelector(`.editorial-nav a[href="#${targetId}"]`);
+            if (matchingLink && !matchingLink.classList.contains('active')) {
+              navItems.forEach(nav => nav.classList.remove('active'));
+              matchingLink.classList.add('active');
+              activeItem = matchingLink;
+              moveCapsule(matchingLink, true);
+            }
+            if (typeof window.updateBottomDockActive === 'function') {
+              window.updateBottomDockActive(targetId);
+            }
+          }
+        });
+      }, {
+        rootMargin: '-20% 0px -55% 0px',
+        threshold: 0.1
+      });
+
+      sectionElements.forEach(sec => spyObserver.observe(sec));
+    }
+  }
+
+  initLiquidGlassNav();
+
+  /* ─────────────────────────────────────────────
+     8. 3D Stacked Project Deck Slider (iOS Style)
+     ───────────────────────────────────────────── */
+  /* ─────────────────────────────────────────────
+     8. iOS 27 Liquid Glass Project Deck Slider
+     ───────────────────────────────────────────── */
+  function initIosDeckSlider() {
+    const deck = document.getElementById('iosProjectsDeck');
+    if (!deck) return;
+
+    const cards = Array.from(deck.querySelectorAll('.ios-project-card'));
+    const prevBtn = document.getElementById('iosPrevBtn');
+    const nextBtn = document.getElementById('iosNextBtn');
+    const dots = Array.from(deck.querySelectorAll('.ios-dot'));
+
+    if (!cards.length) return;
+
+    let current = 0;
+    const total = cards.length;
+    let isTransitioning = false;
+
+    function updateDeck(newIndex, direction) {
+      const prev = current;
+      current = ((newIndex % total) + total) % total;
+
+      cards.forEach((card) => {
+        card.classList.remove('is-active', 'is-next', 'is-prev', 'is-hidden', 'exit-left', 'exit-right');
+      });
+
+      // Exit animation on outgoing card
+      if (direction === 'next' && cards[prev]) {
+        cards[prev].classList.add('exit-left');
+      } else if (direction === 'prev' && cards[prev]) {
+        cards[prev].classList.add('exit-right');
+      }
+
+      // Re-assign positions
+      cards.forEach((card, i) => {
+        const offset = ((i - current) % total + total) % total;
+        if (offset === 0) {
+          card.classList.add('is-active');
+          card.setAttribute('aria-hidden', 'false');
+        } else if (offset === 1) {
+          card.classList.add('is-next');
+          card.setAttribute('aria-hidden', 'true');
+        } else if (offset === total - 1) {
+          card.classList.add('is-prev');
+          card.setAttribute('aria-hidden', 'true');
+        } else {
+          card.classList.add('is-hidden');
+          card.setAttribute('aria-hidden', 'true');
+        }
+      });
+
+      // Update dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('is-active', i === current);
+        dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
+      });
+    }
+
+    function goTo(index, direction) {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      updateDeck(index, direction);
+      setTimeout(() => { isTransitioning = false; }, 600);
+    }
+
+    // Button events
+    if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1, 'prev'));
+    if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1, 'next'));
+
+    // Dot events
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => goTo(i, i > current ? 'next' : 'prev'));
+    });
+
+    // Touch swipe
+    let tx = 0, ty = 0;
+    deck.addEventListener('touchstart', e => {
+      tx = e.touches[0].clientX;
+      ty = e.touches[0].clientY;
+    }, { passive: true });
+    deck.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - tx;
+      const dy = e.changedTouches[0].clientY - ty;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+        dx < 0 ? goTo(current + 1, 'next') : goTo(current - 1, 'prev');
+      }
+    }, { passive: true });
+
+    // Mouse drag
+    let mx = 0, dragging = false;
+    deck.addEventListener('mousedown', e => {
+      if (e.target.closest('a, button')) return;
+      dragging = true;
+      mx = e.clientX;
+      deck.style.cursor = 'grabbing';
+    });
+    window.addEventListener('mouseup', e => {
+      if (!dragging) return;
+      dragging = false;
+      deck.style.cursor = '';
+      const dx = e.clientX - mx;
+      if (Math.abs(dx) > 50) {
+        dx < 0 ? goTo(current + 1, 'next') : goTo(current - 1, 'prev');
+      }
+    });
+
+    // Keyboard
+    window.addEventListener('keydown', e => {
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      const r = deck.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        e.key === 'ArrowRight' ? goTo(current + 1, 'next') : goTo(current - 1, 'prev');
+      }
+    });
+
+    // Init
+    updateDeck(0, null);
+  }
+
+  initIosDeckSlider();
+
+
+
+    function initScrollProgressBars() {
+    const progressSection = document.getElementById('progress');
+    const fills = document.querySelectorAll('.progress-bar-fill');
+    const numberEls = document.querySelectorAll('.progress-number');
+    if (!progressSection) return;
+
+    let hasAnimated = false;
+
+    function animateNumbers() {
+      numberEls.forEach(el => {
+        const text = el.textContent || '';
+        const match = text.match(/\d+/);
+        if (!match) return;
+        const target = parseInt(match[0], 10);
+        const unit = el.querySelector('.unit') ? el.querySelector('.unit').outerHTML : '%';
+        let current = 0;
+        const duration = 1200;
+        const startTime = performance.now();
+
+        function updateCount(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease-out cubic
+          const easeOut = 1 - Math.pow(1 - progress, 3);
+          current = Math.round(easeOut * target);
+          el.innerHTML = `${current}${unit}`;
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCount);
+          } else {
+            el.innerHTML = `${target}${unit}`;
+          }
+        }
+        requestAnimationFrame(updateCount);
+      });
+    }
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasAnimated) {
+            hasAnimated = true;
+            fills.forEach(fill => {
+              const targetWidth = fill.style.getPropertyValue('--target-width');
+              if (targetWidth) {
+                fill.style.width = targetWidth;
+              }
+            });
+            animateNumbers();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      observer.observe(progressSection);
+    } else {
+      fills.forEach(fill => {
+        const targetWidth = fill.style.getPropertyValue('--target-width');
+        if (targetWidth) fill.style.width = targetWidth;
+      });
+    }
+  }
+
+  initScrollProgressBars();
+
+  /* ─────────────────────────────────────────────
+     10. iOS Liquid Glass Floating Bottom Dock (Mobile / Tablet)
+     ───────────────────────────────────────────── */
+  function initBottomDock() {
+    const dock = document.getElementById('iosBottomDock');
+    const capsule = document.getElementById('bottomDockCapsule');
+    if (!dock || !capsule) return;
+
+    const links = Array.from(dock.querySelectorAll('.bottom-dock-link'));
+    if (!links.length) return;
+
+    let activeLink = links.find(l => l.classList.contains('is-active')) || links[0];
+
+    function moveCapsule(targetLink, animate = true) {
+      if (!targetLink) return;
+      const glass = dock.querySelector('.bottom-dock-glass');
+      if (!glass) return;
+
+      const glassRect = glass.getBoundingClientRect();
+      const linkRect = targetLink.getBoundingClientRect();
+
+      if (glassRect.width === 0 || linkRect.width === 0) return;
+
+      const leftOffset = linkRect.left - glassRect.left;
+      const targetWidth = linkRect.width;
+
+      if (!animate) {
+        capsule.style.transition = 'none';
+      } else {
+        capsule.style.transition = 'transform 0.44s cubic-bezier(0.34, 1.35, 0.64, 1), width 0.44s cubic-bezier(0.34, 1.35, 0.64, 1), opacity 0.25s ease';
+      }
+
+      capsule.style.transform = `translate3d(${leftOffset}px, 0, 0)`;
+      capsule.style.width = `${targetWidth}px`;
+      capsule.style.opacity = '1';
+    }
+
+    window.refreshBottomDockCapsule = (animate = false) => {
+      const curr = links.find(l => l.classList.contains('is-active')) || activeLink;
+      moveCapsule(curr, animate);
+    };
+
+    window.updateBottomDockActive = (sectionId) => {
+      const match = links.find(l => l.getAttribute('href') === `#${sectionId}`);
+      if (match) {
+        links.forEach(l => l.classList.remove('is-active'));
+        match.classList.add('is-active');
+        activeLink = match;
+        moveCapsule(match, true);
+      }
+    };
+
+    // Click handler for dock items
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        links.forEach(l => l.classList.remove('is-active'));
+        link.classList.add('is-active');
+        activeLink = link;
+        moveCapsule(link, true);
+      });
+    });
+
+    // Initial position
+    setTimeout(() => {
+      moveCapsule(activeLink, false);
+    }, 120);
+
+    window.addEventListener('resize', () => {
+      window.refreshBottomDockCapsule(false);
+    }, { passive: true });
+  }
+
+  initBottomDock();
+
+  /* ─────────────────────────────────────────────
+     11. Cinematic Scroll Reveal Suite
+     ───────────────────────────────────────────── */
+  function initScrollReveals() {
+    const revealTargets = document.querySelectorAll(
+      '.reveal-up, .reveal-scale, .section-header-brutalist, .tech-pipeline-flow, .manifesto-glass-canvas'
+    );
+    if (!revealTargets.length) return;
+
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed', 'in-view');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealTargets.forEach(el => revealObserver.observe(el));
+    } else {
+      revealTargets.forEach(el => el.classList.add('is-revealed', 'in-view'));
+    }
+  }
+
+  initScrollReveals();
+
+  /* ─────────────────────────────────────────────
+     12. Interactive Tech Logo Tiles (Desktop Hover & Mobile Touch)
+     ───────────────────────────────────────────── */
+  function initTechLogoTiles() {
+    const tiles = document.querySelectorAll('.tech-logo-tile');
+    if (!tiles.length) return;
+
+    tiles.forEach(tile => {
+      // Mobile tap feedback
+      tile.addEventListener('touchstart', () => {
+        tiles.forEach(t => {
+          if (t !== tile) t.classList.remove('is-touched');
+        });
+        tile.classList.toggle('is-touched');
+      }, { passive: true });
+
+      // Click / Keypress on desktop & mobile
+      tile.addEventListener('click', () => {
+        const title = tile.querySelector('.tile-title')?.textContent?.trim() || 'TECH';
+        const sub = tile.querySelector('.tile-sub')?.textContent?.trim() || '';
+        showToast(`⚡ ${title} // ${sub}`);
+      });
+    });
+
+    // Reset touched state when tapping outside
+    document.addEventListener('touchstart', (e) => {
+      if (!e.target.closest('.tech-logo-tile')) {
+        tiles.forEach(t => t.classList.remove('is-touched'));
+      }
+    }, { passive: true });
+  }
+
+  initTechLogoTiles();
+
+  /* ─────────────────────────────────────────────
+     13. Interactive Toast Notification & Citation Copy
+     ───────────────────────────────────────────── */
+  function showToast(message) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+
+    const toast = document.createElement('div');
+    toast.className = 'toast-message';
+    toast.innerHTML = `<span class="toast-dot"></span><span>${message}</span>`;
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(12px) scale(0.95)';
+      setTimeout(() => {
+        toast.remove();
+      }, 350);
+    }, 2800);
+  }
+
+  /* ─────────────────────────────────────────────
+     14. iOS 27 Liquid Glass Inquire Engine
+     ───────────────────────────────────────────── */
+  function initInquireInteractions() {
+    const defaultEmail = 'harshpratapsinghrathore555@gmail.com';
+
+    // 1-Tap Copy Email Button
+    const copyPillBtn = document.getElementById('btn-copy-direct-email');
+    if (copyPillBtn) {
+      copyPillBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(defaultEmail);
+          const badge = copyPillBtn.querySelector('.btn-copy-badge');
+          const originalBadge = badge ? badge.textContent : '1-TAP';
+          if (badge) badge.textContent = 'COPIED!';
+          showToast(`COPIED TO CLIPBOARD // ${defaultEmail}`);
+          setTimeout(() => {
+            if (badge) badge.textContent = originalBadge;
+          }, 2000);
+        } catch (err) {
+          showToast(`DISPATCH TARGET // ${defaultEmail}`);
+        }
+      });
+    }
+
+    // Capsule Chip Copy Buttons
+    const copyChips = document.querySelectorAll('.capsule-chip-copy');
+    copyChips.forEach(chip => {
+      chip.addEventListener('click', async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const textToCopy = chip.getAttribute('data-copy') || defaultEmail;
+        try {
+          await navigator.clipboard.writeText(textToCopy);
+          const span = chip.querySelector('span');
+          const original = span ? span.textContent : 'COPY';
+          if (span) span.textContent = 'COPIED';
+          showToast(`COPIED // ${textToCopy}`);
+          setTimeout(() => {
+            if (span) span.textContent = original;
+          }, 2000);
+        } catch (err) {
+          showToast(`COPIED // ${textToCopy}`);
+        }
+      });
+    });
+
+    // Fast Dispatch Transmitter Intent Pills & Form
+    const intentPills = document.querySelectorAll('.intent-pill');
+    let selectedSubject = 'Full-Stack Engineering Project Inquiry';
+
+    intentPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        intentPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        selectedSubject = pill.getAttribute('data-subject') || selectedSubject;
+        showToast(`INTENT SELECTED // ${pill.textContent.trim()}`);
+      });
+    });
+
+    const dispatchForm = document.getElementById('fast-dispatch-form');
+    const dispatchInput = document.getElementById('dispatch-message-input');
+
+    if (dispatchForm) {
+      dispatchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const message = dispatchInput ? dispatchInput.value.trim() : '';
+        const subjectEncoded = encodeURIComponent(selectedSubject);
+        const bodyEncoded = encodeURIComponent(
+          message
+            ? `${message}\n\n---\nSent via Portfolio Fast Dispatch Console`
+            : `Hello Harsh,\n\nI would like to discuss a project regarding ${selectedSubject}.\n\nLooking forward to connecting.`
+        );
+        const mailtoUrl = `mailto:${defaultEmail}?subject=${subjectEncoded}&body=${bodyEncoded}`;
+        showToast('INITIALIZING DIRECT DISPATCH SESSION ↗');
+        window.location.href = mailtoUrl;
+      });
+    }
+  }
+
+  /* ─────────────────────────────────────────────
+     15. iOS 27 Liquid Glass Projects Showcase Engine
+     ───────────────────────────────────────────── */
+  function initProjectsShowcase() {
+    const dockTabs = document.querySelectorAll('.proj-dock-tab');
+    const projectCards = document.querySelectorAll('.project-liquid-card');
+
+    // Quick-Jump Navigation Dock
+    dockTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const filter = tab.getAttribute('data-filter');
+        dockTabs.forEach(t => t.classList.remove('is-active'));
+        tab.classList.add('is-active');
+
+        if (filter === 'all') {
+          const firstCard = document.getElementById('project-shree-karni');
+          if (firstCard) {
+            firstCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        } else {
+          const target = document.getElementById(`project-${filter}`);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      });
+    });
+
+    // Auto-sync Active Dock Tab via Scroll Intersection
+    if ('IntersectionObserver' in window && projectCards.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('data-project-id');
+            dockTabs.forEach(t => {
+              if (t.getAttribute('data-filter') === id) {
+                dockTabs.forEach(tab => tab.classList.remove('is-active'));
+                t.classList.add('is-active');
+              }
+            });
+          }
+        });
+      }, {
+        rootMargin: '-20% 0px -40% 0px',
+        threshold: 0.3
+      });
+
+      projectCards.forEach(card => observer.observe(card));
+    }
+
+    // 3D Specular Tilt on Desktop Hover
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      projectCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -2.5;
+          const rotateY = ((x - centerX) / centerX) * 2.5;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+    }
+  }
+
+  initInquireInteractions();
+  initProjectsShowcase();
 
 });
+

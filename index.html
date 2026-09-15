@@ -5,14 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Harsh Rathore — Cinematic luxury portfolio with brutalist fashion campaign design, premium typography, and experimental digital craft." />
-  <title>HARSH RATHORE · ARCHIVE</title>
+    content="Harsh Rathore — Full-Stack Web Developer specializing in MERN stack, JavaScript engineering, clean backend architectures, and thoughtful digital interfaces." />
+  <title>HARSH RATHORE · FULL-STACK WEB DEVELOPER</title>
 
-  <!-- Premium Fonts: Syncopate (ultra-wide structural luxury), Bodoni Moda (couture high-contrast serif), Space Grotesk (tech sans), Space Mono (industrial monospace) -->
+  <!-- Premium Fonts: Syncopate (ultra-wide structural brutalist), Bodoni Moda (couture high-contrast serif), Space Grotesk (tech sans), Space Mono (industrial monospace) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&family=Syncopate:wght@700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&family=Syncopate:wght@700&display=swap"
     rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
@@ -38,7 +38,7 @@
     <!-- Premium Skip Button -->
     <button id="skip-intro-btn" class="skip-intro-btn" aria-label="Skip Intro">[ SKIP INTRO // ]</button>
 
-    <!-- Watermark layer that gets populated at the climax -->
+    <!-- Watermark layer revealed during impact transition -->
     <div class="bg-depth-watermark" id="intro-watermark">HARSH</div>
 
     <div class="intro-stage">
@@ -51,7 +51,7 @@
 
     <div class="intro-footer-ui">
       <div class="footer-col-left">
-        <span class="spec-label">CREATIVE ARCHIVE</span>
+        <span class="spec-label">DEVELOPER ARCHIVE</span>
         <span class="spec-value">ISSUE 01 / 2026</span>
       </div>
       <div class="footer-col-center">
@@ -63,7 +63,7 @@
       </div>
       <div class="footer-col-right">
         <span class="spec-label">LOCATION</span>
-        <span class="spec-value">NEW DELHI, IN</span>
+        <span class="spec-value">SURAT, GUJARAT</span>
       </div>
     </div>
   </div>
@@ -71,107 +71,43 @@
   <!-- ─────────────── MAIN PORTFOLIO WRAPPER ─────────────── -->
   <main id="main-content" class="content-hidden">
 
-    <!-- ─────────────── ASYMMETRIC HEADER ─────────────── -->
+    <!-- ─────────────── HEADER WITH IOS LIQUID GLASS DOCK ─────────────── -->
     <header id="main-header">
       <div class="header-inner">
-        <!-- Logo / Artist Brand -->
-        <a href="#" class="header-brand">
-          <svg class="brand-monogram-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px; margin-right: 8px; display: inline-block; vertical-align: middle; position: relative; top: -1px; color: var(--accent-color);">
-            <circle cx="12" cy="12" r="10" stroke-dasharray="3 3" />
-            <path d="M12 8v8M9 12h6" />
-          </svg>H.RATHORE
+        <!-- Logo / Developer Brand -->
+        <a href="#hero-exhibition" class="header-brand" aria-label="Harsh Rathore Home">
+          <span class="brand-monogram-pill">
+            <svg class="brand-monogram-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" stroke-dasharray="3 3" />
+              <path d="M12 8v8M9 12h6" />
+            </svg>
+          </span>
+          <span class="brand-text">H.RATHORE</span>
         </a>
 
-        <!-- Desktop Navigation -->
-        <nav class="editorial-nav">
-          <ul class="nav-links">
-            <li><a href="#about" class="nav-item"><span>01 /</span> ABOUT</a></li>
-            <li><a href="#projects" class="nav-item"><span>02 /</span> SELECTED WORK</a></li>
-            <li><a href="#skills" class="nav-item"><span>03 /</span> EXPERTISE</a></li>
-            <li><a href="#contact" class="nav-item"><span>04 /</span> INQUIRE</a></li>
-          </ul>
-        </nav>
-
-        <!-- Animated Asymmetric Luxury Hamburger Toggle -->
-        <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
-          <span class="menu-toggle-circle"></span>
-          <span class="hamburger-box">
-            <span class="hamburger-line line-top"></span>
-            <span class="hamburger-line line-bottom"></span>
-          </span>
-        </button>
-      </div>
-
-      <!-- Fullscreen Cinematic Mobile Navigation Overlay -->
-      <div class="mobile-nav-overlay" id="mobile-nav">
-        <!-- Parallax Depth Sweep Curtain (First Layer) -->
-        <div class="mobile-nav-curtain"></div>
-        
-        <!-- Main Luxury Nav Sheet (Second Layer) -->
-        <div class="mobile-nav-sheet">
-          <!-- Film Noise Overlay for tactile texture -->
-          <div class="mobile-nav-grain"></div>
-          
-          <!-- Subtle outlined watermark projection in background -->
-          <div class="mobile-nav-watermark">HR // ARCHIVE</div>
-
-          <div class="mobile-nav-content">
-            <div class="mobile-nav-header">
-              <span class="mobile-brand">H.RATHORE</span>
-            </div>
+        <!-- Desktop Navigation: iOS Liquid Glass Floating Dock -->
+        <nav class="editorial-nav liquid-glass-dock" aria-label="Main Navigation">
+          <!-- Glass Inner Track containing sliding capsule and links -->
+          <div class="glass-pill-track" id="glass-pill-track">
+            <!-- Dynamic Sliding Liquid Glass Capsule (Spring Eased) -->
+            <div class="nav-active-capsule" id="nav-active-capsule" aria-hidden="true"></div>
             
-            <nav class="mobile-nav-body">
-              <ul class="mobile-menu-links">
-                <li>
-                  <div class="mobile-menu-item-wrapper">
-                    <a href="#about" class="mobile-menu-link">
-                      <span class="link-num">01 /</span>
-                      <span class="link-text">ABOUT</span>
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <div class="mobile-menu-item-wrapper">
-                    <a href="#projects" class="mobile-menu-link">
-                      <span class="link-num">02 /</span>
-                      <span class="link-text">SELECTED WORK</span>
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <div class="mobile-menu-item-wrapper">
-                    <a href="#skills" class="mobile-menu-link">
-                      <span class="link-num">03 /</span>
-                      <span class="link-text">EXPERTISE</span>
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <div class="mobile-menu-item-wrapper">
-                    <a href="#contact" class="mobile-menu-link">
-                      <span class="link-num">04 /</span>
-                      <span class="link-text">INQUIRE</span>
-                    </a>
-                  </div>
-                </li>
-              </ul>
-            </nav>
-            
-            <div class="mobile-nav-footer">
-              <div class="mobile-nav-footer-col">
-                <span class="mobile-footer-label">SOCIAL SYSTEM</span>
-                <div class="mobile-footer-links">
-                  <a href="https://github.com/harsh-pratap-singh-rathore" target="_blank" class="magnetic-element">GITHUB</a>
-                  <a href="https://www.linkedin.com/in/harsh-rathore-1597012aa/" target="_blank" class="magnetic-element">LINKEDIN</a>
-                </div>
-              </div>
-              <div class="mobile-nav-footer-col">
-                <span class="mobile-footer-label">DIRECT CHANNEL</span>
-                <a href="mailto:harshpratapsinghrathore555@gmail.com" class="mobile-footer-email magnetic-element">HARSHPRATAPSINGHRATHORE555@GMAIL.COM</a>
-              </div>
-            </div>
+            <ul class="nav-links">
+              <li><a href="#about" class="nav-item active" data-index="0"><span>01 /</span> ABOUT</a></li>
+              <li><a href="#projects" class="nav-item" data-index="1"><span>02 /</span> WORK</a></li>
+              <li><a href="#progress" class="nav-item" data-index="2"><span>03 /</span> PROGRESS</a></li>
+              <li><a href="#skills" class="nav-item" data-index="3"><span>04 /</span> EXPERTISE</a></li>
+              <li><a href="#contact" class="nav-item" data-index="4"><span>05 /</span> INQUIRE</a></li>
+            </ul>
           </div>
-        </div>
+
+          <!-- Circular Liquid Glass Quick Action Button (Reference Image Satellite Element) -->
+          <a href="#contact" class="nav-glass-circle-btn magnetic-element" aria-label="Direct Inquire / Connect" title="Direct Inquire">
+            <svg class="nav-circle-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </a>
+        </nav>
       </div>
     </header>
 
@@ -183,106 +119,151 @@
       <div class="glass-bg-blob blob-three"></div>
 
       <div class="hero-editorial-grid">
+        <!-- Liquidified Title Area -->
         <div class="hero-title-area">
-          <span class="hero-category">PORTFOLIO ISSUE — 01 // CREATIVE ARCHIVE</span>
+          <div class="hero-category-wrapper">
+            <span class="hero-glass-pill-badge">
+              <span class="pill-dot"></span>
+              PORTFOLIO ISSUE — 01 // MERN + AI ARCHIVE
+            </span>
+          </div>
+
           <h1 class="hero-main-title">
-            HARSH <br />
-            RATHORE
+            <span class="title-line title-first">HARSH</span>
+            <span class="title-line title-second">RATHORE</span>
           </h1>
-          <div class="hero-typing-container">
-            <span class="typing-label">// ARCHITECT OF</span>
-            <span id="typing-text"></span><span class="typing-cursor">█</span>
+
+          <!-- Liquid Glass Typing Capsule HUD -->
+          <div class="hero-typing-capsule">
+            <div class="typing-pill-label">
+              <svg class="typing-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+              <span>ARCHITECT OF</span>
+            </div>
+            <div class="typing-content">
+              <span id="typing-text"></span><span class="typing-cursor">█</span>
+            </div>
           </div>
         </div>
 
+        <!-- Liquid Glass Photo Holder Box & Tech Spec Sheet -->
         <div class="hero-canvas-frame">
           <div class="editorial-image-container">
             <div class="image-overlay-filter"></div>
-            <img src="profile.jpg" width="800" height="1000" alt="Harsh Rathore profile exhibition" class="editorial-img" />
+            <div class="glass-sheen-shine"></div>
+            <!-- High-resolution portrait of Harsh Rathore -->
+            <img src="profile.png" width="800" height="1000" alt="Harsh Rathore - Full-Stack Web Developer & AI Systems Engineer" class="editorial-img" />
+            
+            <!-- Corner Floating Glass HUD Badges -->
+            <div class="frame-glass-tag frame-tag-top">
+              <span class="live-dot-pulse"></span> SYSTEM // ONLINE
+            </div>
+            <div class="frame-glass-tag frame-tag-bottom">
+              MERN + AI STACK // 2026
+            </div>
           </div>
+
+          <!-- Tech Spec Sheet under Photo Box -->
           <div class="frame-spec-sheet">
             <div class="spec-row">
-              <span>ARTIST</span>
-              <span>HARSH RATHORE</span>
+              <span class="spec-term">DEVELOPER</span>
+              <span class="spec-val">HARSH RATHORE</span>
             </div>
             <div class="spec-row">
-              <span>DISCIPLINE</span>
-              <span>JAVASCRIPT DEVELOPMENT</span>
+              <span class="spec-term">DISCIPLINE</span>
+              <span class="spec-val">FULL-STACK &amp; AI SYSTEMS ENGINEERING</span>
             </div>
             <div class="spec-row">
-              <span>CURATORIAL</span>
-              <span>BRUTALIST FASHION CAMPAIGN</span>
+              <span class="spec-term">CORE STACK</span>
+              <span class="spec-val">REACT 19 &middot; NODE.JS &middot; EXPRESS &middot; MONGODB</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-term">AI &amp; RESEARCH</span>
+              <span class="spec-val">LLMS &middot; DEEP LEARNING &middot; RESEARCH</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-term">STATUS &amp; ORIGIN</span>
+              <span class="spec-val text-accent"><span class="status-dot-mini"></span> ACTIVE DISPATCH // SURAT, GUJARAT</span>
             </div>
           </div>
         </div>
 
+        <!-- MERN + AI Editorial Statement Area -->
         <div class="hero-statement-area" style="position: relative;">
           <p class="editorial-lead-para">
-            Developing high-performance, conceptually driven digital architecture. A strict devotion to structural
-            details, premium cinematic spacing, and absolute typographical excellence.
+            Architecting production-grade web platforms where thoughtful human interfaces converge with <span class="italic-serif text-accent">autonomous AI engineering</span>. Deeply specializing in the <strong>MERN ecosystem</strong>—constructing resilient distributed backends, reactive React frontends, and low-latency LLM agent pipelines.
           </p>
           <div class="cta-strip">
-            <a href="#projects" class="editorial-btn">EXPLORE SELECTED ARCHIVE <span class="btn-arrow">→</span></a>
+            <a href="#projects" class="editorial-btn magnetic-element">
+              <span class="btn-liquid-sheen"></span>
+              EXPLORE SELECTED ARCHIVE <span class="btn-arrow">→</span>
+            </a>
           </div>
           <div class="editorial-stamp-badge" aria-hidden="true">
             <svg class="stamp-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" />
               <path d="M30 50h40M50 30v40" stroke="currentColor" stroke-width="0.5" />
-              <text x="50" y="52" class="stamp-text" text-anchor="middle" font-family="var(--font-mono)" font-size="6" font-weight="700" fill="currentColor" letter-spacing="0.1em">HR // DEPT</text>
+              <text x="50" y="52" class="stamp-text" text-anchor="middle" font-family="var(--font-mono)" font-size="6" font-weight="700" fill="currentColor" letter-spacing="0.1em">HR // AI</text>
             </svg>
           </div>
         </div>
       </div>
 
-      <!-- Floating Interactive Code Shells -->
-      <div class="code-shell-float shell-manifesto magnetic-element">
+      <!-- Floating Interactive Code Shells (iOS Liquid Glass with MERN + AI Architecture Snippets) -->
+      <div class="code-shell-float shell-manifesto">
         <div class="code-shell-header">
           <div class="code-shell-dots">
             <span class="dot red"></span>
             <span class="dot yellow"></span>
             <span class="dot green"></span>
           </div>
-          <span class="code-shell-title">sys_manifesto.js</span>
+          <span class="code-shell-title">agentRouter.ts</span>
+          <span class="code-shell-badge">AI AGENT</span>
         </div>
         <div class="code-shell-body">
-          <pre><code><span class="code-keyword">const</span> design = (concept) => {
-  <span class="code-keyword">return</span> rendering * performance;
-};</code></pre>
+          <pre><code><span class="code-keyword">const</span> agent = <span class="code-keyword">new</span> <span class="code-fn">AgentPipeline</span>({
+  model: <span class="code-string">"gemini-2.5-flash"</span>,
+  tools: [mongoVectorSearch, apiRouter]
+});
+<span class="code-keyword">export const</span> stream = <span class="code-keyword">await</span> agent.<span class="code-fn">run</span>(prompt);</code></pre>
         </div>
       </div>
 
-      <div class="code-shell-float shell-stylist magnetic-element">
+      <div class="code-shell-float shell-stylist">
         <div class="code-shell-header">
           <div class="code-shell-dots">
             <span class="dot red"></span>
             <span class="dot yellow"></span>
             <span class="dot green"></span>
           </div>
-          <span class="code-shell-title">visual_engine.css</span>
+          <span class="code-shell-title">useAgentStream.jsx</span>
+          <span class="code-shell-badge">REACT 19</span>
         </div>
         <div class="code-shell-body">
-          <pre><code><span class="code-selector">#rathore</span> {
-  <span class="code-property">framerate</span>: 120fps;
-  <span class="code-property">precision</span>: subpixel;
-  <span class="code-property">motion</span>: cinematic;
-}</code></pre>
+          <pre><code><span class="code-keyword">const</span> { stream, status } = <span class="code-fn">useAgent</span>();
+<span class="code-keyword">if</span> (status === <span class="code-string">"thinking"</span>) <span class="code-keyword">return</span> &lt;<span class="code-selector">NeuralGlow</span> /&gt;;
+<span class="code-keyword">return</span> &lt;<span class="code-selector">SmartCanvas</span> stream={stream} /&gt;;</code></pre>
         </div>
       </div>
 
-      <div class="code-shell-float shell-loop magnetic-element">
+      <div class="code-shell-float shell-loop">
         <div class="code-shell-header">
           <div class="code-shell-dots">
             <span class="dot red"></span>
             <span class="dot yellow"></span>
             <span class="dot green"></span>
           </div>
-          <span class="code-shell-title">infinite_drive.cpp</span>
+          <span class="code-shell-title">vectorStore.js</span>
+          <span class="code-shell-badge">MONGODB</span>
         </div>
         <div class="code-shell-body">
-          <pre><code><span class="code-keyword">while</span> (creative_drive) {
-  innovate();
-  craft_beautiful_code();
-}</code></pre>
+          <pre><code><span class="code-keyword">const</span> results = <span class="code-keyword">await</span> collection.<span class="code-fn">aggregate</span>([
+  { <span class="code-property">$vectorSearch</span>: {
+      queryVector: embedding,
+      path: <span class="code-string">"vector"</span>, limit: 5 } }
+]);</code></pre>
         </div>
       </div>
     </section>
@@ -292,359 +273,1286 @@
       <div class="section-header-brutalist">
         <span class="section-index">01 /</span>
         <h2 class="section-title-brutalist">MANIFESTO</h2>
+        <div class="header-glass-pill">
+          <span class="pill-dot"></span>
+          <span>CORE PHILOSOPHY &amp; CRAFT</span>
+        </div>
       </div>
 
-      <div class="manifesto-grid">
-        <div class="manifesto-left">
-          <h3 class="manifesto-heading">
-            Rejecting the generic UI template. Embracing <span class="italic-serif text-accent">extreme intent</span>.
-          </h3>
-        </div>
-        <div class="manifesto-right">
-          <div class="manifesto-body">
-            <p class="drop-cap-p">
-              <span class="drop-cap">I</span> am a dedicated backend web developer who believes that server-side architecture is the true foundation of any digital campaign. While clean frontend visuals create the first impression, robust backend engineering is the ultimate strength that powers premium, secure, and high-performance web ecosystems.
-            </p>
-            <p>
-              Focused intensely on standardizing advanced PHP and Node.js environments, structural MySQL databases, and optimized Composer-managed architectures. My core strength lies in constructing bulletproof data pipelines, elegant session authorization matrices, and high-throughput server engines built to run with absolute speed and deliberate precision.
-            </p>
-          </div>
+      <!-- Main iOS Liquid Glass Manifesto Canvas -->
+      <div class="manifesto-glass-canvas">
+        <div class="manifesto-grid">
+          
+          <!-- Left Column: Core Thesis & Dynamic Pillars -->
+          <div class="manifesto-left">
+            <div class="thesis-tag-wrapper">
+              <span class="manifesto-thesis-tag">// THE CORE THESIS</span>
+            </div>
+            
+            <h3 class="manifesto-heading">
+              Rejecting bloated templates. Engineering <span class="manifesto-highlight">deliberate full-stack systems</span> with autonomous AI precision.
+            </h3>
 
-          <div class="manifesto-footer">
-            <div class="manifesto-sign">
-              <span class="sign-label">SIGNATURE OF CRAFT</span>
-              <span class="signature-text">Harsh Rathore</span>
+            <!-- Dynamic Engineering Pillars (iOS Frosted Cards) -->
+            <div class="manifesto-pillars-list">
+              <div class="pillar-card magnetic-element">
+                <div class="pillar-num">01</div>
+                <div class="pillar-text-group">
+                  <span class="pillar-title">DETERMINISTIC ARCHITECTURE</span>
+                  <span class="pillar-desc">Clean modular boundaries, predictable state machines, and zero bloat.</span>
+                </div>
+              </div>
+
+              <div class="pillar-card magnetic-element">
+                <div class="pillar-num">02</div>
+                <div class="pillar-text-group">
+                  <span class="pillar-title">UNIFIED JAVASCRIPT LIFECYCLE</span>
+                  <span class="pillar-desc">Seamless full-stack flow with React 19, Node.js, Express, and MongoDB.</span>
+                </div>
+              </div>
+
+              <div class="pillar-card magnetic-element">
+                <div class="pillar-num">03</div>
+                <div class="pillar-text-group">
+                  <span class="pillar-title">AI &amp; VECTOR INTEGRATION</span>
+                  <span class="pillar-desc">Autonomous LLM agent pipelines, semantic embeddings, and low-latency inference.</span>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- Right Column: High-Contrast Prose & Verified Seal -->
+          <div class="manifesto-right">
+            <div class="manifesto-prose-card">
+              <div class="manifesto-body">
+                <p class="drop-cap-p">
+                  <span class="drop-cap-liquid">I</span>
+                  <strong class="prose-strong">am a full-stack web developer and AI systems engineer</strong> based in Surat, Gujarat. I specialize in the <strong>MERN ecosystem</strong> and autonomous LLM workflows—engineering high-performance web applications that bridge thoughtful human interfaces with resilient distributed backends.
+                </p>
+                <p>
+                  My architecture philosophy emphasizes clean code boundaries, predictable state machines, and zero bloat. From high-throughput Express REST APIs and MongoDB document modeling to reactive React 19 interfaces, every component is built for speed, clarity, and reliability.
+                </p>
+              </div>
+
+              <!-- Manifesto Footer: Signature & Glass Seal -->
+              <div class="manifesto-footer">
+                <div class="manifesto-sign">
+                  <span class="sign-label">AUTHOR VERIFICATION // SPECIFICATION OF CRAFT</span>
+                  <span class="signature-text">Harsh Rathore</span>
+                  <span class="sign-sub">Full-Stack &amp; AI Systems Engineer · Surat, Gujarat</span>
+                </div>
+
+                <div class="manifesto-seal" aria-hidden="true">
+                  <svg class="seal-svg" viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+                    <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width="0.8"/>
+                    <path d="M50 20v60M20 50h60" stroke="currentColor" stroke-width="0.5"/>
+                    <text x="50" y="53" text-anchor="middle" font-family="var(--font-mono)" font-size="7" font-weight="700" fill="currentColor" letter-spacing="0.12em">VERIFIED</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ─────────────── SELECTED PROJECTS ─────────────── -->
+
+
+    <!-- ─────────────── 02 / SELECTED WORKS (iOS 27 LIQUID GLASS FULL-LENGTH SHOWCASE) ─────────────── -->
     <section id="projects" class="editorial-section">
+      <!-- Ambient Liquid Glass Refraction Backdrop -->
+      <div class="projects-ambient-backdrop" aria-hidden="true">
+        <div class="proj-blob-crimson"></div>
+        <div class="proj-blob-specular"></div>
+        <div class="proj-blob-amber"></div>
+      </div>
+
+      <!-- Brutalist Header -->
       <div class="section-header-brutalist">
         <span class="section-index">02 /</span>
         <h2 class="section-title-brutalist">SELECTED WORKS</h2>
+        <div class="header-glass-pill">
+          <span class="pill-dot"></span>
+          <span>PRODUCTION ARCHIVES // 03 PLATFORMS</span>
+        </div>
       </div>
 
-      <div class="projects-list-brutalist">
+      <!-- iOS 27 Floating Quick-Filter Capsule Dock -->
+      <div class="projects-segmented-dock-wrap">
+        <nav class="projects-segmented-dock" id="projectsSegmentedDock" role="tablist" aria-label="Projects Quick Filter">
+          <button type="button" class="proj-dock-tab is-active" data-filter="all" aria-label="View all projects">
+            <span class="tab-num">ALL</span>
+            <span class="tab-title">03 WORKS</span>
+          </button>
+          <button type="button" class="proj-dock-tab" data-filter="shree-karni" aria-label="Jump to Shree Karni Textiles">
+            <span class="tab-num">01 //</span>
+            <span class="tab-title">SHREE KARNI</span>
+            <span class="tab-badge">COMMERCE</span>
+          </button>
+          <button type="button" class="proj-dock-tab" data-filter="code-canvas" aria-label="Jump to Code Canvas">
+            <span class="tab-num">02 //</span>
+            <span class="tab-title">CODE CANVAS</span>
+            <span class="tab-badge">DEV TOOLS</span>
+          </button>
+          <button type="button" class="proj-dock-tab" data-filter="my-voice" aria-label="Jump to My Voice">
+            <span class="tab-num">03 //</span>
+            <span class="tab-title">MY VOICE</span>
+            <span class="tab-badge">CIVIC TECH</span>
+          </button>
+        </nav>
+      </div>
 
-        <!-- PROJECT 01 -->
-        <article class="project-strip" id="strip-textiles">
-          <div class="strip-num">01 //</div>
-          <div class="strip-main">
-            <div class="strip-text-group">
-              <span class="project-tag-mini">E-COMMERCE SYSTEM</span>
-              <h3 class="strip-title">SHREE KARNI TEXTILES</h3>
-              <div class="project-tech-icons">
-                <!-- PHP Icon -->
-                <svg class="tech-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" title="PHP">
-                  <ellipse cx="12" cy="12" rx="10" ry="6" />
-                  <path d="M8 9h2a1.5 1.5 0 0 1 0 3H8v3M13 9v6M16 9h2a1.5 1.5 0 0 1 0 3h-2v3" />
-                </svg>
-                <!-- CSS Icon -->
-                <svg class="tech-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" title="CSS3">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
-                <!-- Composer Icon -->
-                <svg class="tech-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" title="Composer">
-                  <path d="M12 2L3 7v10l9 5 9-5V7l-9-5zM12 22V12M12 12L3 7M12 12l9-7" />
-                </svg>
-                <!-- JS Icon -->
-                <svg class="tech-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" title="JavaScript">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <path d="M10 15a2 2 0 0 1-2-2M14 9v4a2 2 0 0 0 2 2" />
-                </svg>
+      <!-- Full-Length Liquid Glass Projects Stream -->
+      <div class="projects-liquid-stream" id="projectsStream">
+
+        <!-- ═══════════════ PROJECT 01: SHREE KARNI TEXTILES ═══════════════ -->
+        <article class="project-liquid-card float-card-1" id="project-shree-karni" data-project-id="shree-karni">
+          <div class="card-glass-substrate" aria-hidden="true"></div>
+          <div class="card-specular-sheen" aria-hidden="true"></div>
+
+          <div class="card-inner-flow">
+            <!-- Top Metadata Strip -->
+            <div class="card-meta-strip">
+              <div class="card-meta-left">
+                <span class="card-num-badge">01 //</span>
+                <span class="card-beacon-pill">
+                  <span class="beacon-pulse-dot"><span class="beacon-radar-ring"></span></span>
+                  <span class="beacon-label">PRODUCTION LIVE</span>
+                </span>
+                <span class="card-category-pill">B2B WHOLESALE COMMERCE</span>
+              </div>
+              <div class="card-meta-right">
+                <span class="card-latency-pill">⚡ TTFB &lt; 48MS</span>
+                <span class="card-origin-pill">SURAT, GUJARAT · 2026</span>
               </div>
             </div>
-            <p class="strip-desc">An enterprise-grade, high-performance textiles e-commerce platform incorporating custom Composer dependencies, secure session validation, and standardized pathing mechanics.</p>
-            <div class="strip-specs">
-              <span>PHP</span>
-              <span>CSS</span>
-              <span>COMPOSER</span>
-              <span>JS</span>
-              <span>2026</span>
+
+            <!-- Typography & Architectural Headline -->
+            <div class="card-heading-block">
+              <span class="card-kicker">COMMERCIAL WHOLESALE PIPELINE // ARCHIVE 01</span>
+              <h3 class="card-title">SHREE KARNI TEXTILES</h3>
+              <span class="card-tagline">HIGH-DENSITY B2B FABRIC DISTRIBUTION PLATFORM</span>
+            </div>
+
+            <!-- 4-Pill Tactile Feature Capsule Grid -->
+            <div class="card-features-grid">
+              <div class="card-feat-capsule">
+                <span class="feat-icon-bubble">⚡</span>
+                <div class="feat-text-stack">
+                  <span class="feat-title">SUB-SECOND CATALOG INDEX</span>
+                  <span class="feat-sub">10,000+ meters fabric search &amp; filter</span>
+                </div>
+              </div>
+              <div class="card-feat-capsule">
+                <span class="feat-icon-bubble">🔒</span>
+                <div class="feat-text-stack">
+                  <span class="feat-title">CRYPTOGRAPHIC CART STATE</span>
+                  <span class="feat-sub">Session-isolated customer checkout</span>
+                </div>
+              </div>
+              <div class="card-feat-capsule">
+                <span class="feat-icon-bubble">📦</span>
+                <div class="feat-text-stack">
+                  <span class="feat-title">COMPOSER PACKAGING PIPELINE</span>
+                  <span class="feat-sub">Standardized modular architecture</span>
+                </div>
+              </div>
+              <div class="card-feat-capsule">
+                <span class="feat-icon-bubble">📱</span>
+                <div class="feat-text-stack">
+                  <span class="feat-title">TOUCH-FIRST WHOLESALE UI</span>
+                  <span class="feat-sub">Mobile-optimized merchant ordering</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Information & Action Deck -->
+            <div class="card-bottom-deck">
+              <!-- Concise High-Contrast Description -->
+              <div class="card-desc-pane">
+                <span class="desc-kicker">// PLATFORM MANDATE</span>
+                <p class="card-desc-text">
+                  Enterprise-grade wholesale distribution platform engineered for Surat's textile ecosystem. Delivers sub-second catalog indexing across 10,000+ meters of fabric, session-isolated checkout validation, and high-speed mobile ordering.
+                </p>
+              </div>
+
+              <!-- Technology Stack Icons & Action Triggers -->
+              <div class="card-actions-pane">
+                <!-- Tech Pills with Icons -->
+                <div class="card-tech-capsules">
+                  <span class="tech-icon-pill" style="--chip-accent: #777BB4;" title="PHP 8+">
+                    <svg class="tech-svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 7.5h3c1.65 0 3 1.35 3 3s-1.35 3-3 3h-1.5v3H6v-9h1.5zm1.5 4.5h1.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5H9V12zm6-4.5h3c1.65 0 3 1.35 3 3s-1.35 3-3 3h-1.5v3H15v-9h1.5zm1.5 4.5h1.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5H16.5V12z"/></svg>
+                    <span>PHP 8+</span>
+                  </span>
+                  <span class="tech-icon-pill" style="--chip-accent: #F7DF1E;" title="JavaScript ES6+">
+                    <svg class="tech-svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm10.5 12.8c0 1.8 1.1 2.8 2.8 2.8 1.3 0 2.2-.6 2.7-1.3l-1.3-.8c-.3.4-.7.7-1.3.7-.8 0-1.3-.4-1.3-1.4v-4.8h-1.6v4.8zm-5.4.1c0 1.2.6 1.7 1.5 1.7.6 0 1.1-.3 1.5-.7l1.1.9c-.6.8-1.5 1.3-2.7 1.3-1.9 0-3-1.1-3-3.1V12h1.6v3.9z"/></svg>
+                    <span>JAVASCRIPT</span>
+                  </span>
+                  <span class="tech-icon-pill" style="--chip-accent: #2965F1;" title="CSS3 Architecture">
+                    <svg class="tech-svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3l1.5 17L12 22l6.5-2L20 3H4zm13.3 5.4l-.2 2.3H8.3l.2 2.3h7.9l-.5 5.5-3.9 1.1-3.9-1.1-.3-3.1h2.2l.1 1.5 1.9.5 1.9-.5.2-2.3H7.8L7.3 6.1h10.2l-.2 2.3z"/></svg>
+                    <span>CSS3 ENGINE</span>
+                  </span>
+                  <span class="tech-icon-pill" style="--chip-accent: #885630;" title="Composer Package Manager">
+                    <svg class="tech-svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    <span>COMPOSER</span>
+                  </span>
+                  <span class="tech-icon-pill" style="--chip-accent: #E34F26;" title="HTML5 Semantic Core">
+                    <svg class="tech-svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3l1.5 17L12 22l6.5-2L20 3H4zm12.8 5.7H9.2l.2 2.3h7.2l-.6 6.3-3.8 1.1-3.8-1.1-.3-3.4H10l.1 1.7 1.9.5 1.9-.5.3-3H7.5L7 6.4h9.8v2.3z"/></svg>
+                    <span>HTML5</span>
+                  </span>
+                </div>
+
+                <!-- Action Button Group -->
+                <div class="card-btn-cluster">
+                  <a href="https://shreekarnitextiles.com" target="_blank" rel="noopener noreferrer" class="proj-launch-btn primary magnetic-element" aria-label="Visit Shree Karni Textiles live platform">
+                    <span class="btn-live-dot"></span>
+                    <span>VISIT LIVE PLATFORM</span>
+                    <span class="btn-arrow-diag">↗</span>
+                  </a>
+                  <a href="https://github.com/harsh-pratap-singh-rathore" target="_blank" rel="noopener noreferrer" class="proj-launch-btn ghost magnetic-element" aria-label="View Harsh Rathore GitHub repository">
+                    <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                    <span>GITHUB REPO ↗</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-          <a href="https://shreekarnitextiles.com" target="_blank" class="strip-link-overlay" aria-label="View Project"></a>
         </article>
 
-        <!-- PROJECT 02 -->
-        <article class="project-strip" id="strip-codecanvas">
-          <div class="strip-num">02 //</div>
-          <div class="strip-main">
-            <div class="strip-text-group">
-              <span class="project-tag-mini">PORTFOLIO BUILDER</span>
-              <h3 class="strip-title">CODE CANVAS</h3>
-              <div class="project-tech-icons">
-                <!-- PHP Icon -->
-                <svg class="tech-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" title="PHP">
-                  <ellipse cx="12" cy="12" rx="10" ry="6" />
-                  <path d="M8 9h2a1.5 1.5 0 0 1 0 3H8v3M13 9v6M16 9h2a1.5 1.5 0 0 1 0 3h-2v3" />
-                </svg>
-                <!-- CSS Icon -->
-                <svg class="tech-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" title="CSS3">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
-                <!-- HTML Icon -->
-                <svg class="tech-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" title="HTML5">
-                  <path d="m8 17-5-5 5-5M16 7l5 5-5 5M13 6l-2 12" />
-                </svg>
-                <!-- JS Icon -->
-                <svg class="tech-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" title="JavaScript">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <path d="M10 15a2 2 0 0 1-2-2M14 9v4a2 2 0 0 0 2 2" />
-                </svg>
+        <!-- ═══════════════ PROJECT 02: CODE CANVAS ═══════════════ -->
+        <article class="project-liquid-card float-card-2" id="project-code-canvas" data-project-id="code-canvas">
+          <div class="card-glass-substrate" aria-hidden="true"></div>
+          <div class="card-specular-sheen" aria-hidden="true"></div>
+
+          <div class="card-inner-flow">
+            <!-- Top Metadata Strip -->
+            <div class="card-meta-strip">
+              <div class="card-meta-left">
+                <span class="card-num-badge">02 //</span>
+                <span class="card-beacon-pill">
+                  <span class="beacon-pulse-dot"><span class="beacon-radar-ring"></span></span>
+                  <span class="beacon-label">PRODUCTION LIVE</span>
+                </span>
+                <span class="card-category-pill">DEVELOPER TOOLING &amp; UI ENGINE</span>
+              </div>
+              <div class="card-meta-right">
+                <span class="card-latency-pill">⚡ ZERO RUNTIME BLOAT</span>
+                <span class="card-origin-pill">OPEN SOURCE ENGINE · 2026</span>
               </div>
             </div>
-            <p class="strip-desc">A highly interactive visual creation suite allowing developers to design, visually configure, and deploy responsive brutalist web architectures on the fly.</p>
-            <div class="strip-specs">
-              <span>PHP</span>
-              <span>CSS</span>
-              <span>HTML</span>
-              <span>JS</span>
-              <span>2026</span>
+
+            <!-- Typography & Architectural Headline -->
+            <div class="card-heading-block">
+              <span class="card-kicker">UI COMPILATION &amp; DESIGN ENGINE // ARCHIVE 02</span>
+              <h3 class="card-title">CODE CANVAS</h3>
+              <span class="card-tagline">INTERACTIVE VIEWPORT PROTOTYPING &amp; CSS COMPILATION SUITE</span>
+            </div>
+
+            <!-- 4-Pill Tactile Feature Capsule Grid -->
+            <div class="card-features-grid">
+              <div class="card-feat-capsule">
+                <span class="feat-icon-bubble">⚡</span>
+                <div class="feat-text-stack">
+                  <span class="feat-title">LIVE VIEWPORT PARSING</span>
+                  <span class="feat-sub">Instant visual canvas layout feedback</span>
+                </div>
+              </div>
+              <div class="card-feat-capsule">
+                <span class="feat-icon-bubble">🎨</span>
+                <div class="feat-text-stack">
+                  <span class="feat-title">DYNAMIC CSS EMITTER</span>
+                  <span class="feat-sub">Clean zero-junk production stylesheets</span>
+                </div>
+              </div>
+              <div class="card-feat-capsule">
+                <span class="feat-icon-bubble">📐</span>
+                <div class="feat-text-stack">
+                  <span class="feat-title">RESPONSIVE MATRIX</span>
+                  <span class="feat-sub">Multi-screen layout breakpoint toggles</span>
+                </div>
+              </div>
+              <div class="card-feat-capsule">
+                <span class="feat-icon-bubble">🚀</span>
+                <div class="feat-text-stack">
+                  <span class="feat-title">ZERO-DEPENDENCY RUNTIME</span>
+                  <span class="feat-sub">Pure Vanilla JS performance architecture</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Information & Action Deck -->
+            <div class="card-bottom-deck">
+              <!-- Concise High-Contrast Description -->
+              <div class="card-desc-pane">
+                <span class="desc-kicker">// PLATFORM MANDATE</span>
+                <p class="card-desc-text">
+                  High-velocity visual layout prototyping suite empowering developers to construct, inspect, and export production-ready CSS layouts in real time. Eliminates boilerplate overhead with pure client-side compilation.
+                </p>
+              </div>
+
+              <!-- Technology Stack Icons & Action Triggers -->
+              <div class="card-actions-pane">
+                <!-- Tech Pills with Icons -->
+                <div class="card-tech-capsules">
+                  <span class="tech-icon-pill" style="--chip-accent: #F7DF1E;" title="JavaScript ES6+">
+                    <svg class="tech-svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm10.5 12.8c0 1.8 1.1 2.8 2.8 2.8 1.3 0 2.2-.6 2.7-1.3l-1.3-.8c-.3.4-.7.7-1.3.7-.8 0-1.3-.4-1.3-1.4v-4.8h-1.6v4.8zm-5.4.1c0 1.2.6 1.7 1.5 1.7.6 0 1.1-.3 1.5-.7l1.1.9c-.6.8-1.5 1.3-2.7 1.3-1.9 0-3-1.1-3-3.1V12h1.6v3.9z"/></svg>
+                    <span>JAVASCRIPT ES6+</span>
+                  </span>
+                  <span class="tech-icon-pill" style="--chip-accent: #E34F26;" title="HTML5 Canvas Engine">
+                    <svg class="tech-svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3l1.5 17L12 22l6.5-2L20 3H4zm12.8 5.7H9.2l.2 2.3h7.2l-.6 6.3-3.8 1.1-3.8-1.1-.3-3.4H10l.1 1.7 1.9.5 1.9-.5.3-3H7.5L7 6.4h9.8v2.3z"/></svg>
+                    <span>HTML5 CANVAS</span>
+                  </span>
+                  <span class="tech-icon-pill" style="--chip-accent: #2965F1;" title="CSS3 Engine">
+                    <svg class="tech-svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3l1.5 17L12 22l6.5-2L20 3H4zm13.3 5.4l-.2 2.3H8.3l.2 2.3h7.9l-.5 5.5-3.9 1.1-3.9-1.1-.3-3.1h2.2l.1 1.5 1.9.5 1.9-.5.2-2.3H7.8L7.3 6.1h10.2l-.2 2.3z"/></svg>
+                    <span>CSS3 ARCHITECTURE</span>
+                  </span>
+                  <span class="tech-icon-pill" style="--chip-accent: #777BB4;" title="PHP Core Architecture">
+                    <svg class="tech-svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 7.5h3c1.65 0 3 1.35 3 3s-1.35 3-3 3h-1.5v3H6v-9h1.5zm1.5 4.5h1.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5H9V12zm6-4.5h3c1.65 0 3 1.35 3 3s-1.35 3-3 3h-1.5v3H15v-9h1.5zm1.5 4.5h1.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5H16.5V12z"/></svg>
+                    <span>PHP CORE</span>
+                  </span>
+                </div>
+
+                <!-- Action Button Group -->
+                <div class="card-btn-cluster">
+                  <a href="https://codecanvas.page/public/index.html" target="_blank" rel="noopener noreferrer" class="proj-launch-btn primary magnetic-element" aria-label="Visit Code Canvas live platform">
+                    <span class="btn-live-dot"></span>
+                    <span>VISIT LIVE PLATFORM</span>
+                    <span class="btn-arrow-diag">↗</span>
+                  </a>
+                  <a href="https://github.com/harsh-pratap-singh-rathore/CodeCanvas" target="_blank" rel="noopener noreferrer" class="proj-launch-btn ghost magnetic-element" aria-label="View Code Canvas source code on GitHub">
+                    <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                    <span>GITHUB REPO ↗</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-          <a href="https://codecanvas.page" target="_blank" class="strip-link-overlay" aria-label="View Project"></a>
         </article>
 
-        <!-- PROJECT 03 -->
-        <article class="project-strip" id="strip-myvoice">
-          <div class="strip-num">03 //</div>
-          <div class="strip-main">
-            <div class="strip-text-group">
-              <span class="project-tag-mini">COMMUNICATION PLATFORM</span>
-              <h3 class="strip-title">MY VOICE</h3>
-              <div class="project-tech-icons">
-                <!-- PHP Icon -->
-                <svg class="tech-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" title="PHP">
-                  <ellipse cx="12" cy="12" rx="10" ry="6" />
-                  <path d="M8 9h2a1.5 1.5 0 0 1 0 3H8v3M13 9v6M16 9h2a1.5 1.5 0 0 1 0 3h-2v3" />
-                </svg>
-                <!-- HTML Icon -->
-                <svg class="tech-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" title="HTML5">
-                  <path d="m8 17-5-5 5-5M16 7l5 5-5 5M13 6l-2 12" />
-                </svg>
-                <!-- MySQL Icon -->
-                <svg class="tech-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" title="MySQL">
-                  <ellipse cx="12" cy="5" rx="9" ry="3" />
-                  <path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6" />
-                </svg>
-                <!-- CSS Icon -->
-                <svg class="tech-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" title="CSS3">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
+        <!-- ═══════════════ PROJECT 03: MY VOICE ═══════════════ -->
+        <article class="project-liquid-card float-card-3" id="project-my-voice" data-project-id="my-voice">
+          <div class="card-glass-substrate" aria-hidden="true"></div>
+          <div class="card-specular-sheen" aria-hidden="true"></div>
+
+          <div class="card-inner-flow">
+            <!-- Top Metadata Strip -->
+            <div class="card-meta-strip">
+              <div class="card-meta-left">
+                <span class="card-num-badge">03 //</span>
+                <span class="card-beacon-pill">
+                  <span class="beacon-pulse-dot"><span class="beacon-radar-ring"></span></span>
+                  <span class="beacon-label">PRODUCTION LIVE</span>
+                </span>
+                <span class="card-category-pill">CIVIC TECH &amp; DATA PIPELINE</span>
+              </div>
+              <div class="card-meta-right">
+                <span class="card-latency-pill">⚡ RELATIONAL MYSQL ENGINE</span>
+                <span class="card-origin-pill">COMMUNITY DISPATCH · 2024</span>
               </div>
             </div>
-            <p class="strip-desc">An issue reporting system where local citizens can report various public issues, built on secure server-side validations, session authorization states, and optimized MySQL databases.</p>
-            <div class="strip-specs">
-              <span>PHP</span>
-              <span>HTML</span>
-              <span>MYSQL</span>
-              <span>CSS</span>
-              <span>2024</span>
+
+            <!-- Typography & Architectural Headline -->
+            <div class="card-heading-block">
+              <span class="card-kicker">COMMUNITY GRIEVANCE DISPATCH // ARCHIVE 03</span>
+              <h3 class="card-title">MY VOICE</h3>
+              <span class="card-tagline">MUNICIPAL INCIDENT TRIAGE &amp; RESOLUTION PORTAL</span>
+            </div>
+
+            <!-- 4-Pill Tactile Feature Capsule Grid -->
+            <div class="card-features-grid">
+              <div class="card-feat-capsule">
+                <span class="feat-icon-bubble">🔒</span>
+                <div class="feat-text-stack">
+                  <span class="feat-title">HASHED USER AUTH</span>
+                  <span class="feat-sub">Zero-leakage session verification</span>
+                </div>
+              </div>
+              <div class="card-feat-capsule">
+                <span class="feat-icon-bubble">🗄️</span>
+                <div class="feat-text-stack">
+                  <span class="feat-title">RELATIONAL TRACKING</span>
+                  <span class="feat-sub">Normalized MySQL issue schemas</span>
+                </div>
+              </div>
+              <div class="card-feat-capsule">
+                <span class="feat-icon-bubble">⚡</span>
+                <div class="feat-text-stack">
+                  <span class="feat-title">ADMIN REVIEW PORTAL</span>
+                  <span class="feat-sub">Real-time status dispatch &amp; triage</span>
+                </div>
+              </div>
+              <div class="card-feat-capsule">
+                <span class="feat-icon-bubble">📱</span>
+                <div class="feat-text-stack">
+                  <span class="feat-title">MOBILE CITIZEN WORKFLOW</span>
+                  <span class="feat-sub">Touch-first municipal report flow</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Information & Action Deck -->
+            <div class="card-bottom-deck">
+              <!-- Concise High-Contrast Description -->
+              <div class="card-desc-pane">
+                <span class="desc-kicker">// PLATFORM MANDATE</span>
+                <p class="card-desc-text">
+                  Centralized civic reporting pipeline enabling citizens to log, monitor, and resolve community infrastructure grievances with verified role-based authority workflows and live municipal status updates.
+                </p>
+              </div>
+
+              <!-- Technology Stack Icons & Action Triggers -->
+              <div class="card-actions-pane">
+                <!-- Tech Pills with Icons -->
+                <div class="card-tech-capsules">
+                  <span class="tech-icon-pill" style="--chip-accent: #00758F;" title="MySQL Relational Database">
+                    <svg class="tech-svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4zm0 2c3.87 0 6 1.5 6 2s-2.13 2-6 2-6-1.5-6-2 2.13-2 6-2zm6 12c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23V17zm0-4c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23V13z"/></svg>
+                    <span>MYSQL</span>
+                  </span>
+                  <span class="tech-icon-pill" style="--chip-accent: #777BB4;" title="PHP Backend Architecture">
+                    <svg class="tech-svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 7.5h3c1.65 0 3 1.35 3 3s-1.35 3-3 3h-1.5v3H6v-9h1.5zm1.5 4.5h1.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5H9V12zm6-4.5h3c1.65 0 3 1.35 3 3s-1.35 3-3 3h-1.5v3H15v-9h1.5zm1.5 4.5h1.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5H16.5V12z"/></svg>
+                    <span>PHP BACKEND</span>
+                  </span>
+                  <span class="tech-icon-pill" style="--chip-accent: #F7DF1E;" title="JavaScript ES6+">
+                    <svg class="tech-svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm10.5 12.8c0 1.8 1.1 2.8 2.8 2.8 1.3 0 2.2-.6 2.7-1.3l-1.3-.8c-.3.4-.7.7-1.3.7-.8 0-1.3-.4-1.3-1.4v-4.8h-1.6v4.8zm-5.4.1c0 1.2.6 1.7 1.5 1.7.6 0 1.1-.3 1.5-.7l1.1.9c-.6.8-1.5 1.3-2.7 1.3-1.9 0-3-1.1-3-3.1V12h1.6v3.9z"/></svg>
+                    <span>JAVASCRIPT</span>
+                  </span>
+                  <span class="tech-icon-pill" style="--chip-accent: #2965F1;" title="CSS3 Responsive Architecture">
+                    <svg class="tech-svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3l1.5 17L12 22l6.5-2L20 3H4zm13.3 5.4l-.2 2.3H8.3l.2 2.3h7.9l-.5 5.5-3.9 1.1-3.9-1.1-.3-3.1h2.2l.1 1.5 1.9.5 1.9-.5.2-2.3H7.8L7.3 6.1h10.2l-.2 2.3z"/></svg>
+                    <span>CSS3</span>
+                  </span>
+                  <span class="tech-icon-pill" style="--chip-accent: #E34F26;" title="HTML5 Semantic Structure">
+                    <svg class="tech-svg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3l1.5 17L12 22l6.5-2L20 3H4zm12.8 5.7H9.2l.2 2.3h7.2l-.6 6.3-3.8 1.1-3.8-1.1-.3-3.4H10l.1 1.7 1.9.5 1.9-.5.3-3H7.5L7 6.4h9.8v2.3z"/></svg>
+                    <span>HTML5</span>
+                  </span>
+                </div>
+
+                <!-- Action Button Group -->
+                <div class="card-btn-cluster">
+                  <a href="https://myvoice.gt.tc/MyVoice/frontend/pages/index.php" target="_blank" rel="noopener noreferrer" class="proj-launch-btn primary magnetic-element" aria-label="Visit My Voice live civic platform">
+                    <span class="btn-live-dot"></span>
+                    <span>VISIT LIVE PLATFORM</span>
+                    <span class="btn-arrow-diag">↗</span>
+                  </a>
+                  <a href="https://github.com/harsh-pratap-singh-rathore" target="_blank" rel="noopener noreferrer" class="proj-launch-btn ghost magnetic-element" aria-label="View Harsh Rathore GitHub repositories">
+                    <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                    <span>GITHUB REPO ↗</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-          <a href="https://myvoice.gt.tc" target="_blank" class="strip-link-overlay" aria-label="View Project"></a>
         </article>
 
       </div>
     </section>
 
-    <!-- ─────────────── EXPERTISE / SKILLS ─────────────── -->
-    <section id="skills" class="editorial-section">
+    <!-- ─────────────── CURRENTLY BUILDING / LEARNING PROGRESS ─────────────── -->
+    <section id="progress" class="editorial-section">
       <div class="section-header-brutalist">
         <span class="section-index">03 /</span>
+        <h2 class="section-title-brutalist">CURRENTLY BUILDING &amp; PROGRESS</h2>
+        <div class="header-glass-pill">
+          <span class="pill-dot"></span>
+          <span>TELEMETRY &amp; ACTIVE CYCLES</span>
+        </div>
+      </div>
+
+      <div class="progress-editorial-container">
+        <!-- High-level Status HUD -->
+        <div class="progress-status-strip">
+          <div class="progress-status-item">
+            <span class="status-dot-pulse"></span>
+            <span class="status-label-mono">STATUS //</span>
+            <span class="status-value-text">ACTIVE ARCHITECTURE CYCLE · SURAT, GUJARAT</span>
+          </div>
+          <div class="progress-status-item">
+            <span class="status-label-mono">CORE DOMAIN //</span>
+            <span class="status-value-text">MERN STACK &amp; AGENTIC AI INTEGRATION</span>
+          </div>
+          <div class="progress-status-item">
+            <span class="status-label-mono">CURRENT RELEASES //</span>
+            <span class="status-value-text">PRODUCTION RESTFUL APIs &amp; EMBEDDING PIPELINES</span>
+          </div>
+        </div>
+
+        <!-- Technical Progress Grid (iOS Liquid Frosted Glass Cards) -->
+        <div class="progress-grid" id="progress-container">
+          
+          <!-- Metric 01: JavaScript Engine -->
+          <div class="progress-card magnetic-element" data-percentage="90">
+            <div class="progress-card-ambient"></div>
+            <div class="progress-card-header">
+              <div class="progress-name-group">
+                <span class="progress-index-badge">01 // RUNTIME</span>
+                <h3 class="progress-name">JAVASCRIPT (ES6+)</h3>
+              </div>
+              <div class="progress-number">
+                <span class="counter-val">90</span><span class="unit">%</span>
+              </div>
+            </div>
+            
+            <div class="progress-bar-track">
+              <div class="progress-bar-fill" style="--target-width: 90%;">
+                <span class="fill-sheen"></span>
+              </div>
+            </div>
+
+            <div class="progress-card-footer">
+              <span class="footer-chip">EVENT LOOP</span>
+              <span class="footer-chip">ASYNC / AWAIT</span>
+              <span class="footer-chip">V8 ENGINE</span>
+            </div>
+          </div>
+
+          <!-- Metric 02: MERN Ecosystem -->
+          <div class="progress-card magnetic-element" data-percentage="82">
+            <div class="progress-card-ambient"></div>
+            <div class="progress-card-header">
+              <div class="progress-name-group">
+                <span class="progress-index-badge">02 // FULL-STACK</span>
+                <h3 class="progress-name">MERN ECOSYSTEM</h3>
+              </div>
+              <div class="progress-number">
+                <span class="counter-val">82</span><span class="unit">%</span>
+              </div>
+            </div>
+            
+            <div class="progress-bar-track">
+              <div class="progress-bar-fill" style="--target-width: 82%;">
+                <span class="fill-sheen"></span>
+              </div>
+            </div>
+
+            <div class="progress-card-footer">
+              <span class="footer-chip">REACT 19</span>
+              <span class="footer-chip">NODE / EXPRESS</span>
+              <span class="footer-chip">MONGODB ATLAS</span>
+            </div>
+          </div>
+
+          <!-- Metric 03: DL · ML · OLLAMA -->
+          <div class="progress-card magnetic-element" data-percentage="78">
+            <div class="progress-card-ambient"></div>
+            <div class="progress-card-header">
+              <div class="progress-name-group">
+                <span class="progress-index-badge">03 // AI &amp; ML</span>
+                <h3 class="progress-name">DL · ML · OLLAMA</h3>
+              </div>
+              <div class="progress-number">
+                <span class="counter-val">78</span><span class="unit">%</span>
+              </div>
+            </div>
+            
+            <div class="progress-bar-track">
+              <div class="progress-bar-fill" style="--target-width: 78%;">
+                <span class="fill-sheen"></span>
+              </div>
+            </div>
+
+            <div class="progress-card-footer">
+              <span class="footer-chip">DEEP LEARNING</span>
+              <span class="footer-chip">MACHINE LEARNING</span>
+              <span class="footer-chip">OLLAMA RUNTIME</span>
+            </div>
+          </div>
+
+          <!-- Metric 04: Backend & Data Pipelines -->
+          <div class="progress-card magnetic-element" data-percentage="75">
+            <div class="progress-card-ambient"></div>
+            <div class="progress-card-header">
+              <div class="progress-name-group">
+                <span class="progress-index-badge">04 // SYSTEMS</span>
+                <h3 class="progress-name">APIS &amp; DATA ARCHITECTURE</h3>
+              </div>
+              <div class="progress-number">
+                <span class="counter-val">75</span><span class="unit">%</span>
+              </div>
+            </div>
+            
+            <div class="progress-bar-track">
+              <div class="progress-bar-fill" style="--target-width: 75%;">
+                <span class="fill-sheen"></span>
+              </div>
+            </div>
+
+            <div class="progress-card-footer">
+              <span class="footer-chip">RESTFUL APIS</span>
+              <span class="footer-chip">JWT / AUTH</span>
+              <span class="footer-chip">MYSQL &amp; NOSQL</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────── SECTION 04: EXPERTISE & TECHNICAL MASTERY ─────────────── -->
+    <section id="skills" class="editorial-section">
+      <div class="section-header-brutalist">
+        <span class="section-index">04 /</span>
         <h2 class="section-title-brutalist">EXPERTISE</h2>
+        <div class="header-glass-pill">
+          <span class="pill-dot"></span>
+          <span>FULL-STACK ARCHITECTURAL MATRIX</span>
+        </div>
+      </div>
+
+      <!-- Interconnected Full-Stack Architecture Pipeline Stream -->
+      <div class="tech-pipeline-flow reveal-scale" aria-label="Interconnected Full-Stack Architecture Pipeline">
+        <div class="pipeline-node is-active" title="Client & Frontend Layer">
+          <span class="p-dot"></span>
+          <span class="p-label">01. CLIENT UI</span>
+        </div>
+        <div class="pipeline-wire" aria-hidden="true">
+          <div class="wire-pulse"></div>
+        </div>
+        <div class="pipeline-node" title="Backend & Runtimes Layer">
+          <span class="p-dot"></span>
+          <span class="p-label">02. API RUNTIMES</span>
+        </div>
+        <div class="pipeline-wire" aria-hidden="true">
+          <div class="wire-pulse"></div>
+        </div>
+        <div class="pipeline-node" title="Databases & Persistence Layer">
+          <span class="p-dot"></span>
+          <span class="p-label">03. PERSISTENCE</span>
+        </div>
+        <div class="pipeline-wire" aria-hidden="true">
+          <div class="wire-pulse"></div>
+        </div>
+        <div class="pipeline-node" title="Agentic AI & Cognition Layer">
+          <span class="p-dot"></span>
+          <span class="p-label">04. AGENTIC AI</span>
+        </div>
+        <div class="pipeline-wire" aria-hidden="true">
+          <div class="wire-pulse"></div>
+        </div>
+        <div class="pipeline-node" title="DevOps & Infrastructure Layer">
+          <span class="p-dot"></span>
+          <span class="p-label">05. DEVOPS &amp; CI</span>
+        </div>
       </div>
 
       <div class="expertise-grid">
-        <div class="expertise-column">
-          <h4 class="expertise-group-title">CORE DISCIPLINE</h4>
-          <ul class="expertise-list">
-            <li class="expertise-item">
-              <span class="item-name">JAVASCRIPT (ES6+)</span>
-              <span class="item-level">ADVANCED Scopes &amp; Core Engine</span>
-            </li>
-            <li class="expertise-item">
-              <span class="item-name">CSS ARCHITECTURE</span>
-              <span class="item-level">Brutalist layout design, custom typography systems</span>
-            </li>
-            <li class="expertise-item">
-              <span class="item-name">HTML5 SEMANTICS</span>
-              <span class="item-level">High structural fidelity, SEO optimized structures</span>
-            </li>
-          </ul>
+        <!-- COLUMN 01: CLIENT & UI ARCHITECTURE -->
+        <div class="expertise-column magnetic-element reveal-up">
+          <div class="column-glass-header">
+            <div class="header-num-title">
+              <span class="column-num">01</span>
+              <h3 class="expertise-group-title">CLIENT &amp; UI ARCHITECTURE</h3>
+            </div>
+            <span class="column-status-tag">LAYER 01 // FRONTEND</span>
+          </div>
+
+          <div class="tech-tiles-grid">
+            <!-- React.js -->
+            <div class="tech-logo-tile" style="--brand-color: #61DAFB; --brand-glow: rgba(97, 218, 251, 0.4);" tabindex="0" role="button" aria-label="React 19">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="2.2" fill="currentColor"/>
+                  <ellipse cx="12" cy="12" rx="10" ry="4.2"/>
+                  <ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"/>
+                  <ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">REACT.JS</span>
+                <span class="tile-sub">COMPONENT STATE</span>
+              </div>
+            </div>
+
+            <!-- JavaScript ES6+ -->
+            <div class="tech-logo-tile" style="--brand-color: #F7DF1E; --brand-glow: rgba(247, 223, 30, 0.4);" tabindex="0" role="button" aria-label="JavaScript ES6+">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="4"/>
+                  <path d="M11 13v3c0 .8-.5 1-1.2 1-.8 0-1.2-.4-1.4-.9M17 13.5c-.3-.4-.8-.7-1.4-.7-.8 0-1.3.4-1.3.9 0 1.2 2.7.7 2.7 2.3 0 .8-.7 1.3-1.6 1.3-.9 0-1.5-.5-1.7-1"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">JAVASCRIPT</span>
+                <span class="tile-sub">ES6+ / V8 ENGINE</span>
+              </div>
+            </div>
+
+            <!-- TypeScript -->
+            <div class="tech-logo-tile" style="--brand-color: #3178C6; --brand-glow: rgba(49, 120, 198, 0.4);" tabindex="0" role="button" aria-label="TypeScript">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="4"/>
+                  <path d="M7 9h4M9 9v7M14 15.2c.4.5 1 .8 1.6.8.8 0 1.4-.4 1.4-1 0-1.2-2.2-.6-2.2-2.1 0-.7.6-1.1 1.4-1.1.7 0 1.2.3 1.5.7"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">TYPESCRIPT</span>
+                <span class="tile-sub">STATIC TYPING</span>
+              </div>
+            </div>
+
+            <!-- HTML5 -->
+            <div class="tech-logo-tile" style="--brand-color: #E34F26; --brand-glow: rgba(227, 79, 38, 0.4);" tabindex="0" role="button" aria-label="HTML5">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 3l1.5 16.5L12 22l6.5-2.5L20 3H4zm13 5h-7.5l.3 3h7l-.5 5.5-4.3 1.4-4.3-1.4-.2-2.5h2l.1 1.2 2.4.7 2.4-.7.3-2.6H6.8l-.8-6.9h11.2l-.2 2z"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">HTML5</span>
+                <span class="tile-sub">SEMANTIC DOM</span>
+              </div>
+            </div>
+
+            <!-- CSS3 & Styling -->
+            <div class="tech-logo-tile" style="--brand-color: #1572B6; --brand-glow: rgba(21, 114, 182, 0.4);" tabindex="0" role="button" aria-label="CSS3">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 3l1.5 16.5L12 22l6.5-2.5L20 3H4zm13.2 4H6.8l.3 3.3h9.8l-.4 4.5-4.5 1.3-4.5-1.3-.2-2h2.2l.1 1 2.4.6 2.4-.6.2-1.9H7.1l-.6-6.9h11.5l-.2 2z"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">CSS3 / TOKENS</span>
+                <span class="tile-sub">GLASSMORPHISM</span>
+              </div>
+            </div>
+
+            <!-- Tailwind CSS -->
+            <div class="tech-logo-tile" style="--brand-color: #06B6D4; --brand-glow: rgba(6, 182, 212, 0.4);" tabindex="0" role="button" aria-label="Tailwind CSS">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 6c-3 0-4.8 1.5-5.4 4.5 1.2-1.5 2.7-2.1 4.5-1.8 1 .2 1.8 1 2.6 1.8C15 11.8 16.5 13.5 20 13.5c3 0 4.8-1.5 5.4-4.5-1.2 1.5-2.7 2.1-4.5 1.8-1-.2-1.8-1-2.6-1.8C17 7.7 15.5 6 12 6zm-8 7.5c-3 0-4.8 1.5-5.4 4.5 1.2-1.5 2.7-2.1 4.5-1.8 1 .2 1.8 1 2.6 1.8 1.3 1.3 2.8 3 6.3 3 3 0 4.8-1.5 5.4-4.5-1.2 1.5-2.7 2.1-4.5 1.8-1-.2-1.8-1-2.6-1.8-1.3-1.3-2.8-3-6.3-3z"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">TAILWIND</span>
+                <span class="tile-sub">RESPONSIVE UTILS</span>
+              </div>
+            </div>
+
+            <!-- Vite -->
+            <div class="tech-logo-tile" style="--brand-color: #646CFF; --brand-glow: rgba(100, 108, 255, 0.4);" tabindex="0" role="button" aria-label="Vite Bundler">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">VITE</span>
+                <span class="tile-sub">NEXT-GEN HMR</span>
+              </div>
+            </div>
+
+            <!-- Redux -->
+            <div class="tech-logo-tile" style="--brand-color: #764ABC; --brand-glow: rgba(118, 74, 188, 0.4);" tabindex="0" role="button" aria-label="Redux State">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16.5 9.4c0-2-1.6-3.6-3.6-3.6-1.2 0-2.3.6-2.9 1.6-.6-1-1.7-1.6-2.9-1.6-2 0-3.6 1.6-3.6 3.6 0 1.2.6 2.3 1.5 3-1 .7-1.5 1.8-1.5 3 0 2 1.6 3.6 3.6 3.6 1.2 0 2.3-.6 2.9-1.6.6 1 1.7 1.6 2.9 1.6 2 0 3.6-1.6 3.6-3.6 0-1.2-.6-2.3-1.5-3 1-.7 1.5-1.8 1.5-3z"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">REDUX TOOLKIT</span>
+                <span class="tile-sub">GLOBAL STATE BUS</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="expertise-column">
-          <h4 class="expertise-group-title">UTILITIES &amp; FLOW</h4>
-          <ul class="expertise-list">
-            <li class="expertise-item">
-              <span class="item-name">GIT / GITHUB</span>
-              <span class="item-level">Clean daily commits, versioning structures</span>
-            </li>
-            <li class="expertise-item">
-              <span class="item-name">RESPONSIVE ADAPTATION</span>
-              <span class="item-level">Strict device-agnostic layouts</span>
-            </li>
-            <li class="expertise-item">
-              <span class="item-name">UX MOTION CURVES</span>
-              <span class="item-level">Custom easing, timing, state changes</span>
-            </li>
-          </ul>
+        <!-- COLUMN 02: BACKEND & DATA RUNTIMES -->
+        <div class="expertise-column magnetic-element reveal-up">
+          <div class="column-glass-header">
+            <div class="header-num-title">
+              <span class="column-num">02</span>
+              <h3 class="expertise-group-title">BACKEND &amp; DATA PIPELINES</h3>
+            </div>
+            <span class="column-status-tag">LAYER 02 // RUNTIMES &amp; DB</span>
+          </div>
+
+          <div class="tech-tiles-grid">
+            <!-- Node.js -->
+            <div class="tech-logo-tile" style="--brand-color: #339933; --brand-glow: rgba(51, 153, 51, 0.4);" tabindex="0" role="button" aria-label="Node.js">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L3 7.2v10.6L12 23l9-5.2V7.2L12 2zm6.8 14.5L12 20.4l-6.8-3.9V8.5L12 4.6l6.8 3.9v7.9z"/>
+                  <path d="M10 9v6l4-6v6"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">NODE.JS</span>
+                <span class="tile-sub">EVENT LOOP / ASYNC</span>
+              </div>
+            </div>
+
+            <!-- Express.js -->
+            <div class="tech-logo-tile" style="--brand-color: #0d0d0d; --brand-glow: rgba(13, 13, 13, 0.35);" tabindex="0" role="button" aria-label="Express.js">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="16" rx="3"/>
+                  <path d="M7 8h4M7 12h3M7 16h4M14 8l3 8M17 8l-3 8"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">EXPRESS.JS</span>
+                <span class="tile-sub">ROUTING &amp; PIPELINES</span>
+              </div>
+            </div>
+
+            <!-- MongoDB -->
+            <div class="tech-logo-tile" style="--brand-color: #47A248; --brand-glow: rgba(71, 162, 72, 0.4);" tabindex="0" role="button" aria-label="MongoDB">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2.2C10.8 4.5 6.5 10 6.5 14c0 3.2 2.3 5.8 5.5 6 3.2-.2 5.5-2.8 5.5-6 0-4-4.3-9.5-5.5-11.8z"/>
+                  <path d="M12 2v20"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">MONGODB</span>
+                <span class="tile-sub">DOCUMENT STORE / ATLAS</span>
+              </div>
+            </div>
+
+            <!-- PostgreSQL -->
+            <div class="tech-logo-tile" style="--brand-color: #336791; --brand-glow: rgba(51, 103, 145, 0.4);" tabindex="0" role="button" aria-label="PostgreSQL">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3c-4.5 0-8 3.5-8 8 0 3.5 2.2 6.5 5.5 7.5l.5-2.5c-2-.6-3.5-2.5-3.5-5 0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5c0 2.5-1.5 4.4-3.5 5l.5 2.5c3.3-1 5.5-4 5.5-7.5 0-4.5-3.5-8-8-8z"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">POSTGRESQL</span>
+                <span class="tile-sub">RELATIONAL / ACID</span>
+              </div>
+            </div>
+
+            <!-- MySQL -->
+            <div class="tech-logo-tile" style="--brand-color: #00758F; --brand-glow: rgba(0, 117, 143, 0.4);" tabindex="0" role="button" aria-label="MySQL">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="12" cy="6" rx="8" ry="3"/>
+                  <path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">MYSQL</span>
+                <span class="tile-sub">STRUCTURED SCHEMAS</span>
+              </div>
+            </div>
+
+            <!-- REST APIs -->
+            <div class="tech-logo-tile" style="--brand-color: #FF5722; --brand-glow: rgba(255, 87, 34, 0.4);" tabindex="0" role="button" aria-label="RESTful APIs">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="6" cy="12" r="3"/>
+                  <circle cx="18" cy="6" r="3"/>
+                  <circle cx="18" cy="18" r="3"/>
+                  <path d="M8.7 10.7l6.6-3.4M8.7 13.3l6.6 3.4"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">RESTful APIs</span>
+                <span class="tile-sub">AUTH &amp; MIDDLEWARE</span>
+              </div>
+            </div>
+
+            <!-- Redis -->
+            <div class="tech-logo-tile" style="--brand-color: #DC382D; --brand-glow: rgba(220, 56, 45, 0.4);" tabindex="0" role="button" aria-label="Redis">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3L3 7.5 12 12l9-4.5L12 3zM3 12l9 4.5 9-4.5M3 16.5l9 4.5 9-4.5"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">REDIS</span>
+                <span class="tile-sub">MEMORY CACHING</span>
+              </div>
+            </div>
+
+            <!-- Python -->
+            <div class="tech-logo-tile" style="--brand-color: #3776AB; --brand-glow: rgba(55, 118, 171, 0.4);" tabindex="0" role="button" aria-label="Python">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11.8 2c-3 0-4.8 1.4-4.8 3.5v2.5h5v1H5.5C3.5 9 2 10.7 2 13.2c0 2.6 1.8 4.3 4.2 4.3h2v-2.2c0-1.7 1.4-3 3-3h5.2c1.4 0 2.6-1.1 2.6-2.5V5.5C19 3.4 17.2 2 14.2 2h-2.4zm-1.6 1.8a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8z"/>
+                  <path d="M12.2 22c3 0 4.8-1.4 4.8-3.5V16h-5v-1h6.5c2 0 3.5-1.7 3.5-4.2 0-2.6-1.8-4.3-4.2-4.3h-2v2.2c0 1.7-1.4 3-3 3H7.6c-1.4 0-2.6 1.1-2.6 2.5v4.3c0 2.1 1.8 3.5 4.8 3.5h2.4zm1.6-1.8a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8z"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">PYTHON</span>
+                <span class="tile-sub">DATA RUNTIMES</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="expertise-column">
-          <h4 class="expertise-group-title">DEVELOPMENTAL VECTORS</h4>
-          <ul class="expertise-list">
-            <li class="expertise-item">
-              <span class="item-name">NODE.JS (LEARNING)</span>
-              <span class="item-level">Active developmental vector / building server engines &amp; backends</span>
-            </li>
-            <li class="expertise-item">
-              <span class="item-name">RESTful APIs</span>
-              <span class="item-level">Provider integration systems</span>
-            </li>
-            <li class="expertise-item">
-              <span class="item-name">FULL-STACK ARTIFACTS</span>
-              <span class="item-level">Connecting design systems to server states</span>
-            </li>
-          </ul>
+        <!-- COLUMN 03: AGENTIC AI & INFRASTRUCTURE -->
+        <div class="expertise-column magnetic-element reveal-up">
+          <div class="column-glass-header">
+            <div class="header-num-title">
+              <span class="column-num">03</span>
+              <h3 class="expertise-group-title">AGENTIC AI &amp; INFRASTRUCTURE</h3>
+            </div>
+            <span class="column-status-tag">LAYER 03 // INTELLIGENCE &amp; CI</span>
+          </div>
+
+          <div class="tech-tiles-grid">
+            <!-- DL (Deep Learning) -->
+            <div class="tech-logo-tile" style="--brand-color: #EE4C2C; --brand-glow: rgba(238, 76, 44, 0.4);" tabindex="0" role="button" aria-label="Deep Learning (DL)">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="5" cy="6" r="2.2"/>
+                  <circle cx="5" cy="18" r="2.2"/>
+                  <circle cx="12" cy="12" r="2.2"/>
+                  <circle cx="19" cy="6" r="2.2"/>
+                  <circle cx="19" cy="18" r="2.2"/>
+                  <line x1="7.2" y1="7.2" x2="9.8" y2="10.8"/>
+                  <line x1="7.2" y1="16.8" x2="9.8" y2="13.2"/>
+                  <line x1="14.2" y1="10.8" x2="16.8" y2="7.2"/>
+                  <line x1="14.2" y1="13.2" x2="16.8" y2="16.8"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">DL</span>
+                <span class="tile-sub">DEEP LEARNING / PYTORCH</span>
+              </div>
+            </div>
+
+            <!-- ML (Machine Learning) -->
+            <div class="tech-logo-tile" style="--brand-color: #F7931E; --brand-glow: rgba(247, 147, 30, 0.4);" tabindex="0" role="button" aria-label="Machine Learning (ML)">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                  <circle cx="12" cy="5" r="1.5" fill="currentColor"/>
+                  <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+                  <circle cx="12" cy="19" r="1.5" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">ML</span>
+                <span class="tile-sub">MACHINE LEARNING / SCIKIT</span>
+              </div>
+            </div>
+
+            <!-- OLLAMA -->
+            <div class="tech-logo-tile" style="--brand-color: #111111; --brand-glow: rgba(17, 17, 17, 0.4);" tabindex="0" role="button" aria-label="Ollama Local LLM Runtime">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8 3v3M16 3v3M6 9h12a2 2 0 0 1 2 2v7a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-7a2 2 0 0 1 2-2z"/>
+                  <circle cx="9" cy="13" r="1.2" fill="currentColor"/>
+                  <circle cx="15" cy="13" r="1.2" fill="currentColor"/>
+                  <path d="M10 17h4"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">OLLAMA</span>
+                <span class="tile-sub">LOCAL LLM RUNTIME</span>
+              </div>
+            </div>
+
+            <!-- Docker -->
+            <div class="tech-logo-tile" style="--brand-color: #2496ED; --brand-glow: rgba(36, 150, 237, 0.4);" tabindex="0" role="button" aria-label="Docker">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 13.5c-.5-.3-1.5-.4-2.2 0-.4-1.3-1.5-2.3-3-2.3-.3 0-.5 0-.8.1C15.2 8.9 13.5 7 11.2 7c-.2 0-.4 0-.6.1V6.2C10.6 5 9.6 4 8.4 4S6.2 5 6.2 6.2v1C3.8 8.1 2.2 10.6 2 13.5c1 .5 2.2.5 3.3 0 1.2.6 2.7.6 3.9 0 1.2.6 2.7.6 3.9 0 1.2.6 2.7.6 3.9 0 1.7.9 3.5.5 5 0z"/>
+                  <rect x="6" y="9" width="2" height="2"/>
+                  <rect x="9" y="9" width="2" height="2"/>
+                  <rect x="6" y="12" width="2" height="2"/>
+                  <rect x="9" y="12" width="2" height="2"/>
+                  <rect x="12" y="12" width="2" height="2"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">DOCKER</span>
+                <span class="tile-sub">CONTAINERS</span>
+              </div>
+            </div>
+
+            <!-- Git -->
+            <div class="tech-logo-tile" style="--brand-color: #F05032; --brand-glow: rgba(240, 80, 50, 0.4);" tabindex="0" role="button" aria-label="Git">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="6" cy="6" r="2.5"/>
+                  <circle cx="18" cy="9" r="2.5"/>
+                  <circle cx="6" cy="18" r="2.5"/>
+                  <path d="M6 8.5v7M6 13.5a5.5 5.5 0 0 1 5.5-5.5h4"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">GIT</span>
+                <span class="tile-sub">VERSION CONTROL</span>
+              </div>
+            </div>
+
+            <!-- GitHub -->
+            <div class="tech-logo-tile" style="--brand-color: #24292E; --brand-glow: rgba(36, 41, 46, 0.35);" tabindex="0" role="button" aria-label="GitHub">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">GITHUB</span>
+                <span class="tile-sub">CI/CD ACTIONS</span>
+              </div>
+            </div>
+
+            <!-- Postman -->
+            <div class="tech-logo-tile" style="--brand-color: #FF6C37; --brand-glow: rgba(255, 108, 55, 0.4);" tabindex="0" role="button" aria-label="Postman">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 7v5l3 3"/>
+                  <path d="M8 12h8"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">POSTMAN</span>
+                <span class="tile-sub">API CONTRACTS</span>
+              </div>
+            </div>
+
+            <!-- Linux -->
+            <div class="tech-logo-tile" style="--brand-color: #EAA000; --brand-glow: rgba(234, 160, 0, 0.4);" tabindex="0" role="button" aria-label="Linux CLI">
+              <div class="tile-icon-box">
+                <svg class="tech-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="4 17 10 11 4 5"/>
+                  <line x1="12" y1="19" x2="20" y2="19"/>
+                </svg>
+              </div>
+              <div class="tile-meta">
+                <span class="tile-title">LINUX / UNIX</span>
+                <span class="tile-sub">SHELL &amp; SYSTEM CLI</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ─────────────── CONNECT / INQUIRE ─────────────── -->
+    <!-- ─────────────── SECTION 05: CONNECT & INQUIRE ─────────────── -->
     <section id="contact" class="editorial-section">
-      <!-- Section Header -->
-      <div class="section-header-brutalist">
-        <span class="section-index">04 /</span>
-        <h2 class="section-title-brutalist">INQUIRE</h2>
+      <!-- Ambient Liquid Glass Refraction Backdrop -->
+      <div class="inquire-glass-backdrop" aria-hidden="true">
+        <div class="inquire-blob-ruby"></div>
+        <div class="inquire-blob-specular"></div>
       </div>
 
-      <!-- Redesigned Split Grid -->
+      <!-- Section Header -->
+      <div class="section-header-brutalist">
+        <span class="section-index">05 /</span>
+        <h2 class="section-title-brutalist">INQUIRE</h2>
+        <div class="header-glass-pill">
+          <span class="pill-dot"></span>
+          <span>DIRECT DISPATCH &amp; COLLABORATION</span>
+        </div>
+      </div>
+
+      <!-- iOS Liquid Glass Inquire Grid -->
       <div class="contact-grid">
-        <!-- Left Side: Cinematic Info Pane -->
+        <!-- Left Side: Futuristic Command & Telemetry Pane -->
         <div class="contact-info-pane">
-          <div class="contact-lead-container">
-            <span class="contact-meta-label">// AVAILABLE FOR COLLABORATION</span>
-            <h3 class="contact-lead-text">
-              Initiate <span class="serif-italic-accent">collaboration</span>. Let's create an <span class="serif-italic-accent text-accent animate-glow">extraordinary</span> digital presence.
-            </h3>
+          <!-- Active Status Capsule with Radar Ring -->
+          <div class="inquire-status-badge">
+            <span class="status-pulse-dot">
+              <span class="status-radar-ring"></span>
+            </span>
+            <span class="status-badge-text">STATUS: ACTIVE &amp; DISPATCH READY</span>
+            <span class="status-badge-latency">LATENCY &lt; 15MS</span>
           </div>
-          
-          <div class="contact-manifesto-para">
-            <p>
-              I am currently accepting inquiries for high-end digital art direction, custom creative engineering contracts, and forward-thinking frontend roles that demand extreme visual execution.
+
+          <!-- Editorial Lead -->
+          <div class="contact-lead-container">
+            <h3 class="contact-lead-text">
+              LET'S ARCHITECT SOMETHING <span class="serif-italic-accent text-accent">EXTRAORDINARY</span>.
+            </h3>
+            <p class="contact-clean-desc">
+              Available for full-stack engineering contracts, scalable MERN web platforms, and autonomous AI systems demanding surgical engineering and high-throughput execution.
             </p>
           </div>
 
-          <!-- Creative Availability HUD Status Widget -->
-          <div class="contact-status-hud">
-            <div class="status-indicator">
-              <span class="status-pulse-dot"></span>
-              <span class="status-mono-text">STATUS: ACTIVE &amp; DISPATCH READY</span>
+          <!-- iOS 27 Liquid Glass Telemetry Card -->
+          <div class="inquire-telemetry-pod">
+            <div class="telemetry-pod-header">
+              <span class="telemetry-mono-title">// TELEMETRY &amp; ORIGIN SPEC</span>
+              <span class="telemetry-signal-tag">LIVE FEED</span>
             </div>
-            <div class="hud-spec-table">
-              <div class="hud-spec-row">
-                <span class="hud-label">CURRENT LOCAL TIME</span>
-                <span class="hud-value" id="hud-time">16:03:40 GMT+0530</span>
+            <div class="telemetry-pill-matrix">
+              <!-- Location Capsule -->
+              <div class="telemetry-pill">
+                <div class="telemetry-pill-left">
+                  <span class="telemetry-dot"></span>
+                  <span class="telemetry-lbl">ORIGIN:</span>
+                </div>
+                <span class="telemetry-val">SURAT, GUJARAT (IN)</span>
+                <span class="telemetry-subval">21.1702° N, 72.8311° E</span>
               </div>
-              <div class="hud-spec-row">
-                <span class="hud-label">CURRENT COORDINATES</span>
-                <span class="hud-value">28.6139° N, 77.2090° E</span>
+              <!-- Chronometer Capsule -->
+              <div class="telemetry-pill">
+                <div class="telemetry-pill-left">
+                  <span class="telemetry-dot pulse"></span>
+                  <span class="telemetry-lbl">LOCAL TIME:</span>
+                </div>
+                <span class="telemetry-val" id="hud-time">16:03:40 GMT+0530 (IST)</span>
+                <span class="telemetry-subval">INDIAN STANDARD TIME</span>
               </div>
-              <div class="hud-spec-row">
-                <span class="hud-label">SERVICE RANGE</span>
-                <span class="hud-value">GLOBAL / REMOTE &amp; SELECTED TRAVEL</span>
+              <!-- Core Vector Capsule -->
+              <div class="telemetry-pill">
+                <div class="telemetry-pill-left">
+                  <span class="telemetry-dot"></span>
+                  <span class="telemetry-lbl">FOCUS:</span>
+                </div>
+                <span class="telemetry-val">MERN · AGENTIC AI · VECTOR RAG</span>
+                <span class="telemetry-subval">FULL-LIFECYCLE SYSTEMS</span>
               </div>
             </div>
+          </div>
+
+          <!-- Dual Fast-Action Glass Capsules -->
+          <div class="inquire-action-strip">
+            <!-- Resume Download Glass Pill -->
+            <a href="https://github.com/harsh-pratap-singh-rathore" target="_blank" rel="noopener noreferrer" class="btn-contact-resume magnetic-element" aria-label="Download Resume / Curriculum Vitae">
+              <div class="btn-resume-icon-glass">
+                <svg class="resume-mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                </svg>
+              </div>
+              <div class="btn-resume-copy">
+                <span class="resume-title">DOWNLOAD RESUME . CV</span>
+                <span class="resume-meta">2026 VERIFIED ARCHIVE</span>
+              </div>
+              <span class="resume-arr">↓</span>
+            </a>
+
+            <!-- One-Click Instant Email Copy Pill -->
+            <button type="button" class="btn-copy-email-pill magnetic-element" id="btn-copy-direct-email" aria-label="Copy Direct Email Address">
+              <div class="btn-copy-icon-glass">
+                <svg class="copy-mini-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+              </div>
+              <span class="btn-copy-text">COPY EMAIL ADDRESS</span>
+              <span class="btn-copy-badge">1-TAP</span>
+            </button>
           </div>
         </div>
 
-        <!-- Right Side: Interactive Action Pane -->
+        <!-- Right Side: iOS 27 Liquid Glass Capsule Suite -->
         <div class="contact-action-pane">
-          
-          <!-- Premium Contact Table -->
-          <div class="contact-table">
-            <span class="table-header-mono">// CHANNELS</span>
-            
-            <!-- Email Channel -->
-            <a href="mailto:harshpratapsinghrathore555@gmail.com" class="contact-channel-item magnetic-element" id="contact-email">
-              <div class="channel-icon-wrapper">
-                <svg class="channel-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-              </div>
-              <div class="channel-text-group">
-                <span class="channel-title">EMAIL</span>
-                <span class="channel-sub">SECURE DIRECT INQUIRY</span>
-              </div>
-              <div class="channel-arrow">
-                <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12H19M19 12L13 6M19 12L13 18"/>
-                </svg>
-              </div>
-            </a>
-
-            <!-- GitHub Channel -->
-            <a href="https://github.com/harsh-pratap-singh-rathore" target="_blank" class="contact-channel-item magnetic-element" id="contact-github">
-              <div class="channel-icon-wrapper">
-                <svg class="channel-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13v22"/>
-                </svg>
-              </div>
-              <div class="channel-text-group">
-                <span class="channel-title">GITHUB</span>
-                <span class="channel-sub">ACTIVE SOURCE ARCHIVES</span>
-              </div>
-              <div class="channel-arrow">
-                <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12H19M19 12L13 6M19 12L13 18"/>
-                </svg>
-              </div>
-            </a>
-
-            <!-- LinkedIn Channel -->
-            <a href="https://www.linkedin.com/in/harsh-rathore-1597012aa/" target="_blank" class="contact-channel-item magnetic-element" id="contact-linkedin">
-              <div class="channel-icon-wrapper">
-                <svg class="channel-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
-                  <circle cx="4" cy="4" r="2"/>
-                </svg>
-              </div>
-              <div class="channel-text-group">
-                <span class="channel-title">LINKEDIN</span>
-                <span class="channel-sub">PROFESSIONAL SYNDICATE</span>
-              </div>
-              <div class="channel-arrow">
-                <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12H19M19 12L13 6M19 12L13 18"/>
-                </svg>
-              </div>
-            </a>
+          <div class="capsules-header-strip">
+            <span class="inquire-capsules-label">// DIRECT DISPATCH CHANNELS</span>
+            <span class="capsules-spec-tag">SECURE NODES // 03</span>
           </div>
 
-          <!-- Redesigned Cinematic Submit Button -->
+          <div class="inquire-capsules-list">
+            <!-- Email Liquid Glass Capsule -->
+            <div class="inquire-glass-capsule capsule-email magnetic-element" id="capsule-email-node">
+              <div class="capsule-liquid-shimmer" aria-hidden="true"></div>
+              <a href="mailto:harshpratapsinghrathore555@gmail.com" class="capsule-main-link" aria-label="Send Email to Harsh Rathore">
+                <div class="capsule-icon-box mail-brand-box">
+                  <svg class="capsule-brand-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="3" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </div>
+                <div class="capsule-details">
+                  <span class="capsule-sub">PRIMARY DISPATCH · EMAIL</span>
+                  <span class="capsule-main">harshpratapsinghrathore555@gmail.com</span>
+                </div>
+              </a>
+              <div class="capsule-controls">
+                <button type="button" class="capsule-chip-copy" data-copy="harshpratapsinghrathore555@gmail.com" title="Copy Email" aria-label="Copy Email Address">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chip-svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  <span>COPY</span>
+                </button>
+                <a href="mailto:harshpratapsinghrathore555@gmail.com" class="capsule-arrow-box" aria-label="Open Mail Client">
+                  <span class="capsule-arr">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- GitHub Liquid Glass Capsule -->
+            <div class="inquire-glass-capsule capsule-github magnetic-element" id="capsule-github-node">
+              <div class="capsule-liquid-shimmer" aria-hidden="true"></div>
+              <a href="https://github.com/harsh-pratap-singh-rathore" target="_blank" rel="noopener noreferrer" class="capsule-main-link" aria-label="Open Harsh Rathore GitHub profile">
+                <div class="capsule-icon-box github-brand-box">
+                  <svg class="capsule-brand-svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+                  </svg>
+                </div>
+                <div class="capsule-details">
+                  <span class="capsule-sub">SOURCE ARCHIVE · GITHUB</span>
+                  <span class="capsule-main">github.com/harsh-pratap-singh-rathore</span>
+                </div>
+              </a>
+              <div class="capsule-controls">
+                <span class="capsule-chip-badge">20+ REPOS</span>
+                <a href="https://github.com/harsh-pratap-singh-rathore" target="_blank" rel="noopener noreferrer" class="capsule-arrow-box" aria-label="Explore GitHub">
+                  <span class="capsule-arr">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- LinkedIn Liquid Glass Capsule -->
+            <div class="inquire-glass-capsule capsule-linkedin magnetic-element" id="capsule-linkedin-node">
+              <div class="capsule-liquid-shimmer" aria-hidden="true"></div>
+              <a href="https://www.linkedin.com/in/harsh-rathore-1597012aa/" target="_blank" rel="noopener noreferrer" class="capsule-main-link" aria-label="Open Harsh Rathore LinkedIn profile">
+                <div class="capsule-icon-box linkedin-brand-box">
+                  <svg class="capsule-brand-svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                  </svg>
+                </div>
+                <div class="capsule-details">
+                  <span class="capsule-sub">PROFESSIONAL GRAPH · LINKEDIN</span>
+                  <span class="capsule-main">linkedin.com/in/harsh-rathore-1597012aa</span>
+                </div>
+              </a>
+              <div class="capsule-controls">
+                <span class="capsule-chip-badge verified">VERIFIED</span>
+                <a href="https://www.linkedin.com/in/harsh-rathore-1597012aa/" target="_blank" rel="noopener noreferrer" class="capsule-arrow-box" aria-label="Connect on LinkedIn">
+                  <span class="capsule-arr">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive iOS 27 Fast Dispatch Pod -->
+          <div class="inquire-dispatch-console">
+            <div class="console-label-row">
+              <span class="console-label">// FAST DISPATCH TRANSMITTER</span>
+              <span class="console-spec-tag">PRE-ROUTED CLIENT DISPATCH</span>
+            </div>
+            <!-- Quick Intent Selector Pills -->
+            <div class="dispatch-intent-pills">
+              <button type="button" class="intent-pill active" data-subject="Full-Stack Engineering Project Inquiry">⚡ Full-Stack Project</button>
+              <button type="button" class="intent-pill" data-subject="Agentic AI &amp; Vector System Architecture">🤖 Agentic AI System</button>
+              <button type="button" class="intent-pill" data-subject="Consulting &amp; Engineering Contract Inquiry">💼 Contract / Hire</button>
+            </div>
+            <!-- Interactive Liquid Input Capsule -->
+            <form class="dispatch-input-capsule" id="fast-dispatch-form">
+              <input type="text" class="dispatch-text-field" id="dispatch-message-input" placeholder="Type a brief project note or question..." aria-label="Quick Project Message" />
+              <button type="submit" class="dispatch-send-btn magnetic-element" aria-label="Transmit Fast Dispatch">
+                <span>TRANSMIT</span>
+                <span class="dispatch-send-arrow">↗</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Direct Primary Action Liquid Glass Capsule Button -->
           <div class="contact-button-wrapper">
-            <a href="mailto:harshpratapsinghrathore555@gmail.com" class="btn-cinematic-contact magnetic-element">
+            <a href="mailto:harshpratapsinghrathore555@gmail.com?subject=Full-Stack%20%26%20AI%20Engineering%20Collaboration" class="btn-cinematic-contact magnetic-element" id="btn-start-conversation" aria-label="Initialize conversation with Harsh Rathore">
               <span class="btn-shine"></span>
               <span class="btn-bg"></span>
               <span class="btn-border"></span>
               <div class="btn-content-inner">
-                <span class="btn-text">SEND DIRECT MESSAGE</span>
+                <span class="btn-sub-indicator">// INITIALIZE SESSION</span>
+                <span class="btn-text">START A DIRECT CONVERSATION</span>
                 <span class="btn-icon">
-                  <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </span>
               </div>
             </a>
           </div>
-
         </div>
       </div>
     </section>
@@ -653,13 +1561,89 @@
     <footer id="main-footer">
       <div class="footer-grid">
         <div class="footer-brand">HARSH RATHORE ARCHIVE ©2026</div>
-        <div class="footer-designation">JAVASCRIPT DEVELOPER // FASHION CAMPAIGN AESTHETIC</div>
-        <div class="footer-spec">MADE WITH VANILLA SYSTEM. NO FRAMEWORKS. NO SHORTCUTS.</div>
+        <div class="footer-designation">FULL-STACK DEVELOPER // MERN &amp; AGENTIC AI ARCHITECTURE</div>
+        <div class="footer-spec">BUILT WITH VANILLA WEB STANDARDS. ZERO SHORTCUTS. SURAT, GUJARAT.</div>
       </div>
     </footer>
 
+    <!-- ─────────────── iOS LIQUID GLASS FLOATING BOTTOM DOCK (MOBILE / TABLET) ─────────────── -->
+    <nav class="ios-bottom-dock" id="iosBottomDock" aria-label="Mobile Navigation Dock">
+      <div class="bottom-dock-glass">
+        <!-- Dynamic Sliding Liquid Glass Capsule Highlight (Apple Find My Style) -->
+        <div class="bottom-dock-capsule" id="bottomDockCapsule" aria-hidden="true"></div>
+
+        <ul class="bottom-dock-list">
+          <li class="bottom-dock-item">
+            <a href="#about" class="bottom-dock-link is-active" data-index="0" aria-label="Navigate to About">
+              <div class="dock-icon-wrapper">
+                <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <span class="dock-label">About</span>
+            </a>
+          </li>
+
+          <li class="bottom-dock-item">
+            <a href="#projects" class="bottom-dock-link" data-index="1" aria-label="Navigate to Work">
+              <div class="dock-icon-wrapper">
+                <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+                <span class="dock-badge-dot" aria-hidden="true"></span>
+              </div>
+              <span class="dock-label">Work</span>
+            </a>
+          </li>
+
+          <li class="bottom-dock-item">
+            <a href="#progress" class="bottom-dock-link" data-index="2" aria-label="Navigate to Progress">
+              <div class="dock-icon-wrapper">
+                <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+              </div>
+              <span class="dock-label">Progress</span>
+            </a>
+          </li>
+
+          <li class="bottom-dock-item">
+            <a href="#skills" class="bottom-dock-link" data-index="3" aria-label="Navigate to Expertise">
+              <div class="dock-icon-wrapper">
+                <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                  <polyline points="2 17 12 22 22 17"/>
+                  <polyline points="2 12 12 17 22 12"/>
+                </svg>
+              </div>
+              <span class="dock-label">Skills</span>
+            </a>
+          </li>
+
+          <li class="bottom-dock-item">
+            <a href="#contact" class="bottom-dock-link" data-index="4" aria-label="Navigate to Inquire">
+              <div class="dock-icon-wrapper">
+                <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </div>
+              <span class="dock-label">Inquire</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Interactive Copy Toast Container -->
+    <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
   </main>
 
+  <!-- Centralized Portfolio Data -->
+  <script src="data.js"></script>
+  <!-- Main Cinematic & Motion Engine -->
   <script src="script.js"></script>
 </body>
 
