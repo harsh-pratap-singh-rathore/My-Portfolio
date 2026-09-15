@@ -1013,6 +1013,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       currentSlide = newIndex;
 
+      const isMobile = window.innerWidth <= 768;
+
       // Update Slides
       projectCards.forEach((card, idx) => {
         if (idx === currentSlide) {
@@ -1020,17 +1022,22 @@ document.addEventListener('DOMContentLoaded', () => {
           card.style.display = 'block';
           requestAnimationFrame(() => {
             card.style.opacity = '1';
-            card.style.transform = 'translate3d(0, 0, 0) scale(1)';
+            card.style.transform = 'translate3d(0, 0, 0)';
           });
         } else {
           card.classList.remove('is-active');
           card.style.opacity = '0';
-          card.style.transform = idx < currentSlide ? 'translate3d(-24px, 0, 0) scale(0.985)' : 'translate3d(24px, 0, 0) scale(0.985)';
+          if (isMobile) {
+            card.style.transform = idx < currentSlide ? 'translate3d(-16px, 0, 0)' : 'translate3d(16px, 0, 0)';
+          } else {
+            // Desktop: very subtle in-place micro-shift, zero awkward large sliding carousel
+            card.style.transform = 'translate3d(0, 4px, 0)';
+          }
           setTimeout(() => {
             if (!card.classList.contains('is-active')) {
               card.style.display = 'none';
             }
-          }, 350);
+          }, 220);
         }
       });
 
