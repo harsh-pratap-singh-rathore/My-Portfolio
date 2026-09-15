@@ -153,8 +153,11 @@
           <div class="editorial-image-container">
             <div class="image-overlay-filter"></div>
             <div class="glass-sheen-shine"></div>
-            <!-- High-resolution portrait of Harsh Rathore -->
-            <img src="profile.png" width="800" height="1000" alt="Harsh Rathore - Full-Stack Web Developer & AI Systems Engineer" class="editorial-img" />
+            <!-- High-resolution portrait of Harsh Rathore (Optimized 86KB asset) -->
+            <picture>
+              <source srcset="profile.jpg" type="image/jpeg">
+              <img src="profile.png" width="800" height="1000" alt="Harsh Rathore - Full-Stack Web Developer & AI Systems Engineer" class="editorial-img" fetchpriority="high" decoding="async" />
+            </picture>
             
             <!-- Corner Floating Glass HUD Badges -->
             <div class="frame-glass-tag frame-tag-top">

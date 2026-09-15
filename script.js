@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const nameToSpell   = "HARSH";
   const nameLength    = nameToSpell.length;
 
-  // Timing variables (Fast, high-performance cinematic intro)
-  const letterIntervalMs = 120;
+  // Timing variables (Cinematic 2.3s high-performance intro)
+  const letterIntervalMs = 240;
   let letterTimeout   = null;
   let counterTimer    = null;
   let impactTimeouts  = [];
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { filter: 'blur(4px)', transform: 'translate3d(0, 14px, 0) scale(0.97)', opacity: 0 },
             { filter: 'blur(0px)', transform: 'translate3d(0, 0, 0) scale(1)', opacity: 1 }
           ], {
-            duration: 250,
+            duration: 320,
             easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
             fill: 'forwards'
           });
@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ── 2. Fast Loading Counter 00 -> 100% via requestAnimationFrame ──
-  const counterDurationMs = 800;
+  // ── 2. Cinematic Loading Counter 00 -> 100% via requestAnimationFrame ──
+  const counterDurationMs = 2300;
   let startTimestamp = null;
 
   function runCounter(timestamp) {
@@ -79,16 +79,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!startTimestamp) startTimestamp = timestamp;
     const elapsed = timestamp - startTimestamp;
 
-    const progress = Math.min(elapsed / counterDurationMs, 1);
-    const currentCount = progress * 100;
+    const linearProgress = Math.min(elapsed / counterDurationMs, 1);
+    // Smooth quadratic ease-out for natural deceleration
+    const easedProgress = linearProgress * (2 - linearProgress);
+    const currentCount = Math.min(100, Math.floor(easedProgress * 100));
 
     if (counterVal) {
-      counterVal.textContent = Math.floor(currentCount).toString().padStart(2, '0');
+      counterVal.textContent = currentCount.toString().padStart(2, '0');
     }
 
-    if (progress < 1) {
+    if (linearProgress < 1) {
       counterTimer = requestAnimationFrame(runCounter);
     } else {
+      if (counterVal) counterVal.textContent = '100';
       triggerCinematicImpact();
     }
   }
@@ -337,24 +340,34 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     interactiveElements.forEach(el => {
+      let elRect = null;
+      let elRaf = null;
+
       el.addEventListener('mouseenter', () => {
         targetScale = 1.8;
         if (cursorRing) cursorRing.classList.add('hover');
+        elRect = el.getBoundingClientRect();
       });
 
       el.addEventListener('mouseleave', () => {
         targetScale = 1.0;
         if (cursorRing) cursorRing.classList.remove('hover');
+        if (elRaf) cancelAnimationFrame(elRaf);
+        elRect = null;
         el.style.transform = 'translate3d(0, 0, 0)';
       });
 
       el.addEventListener('mousemove', (e) => {
-        const rect = el.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const pullX = (e.clientX - centerX) * 0.22;
-        const pullY = (e.clientY - centerY) * 0.22;
-        el.style.transform = `translate3d(${pullX}px, ${pullY}px, 0)`;
+        if (!elRect) elRect = el.getBoundingClientRect();
+        if (elRaf) cancelAnimationFrame(elRaf);
+        elRaf = requestAnimationFrame(() => {
+          if (!elRect) return;
+          const centerX = elRect.left + elRect.width / 2;
+          const centerY = elRect.top + elRect.height / 2;
+          const pullX = (e.clientX - centerX) * 0.22;
+          const pullY = (e.clientY - centerY) * 0.22;
+          el.style.transform = `translate3d(${pullX.toFixed(2)}px, ${pullY.toFixed(2)}px, 0)`;
+        });
       });
     });
   } else {
@@ -811,80 +824,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollProgressBars();
 
   /* ─────────────────────────────────────────────
-     10. iOS Liquid Glass Floating Bottom Dock (Mobile / Tablet)
-     ───────────────────────────────────────────── */
-  function initBottomDock() {
-    const dock = document.getElementById('iosBottomDock');
-    const capsule = document.getElementById('bottomDockCapsule');
-    if (!dock || !capsule) return;
-
-    const links = Array.from(dock.querySelectorAll('.bottom-dock-link'));
-    if (!links.length) return;
-
-    let activeLink = links.find(l => l.classList.contains('is-active')) || links[0];
-
-    function moveCapsule(targetLink, animate = true) {
-      if (!targetLink) return;
-      const glass = dock.querySelector('.bottom-dock-glass');
-      if (!glass) return;
-
-      const glassRect = glass.getBoundingClientRect();
-      const linkRect = targetLink.getBoundingClientRect();
-
-      if (glassRect.width === 0 || linkRect.width === 0) return;
-
-      const leftOffset = linkRect.left - glassRect.left;
-      const targetWidth = linkRect.width;
-
-      if (!animate) {
-        capsule.style.transition = 'none';
-      } else {
-        capsule.style.transition = 'transform 0.44s cubic-bezier(0.34, 1.35, 0.64, 1), width 0.44s cubic-bezier(0.34, 1.35, 0.64, 1), opacity 0.25s ease';
-      }
-
-      capsule.style.transform = `translate3d(${leftOffset}px, 0, 0)`;
-      capsule.style.width = `${targetWidth}px`;
-      capsule.style.opacity = '1';
-    }
-
-    window.refreshBottomDockCapsule = (animate = false) => {
-      const curr = links.find(l => l.classList.contains('is-active')) || activeLink;
-      moveCapsule(curr, animate);
-    };
-
-    window.updateBottomDockActive = (sectionId) => {
-      const match = links.find(l => l.getAttribute('href') === `#${sectionId}`);
-      if (match) {
-        links.forEach(l => l.classList.remove('is-active'));
-        match.classList.add('is-active');
-        activeLink = match;
-        moveCapsule(match, true);
-      }
-    };
-
-    // Click handler for dock items
-    links.forEach(link => {
-      link.addEventListener('click', (e) => {
-        links.forEach(l => l.classList.remove('is-active'));
-        link.classList.add('is-active');
-        activeLink = link;
-        moveCapsule(link, true);
-      });
-    });
-
-    // Initial position
-    setTimeout(() => {
-      moveCapsule(activeLink, false);
-    }, 120);
-
-    window.addEventListener('resize', () => {
-      window.refreshBottomDockCapsule(false);
-    }, { passive: true });
-  }
-
-  initBottomDock();
-
-  /* ─────────────────────────────────────────────
      11. Cinematic Scroll Reveal Suite
      ───────────────────────────────────────────── */
   function initScrollReveals() {
@@ -1099,21 +1038,34 @@ document.addEventListener('DOMContentLoaded', () => {
       projectCards.forEach(card => observer.observe(card));
     }
 
-    // 3D Specular Tilt on Desktop Hover
+    // 3D Specular Tilt on Desktop Hover — Optimized with Cached Rect & rAF
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
       projectCards.forEach(card => {
+        let cardRect = null;
+        let cardRaf = null;
+
+        card.addEventListener('mouseenter', () => {
+          cardRect = card.getBoundingClientRect();
+        });
+
         card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          const rotateX = ((y - centerY) / centerY) * -2.5;
-          const rotateY = ((x - centerX) / centerX) * 2.5;
-          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px)`;
+          if (!cardRect) cardRect = card.getBoundingClientRect();
+          if (cardRaf) cancelAnimationFrame(cardRaf);
+          cardRaf = requestAnimationFrame(() => {
+            if (!cardRect) return;
+            const x = e.clientX - cardRect.left;
+            const y = e.clientY - cardRect.top;
+            const centerX = cardRect.width / 2;
+            const centerY = cardRect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -2.5;
+            const rotateY = ((x - centerX) / centerX) * 2.5;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px)`;
+          });
         });
 
         card.addEventListener('mouseleave', () => {
+          if (cardRaf) cancelAnimationFrame(cardRaf);
+          cardRect = null;
           card.style.transform = '';
         });
       });
