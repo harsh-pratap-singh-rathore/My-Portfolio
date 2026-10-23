@@ -1,51 +1,57 @@
-# H. RATHORE — CREATIVE PORTFOLIO // ISSUE 01
+# HARSH RATHORE — CREATIVE PORTFOLIO // ISSUE 02
 
-A highly premium, animated personal portfolio landing page built with a cinematic fashion-campaign aesthetic, luxury micro-interactions, and brutalist structural forms. Handcrafted with pixel-level devotion using raw **HTML5**, **CSS3**, and **Vanilla JavaScript**.
+An ultra-luxury, high-performance personal portfolio landing page engineered at the intersection of haute-couture editorial typography, brutalist structural forms, and next-generation fluid interfaces (**ColorOS Aqua Dynamics & iOS Liquid Glass**). Handcrafted with pixel-level devotion using raw **HTML5**, **CSS3**, and **Vanilla JavaScript**.
 
 ---
 
 ## ── DESIGN PHILOSOPHY & AESTHETICS
 
-Rejecting the generic UI template. Embracing extreme intent. Drawing heavy influence from upscale luxury print, architectural forms, and avant-garde editorial designs. 
+Rejecting generic web templates. Embracing extreme intent, fluid liquidity, and architectural balance:
 
-* **Cinematic Minimal Mood**: Warm off-white canvases (`#f5f4f0`) contrasted with sharp pure-charcoal brutalist lines (`#0d0d0d`) and deep campaign ruby-crimson accents (`#9e1a2b`).
-* **Tactile Material Gradients**: Subtle film noise grain projections and soft radial glass blobs drifting slowly in the background.
-* **Typographical Hierarchy**: Large ultra-wide structural brutalist headers paired with high-contrast didone serif styling and industrial monospace specifications.
-
----
-
-## ── CORE ARCHITECTURAL ENGINE
-
-1. **Immersive Cinematic Preloader (Aperture Scene)**: 
-   * A 3.0-second natural loading counter scaling from `00` to `100`.
-   * Lens-blur letter-reveal spelling out "HARSH" followed by an elegant vertical rising reveal for "RATHORE".
-   * A camera flash shutter exit curtain that dissolves cleanly into the portfolio space.
-2. **Circular Asymmetrical Morphing Hamburger**:
-   * A custom-designed navigation toggle with thin, high-end lines.
-   * On-hover elastic scaling animations.
-   * Smooth, hardware-accelerated SVG transformation morphing from lines into a minimalist close "X" cross.
-3. **Double-Layered Parallax Curtain Sweep**:
-   * A double-sheet overlay opening mechanism.
-   * Layer 1 (Curtain) sweeps down in a fluid curve followed by Layer 2 (Linen nav sheet) carrying independent film grain and outlined watermark backdrops.
-   * Staggered navigation links that slide up and rotate into view on scroll.
-4. **Interactive Floating 3D Spec Sheets**:
-   * Multi-layered floating CSS code cards scattered along the hero margins.
-   * Slow, organic 3D float keyframe loops running on hardware-accelerated transforms.
-   * Responsive standard: Cleanly hidden under `1024px` viewports to preserve absolute mobile readability.
-5. **GPU-Accelerated Magnetic Engine**:
-   * Custom cursor tracking system (smooth LERP dot + trailing ring) locked at 60fps.
-   * Layout-thrashing-free magnetic pull listeners that slide interactive buttons toward the pointer coordinates on close proximity.
-   * Automatically disabled on mobile/tablet viewports to ensure zero scrolling latency.
-6. **Local IST Timezone HUD Tracker**:
-   * Real-time ticking time clock synchronizing with Indian Standard Time (GMT+0530) to anchor the portfolio's physical origin.
+* **ColorOS Living Flow & Aqua Dynamics**: Interface elements behave like cohesive liquid mercury. Floating acrylic panels feature surface-tension borders, organic luminous refraction, and fluid inertia.
+* **iOS Liquid Glass Physics**: Translucent navigation capsules with spring-overshoot stretching physics (`cubic-bezier(0.34, 1.56, 0.64, 1)`), morphing seamlessly across tabs with tactile momentum.
+* **Airy Modern Typography**: High-contrast Didone serif (`Bodoni Moda`) reserved strictly for display headings, numerals, and drop-caps, while all narrative body copy is set in modern geometric sans (`Plus Jakarta Sans`) with generous `1.75–1.8` line-height and relaxed letter-spacing to eliminate visual clutter.
+* **Brutalist Monochrome & Ruby Contrast**: Pure ivory canvas (`#f5f4f0`) contrasted against deep charcoal structural lines (`#0d0d0d`), translucent liquid acrylic layers, and subtle campaign crimson telemetry accents (`#9e1a2b`).
 
 ---
 
-## ── RESPONSIVE SPECIFICATIONS
+## ── ARCHITECTURAL & INTERACTIVE ENGINE
 
-* **Desktop Viewport (> 1024px)**: Full widescreen layout featuring centered editorial grids, floating decor specs, and horizontal navigation bar.
-* **Mobile / Tablet Viewport (≤ 1024px)**: Transition to stacked mobile cards, native touchscreen scrolling, and animated hamburger curtain sweep menu.
-* **Window Resize Watcher**: Active viewport listeners that cleanly reset active curtain classes, locks, and accessibility states when resizing back to desktop screens.
+1. **Accelerated Aperture Preloader with Session Caching**:
+   - Streamlined 1.25s cinematic entry counter with snappier 130ms letter reveal.
+   - `sessionStorage` awareness: Repeat visits and reloads bypass the preloader in 40ms flat.
+   - Fully accessible `inert` focus trapping during intro execution.
+
+2. **Liquid Acrylic Navigation & Mobile Floating Dock**:
+   - **Desktop**: Segmented glass capsule bar with kinetic elastic stretching (`scaleX(1.24) scaleY(0.88)`) as it tracks active sections via ScrollSpy.
+   - **Mobile (Smartphones)**: Ergonomic floating iOS glass bottom dock (`#iosBottomDock`) with haptic-styled touch feedback and synchronized capsule glides.
+
+3. **Selected Works // Visual Product Stages**:
+   - Replaced flat text bullets with translucent liquid acrylic exhibition cards (`backdrop-filter: blur(44px) saturate(220%)`).
+   - **Shree Karni Textiles**: Live simulated wholesale textile search bar, dynamic category chips, and live telemetry badges (`10,000+ m² Indexed`, `48ms TTFB`).
+   - **Code Canvas**: Interactive CSS Studio workbench with real-time UI component canvas and live compiled CSS terminal panel.
+   - **My Voice**: Real-time municipal incident triage pipeline mockup with live status pills (`94.2% RESOLVED`, `18 IN TRIAGE`, `42 DISPATCHED`).
+   - Mobile touch swipe gestures with direction thresholds and 3D specular hover tilt on desktop.
+
+4. **Section 03 // Research & Papers (Editorial Archive)**:
+   - Dedicated editorial research gallery featuring 3 frosted glass monograph reservation cards (*Autonomous LLM Agent Architectures*, *Dense Vector Retrieval*, *Resilient Asynchronous Pipelines*).
+   - Structured abstract callouts, embargo status indicators, and clean topic tags ready for publication links.
+
+5. **Fast Dispatch Console & Inquire Suite**:
+   - 1-tap clipboard email copier with dynamic status pill feedback.
+   - Topic intent selector pills pre-populating direct mailto dispatch links.
+
+6. **Real-Time IST Timezone Telemetry**:
+   - Live Indian Standard Time (IST / GMT+05:30) HUD clock in the header displaying current local time.
+
+---
+
+## ── PERFORMANCE & PAYLOAD OPTIMIZATIONS
+
+* **Initial Network Payload Cut by 2.05 MB**: Switched fallback `<picture>` asset to an 86 KB optimized photograph.
+* **Zero Layout Thrashing**: Specular 3D hover effects cache bounding client rects and throttle updates through `requestAnimationFrame`.
+* **Clean Codebase**: Removed 4.12 MB of orphaned image files and 117 lines of unused legacy slider code.
+* **Reversion Safety**: Complete original snapshot preserved in `.backup_original/`.
 
 ---
 

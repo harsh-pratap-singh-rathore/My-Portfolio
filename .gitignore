@@ -16,3 +16,5 @@ Thumbs.db
 artifacts/
 brain/
 file_*.png
+.backup_original/
+

@@ -24,13 +24,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const nameToSpell   = "HARSH";
   const nameLength    = nameToSpell.length;
 
-  // Timing variables (Cinematic 2.3s high-performance intro)
-  const letterIntervalMs = 240;
+  // Timing variables (Cinematic snappier intro with accelerated fluidity)
+  const letterIntervalMs = 130;
   let letterTimeout   = null;
   let counterTimer    = null;
   let impactTimeouts  = [];
   let startTimeout    = null;
   let isIntroFinished = false;
+
+  // Session Caching for Instant Return Visits
+  const hasVisitedSession = sessionStorage.getItem('hr_portfolio_visited');
+  if (hasVisitedSession) {
+    setTimeout(() => {
+      skipIntro();
+    }, 40);
+  } else {
+    try {
+      sessionStorage.setItem('hr_portfolio_visited', 'true');
+    } catch (e) {}
+  }
 
   // Set inert accessibility attribute during preloader
   if (mainContent) {
@@ -70,8 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ── 2. Cinematic Loading Counter 00 -> 100% via requestAnimationFrame ──
-  const counterDurationMs = 2300;
+  // ── 2. Cinematic Loading Counter 00 -> 100% via requestAnimationFrame (Snappy 1.25s) ──
+  const counterDurationMs = 1250;
   let startTimestamp = null;
 
   function runCounter(timestamp) {
@@ -384,8 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!dock || !glass || !capsule || !dockLinks.length) return;
 
     let activeLink = document.querySelector('.bottom-dock-link.is-active') || dockLinks[0];
-    let isClickScrolling = false;
-    let scrollTimeout = null;
+    let prevBottomLeft = 0;
 
     function moveBottomCapsule(targetEl, animate = true) {
       if (!targetEl) return;
@@ -396,15 +407,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const leftOffset = targetRect.left - glassRect.left;
       const targetWidth = targetRect.width;
+      const dx = leftOffset - prevBottomLeft;
+      prevBottomLeft = leftOffset;
 
       if (!animate) {
         capsule.style.transition = 'none';
+        capsule.style.transform = `translate3d(${leftOffset}px, 0, 0)`;
+        capsule.style.width = `${targetWidth}px`;
       } else {
-        capsule.style.transition = 'transform 0.44s cubic-bezier(0.34, 1.35, 0.64, 1), width 0.44s cubic-bezier(0.34, 1.35, 0.64, 1), opacity 0.25s ease';
+        // ColorOS Aqua Dynamics & iOS Liquid Glass Elastic Stretching
+        if (Math.abs(dx) > 8) {
+          const stretch = Math.min(1.22, 1 + Math.abs(dx) * 0.0016);
+          const compressY = Math.max(0.88, 1 - (stretch - 1) * 0.55);
+          capsule.style.transition = 'transform 0.46s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.42s cubic-bezier(0.34, 1.45, 0.64, 1), opacity 0.25s ease';
+          capsule.style.transform = `translate3d(${leftOffset}px, 0, 0) scaleX(${stretch.toFixed(3)}) scaleY(${compressY.toFixed(3)})`;
+          capsule.style.width = `${targetWidth}px`;
+
+          setTimeout(() => {
+            capsule.style.transform = `translate3d(${leftOffset}px, 0, 0) scale(1)`;
+          }, 220);
+        } else {
+          capsule.style.transition = 'transform 0.42s cubic-bezier(0.34, 1.45, 0.64, 1), width 0.42s cubic-bezier(0.34, 1.45, 0.64, 1), opacity 0.25s ease';
+          capsule.style.transform = `translate3d(${leftOffset}px, 0, 0) scale(1)`;
+          capsule.style.width = `${targetWidth}px`;
+        }
       }
 
-      capsule.style.transform = `translate3d(${leftOffset}px, 0, 0)`;
-      capsule.style.width = `${targetWidth}px`;
       capsule.style.opacity = '1';
     }
 
@@ -525,6 +553,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeItem = document.querySelector('.editorial-nav .nav-item.active') || navItems[0];
     let isClickScrolling = false;
     let scrollTimeout = null;
+    let prevLeftOffset = 0;
 
     function moveCapsule(targetEl, animate = true) {
       if (!targetEl) return;
@@ -536,15 +565,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const leftOffset = targetRect.left - trackRect.left;
       const targetWidth = targetRect.width;
+      const dx = leftOffset - prevLeftOffset;
+      prevLeftOffset = leftOffset;
 
       if (!animate) {
         capsule.style.transition = 'none';
+        capsule.style.transform = `translate3d(${leftOffset}px, 0, 0)`;
+        capsule.style.width = `${targetWidth}px`;
       } else {
-        capsule.style.transition = 'transform 0.44s cubic-bezier(0.34, 1.35, 0.64, 1), width 0.44s cubic-bezier(0.34, 1.35, 0.64, 1), opacity 0.25s ease';
+        // ColorOS Aqua Dynamics & iOS Liquid Glass Elastic Stretching Mechanics
+        if (Math.abs(dx) > 10) {
+          const stretch = Math.min(1.24, 1 + Math.abs(dx) * 0.0018);
+          const compressY = Math.max(0.86, 1 - (stretch - 1) * 0.6);
+          capsule.style.transition = 'transform 0.48s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.44s cubic-bezier(0.34, 1.45, 0.64, 1), opacity 0.25s ease';
+          capsule.style.transform = `translate3d(${leftOffset}px, 0, 0) scaleX(${stretch.toFixed(3)}) scaleY(${compressY.toFixed(3)})`;
+          capsule.style.width = `${targetWidth}px`;
+
+          setTimeout(() => {
+            capsule.style.transform = `translate3d(${leftOffset}px, 0, 0) scale(1)`;
+          }, 240);
+        } else {
+          capsule.style.transition = 'transform 0.44s cubic-bezier(0.34, 1.45, 0.64, 1), width 0.44s cubic-bezier(0.34, 1.45, 0.64, 1), opacity 0.25s ease';
+          capsule.style.transform = `translate3d(${leftOffset}px, 0, 0) scale(1)`;
+          capsule.style.width = `${targetWidth}px`;
+        }
       }
 
-      capsule.style.transform = `translate3d(${leftOffset}px, 0, 0)`;
-      capsule.style.width = `${targetWidth}px`;
       capsule.style.opacity = '1';
     }
 
@@ -598,8 +644,8 @@ document.addEventListener('DOMContentLoaded', () => {
       refreshNavCapsule(false);
     }, { passive: true });
 
-    // ScrollSpy: auto-glide capsule as sections scroll into view
-    const sectionIds = ['about', 'projects', 'progress', 'skills', 'contact'];
+    // ScrollSpy: auto-glide capsule as sections scroll into view (Includes 03 // Research)
+    const sectionIds = ['about', 'projects', 'research', 'progress', 'skills', 'contact'];
     const sectionElements = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 
     if ('IntersectionObserver' in window && sectionElements.length) {
@@ -633,128 +679,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initLiquidGlassNav();
 
   /* ─────────────────────────────────────────────
-     8. 3D Stacked Project Deck Slider (iOS Style)
+     Clean Architectural Engine (Dead Slider Removed)
      ───────────────────────────────────────────── */
-  /* ─────────────────────────────────────────────
-     8. iOS 27 Liquid Glass Project Deck Slider
-     ───────────────────────────────────────────── */
-  function initIosDeckSlider() {
-    const deck = document.getElementById('iosProjectsDeck');
-    if (!deck) return;
-
-    const cards = Array.from(deck.querySelectorAll('.ios-project-card'));
-    const prevBtn = document.getElementById('iosPrevBtn');
-    const nextBtn = document.getElementById('iosNextBtn');
-    const dots = Array.from(deck.querySelectorAll('.ios-dot'));
-
-    if (!cards.length) return;
-
-    let current = 0;
-    const total = cards.length;
-    let isTransitioning = false;
-
-    function updateDeck(newIndex, direction) {
-      const prev = current;
-      current = ((newIndex % total) + total) % total;
-
-      cards.forEach((card) => {
-        card.classList.remove('is-active', 'is-next', 'is-prev', 'is-hidden', 'exit-left', 'exit-right');
-      });
-
-      // Exit animation on outgoing card
-      if (direction === 'next' && cards[prev]) {
-        cards[prev].classList.add('exit-left');
-      } else if (direction === 'prev' && cards[prev]) {
-        cards[prev].classList.add('exit-right');
-      }
-
-      // Re-assign positions
-      cards.forEach((card, i) => {
-        const offset = ((i - current) % total + total) % total;
-        if (offset === 0) {
-          card.classList.add('is-active');
-          card.setAttribute('aria-hidden', 'false');
-        } else if (offset === 1) {
-          card.classList.add('is-next');
-          card.setAttribute('aria-hidden', 'true');
-        } else if (offset === total - 1) {
-          card.classList.add('is-prev');
-          card.setAttribute('aria-hidden', 'true');
-        } else {
-          card.classList.add('is-hidden');
-          card.setAttribute('aria-hidden', 'true');
-        }
-      });
-
-      // Update dots
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('is-active', i === current);
-        dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
-      });
-    }
-
-    function goTo(index, direction) {
-      if (isTransitioning) return;
-      isTransitioning = true;
-      updateDeck(index, direction);
-      setTimeout(() => { isTransitioning = false; }, 600);
-    }
-
-    // Button events
-    if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1, 'prev'));
-    if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1, 'next'));
-
-    // Dot events
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => goTo(i, i > current ? 'next' : 'prev'));
-    });
-
-    // Touch swipe
-    let tx = 0, ty = 0;
-    deck.addEventListener('touchstart', e => {
-      tx = e.touches[0].clientX;
-      ty = e.touches[0].clientY;
-    }, { passive: true });
-    deck.addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].clientX - tx;
-      const dy = e.changedTouches[0].clientY - ty;
-      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3) {
-        dx < 0 ? goTo(current + 1, 'next') : goTo(current - 1, 'prev');
-      }
-    }, { passive: true });
-
-    // Mouse drag
-    let mx = 0, dragging = false;
-    deck.addEventListener('mousedown', e => {
-      if (e.target.closest('a, button')) return;
-      dragging = true;
-      mx = e.clientX;
-      deck.style.cursor = 'grabbing';
-    });
-    window.addEventListener('mouseup', e => {
-      if (!dragging) return;
-      dragging = false;
-      deck.style.cursor = '';
-      const dx = e.clientX - mx;
-      if (Math.abs(dx) > 50) {
-        dx < 0 ? goTo(current + 1, 'next') : goTo(current - 1, 'prev');
-      }
-    });
-
-    // Keyboard
-    window.addEventListener('keydown', e => {
-      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
-      const r = deck.getBoundingClientRect();
-      if (r.top < window.innerHeight && r.bottom > 0) {
-        e.key === 'ArrowRight' ? goTo(current + 1, 'next') : goTo(current - 1, 'prev');
-      }
-    });
-
-    // Init
-    updateDeck(0, null);
-  }
-
-  initIosDeckSlider();
 
 
 
@@ -989,185 +915,243 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ─────────────────────────────────────────────
-     15. iOS 27 Liquid Glass Projects Showcase Engine
+     15. ColorOS & iOS 27 Liquid Glass 3D Card Stack Engine (Rock-Solid & Silky Smooth)
      ───────────────────────────────────────────── */
-  /* ─────────────────────────────────────────────
-     15. iOS 27 Liquid Glass Swipable Projects Deck Engine
-     ───────────────────────────────────────────── */
-  function initProjectsShowcase() {
-    const dockTabs = document.querySelectorAll('.proj-dock-tab');
-    const projectCards = document.querySelectorAll('.project-liquid-card.deck-slide');
-    const prevBtn = document.getElementById('projPrevBtn');
-    const nextBtn = document.getElementById('projNextBtn');
-    const stepPills = document.querySelectorAll('.deck-step-pill');
-    const deckStage = document.getElementById('projectsDeckStage');
+  function createCardStackDeck(deckConfig) {
+    const {
+      deckId,
+      viewportId,
+      prevBtnId,
+      nextBtnId,
+      jumpBarId,
+      indicatorId
+    } = deckConfig;
 
-    if (!projectCards.length) return;
+    const deck = document.getElementById(deckId);
+    const viewport = document.getElementById(viewportId);
+    if (!deck) return;
 
-    let currentSlide = 0;
-    const totalSlides = projectCards.length;
+    const cards = Array.from(deck.querySelectorAll('.deck-card'));
+    if (!cards.length) return;
 
-    function goToSlide(newIndex) {
-      if (newIndex < 0) newIndex = totalSlides - 1;
-      if (newIndex >= totalSlides) newIndex = 0;
+    const totalCards = cards.length;
+    let stackOrder = cards.map((_, i) => i);
+    let isAnimating = false;
 
-      currentSlide = newIndex;
+    const prevBtn = document.getElementById(prevBtnId);
+    const nextBtn = document.getElementById(nextBtnId);
+    const jumpPills = jumpBarId ? Array.from(document.querySelectorAll('#' + jumpBarId + ' .bubble-jump-pill')) : [];
+    const indicatorPills = indicatorId ? Array.from(document.querySelectorAll('#' + indicatorId + ' .bubble-droplet-pill')) : [];
 
-      const isMobile = window.innerWidth <= 768;
+    // Apply clean stack position classes: pos-0 (front), pos-1 (behind), pos-2 (deepest)
+    function applyStackClasses() {
+      cards.forEach((card, originalIdx) => {
+        // ALWAYS purge inline transform/transition overrides so CSS classes have 100% authority
+        card.style.transform = '';
+        card.style.transition = '';
 
-      // Update Slides
-      projectCards.forEach((card, idx) => {
-        if (idx === currentSlide) {
-          card.classList.add('is-active');
-          card.style.display = 'block';
-          requestAnimationFrame(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translate3d(0, 0, 0)';
-          });
-        } else {
-          card.classList.remove('is-active');
-          card.style.opacity = '0';
-          if (isMobile) {
-            card.style.transform = idx < currentSlide ? 'translate3d(-16px, 0, 0)' : 'translate3d(16px, 0, 0)';
-          } else {
-            // Desktop: very subtle in-place micro-shift, zero awkward large sliding carousel
-            card.style.transform = 'translate3d(0, 4px, 0)';
-          }
-          setTimeout(() => {
-            if (!card.classList.contains('is-active')) {
-              card.style.display = 'none';
-            }
-          }, 220);
+        const posInStack = stackOrder.indexOf(originalIdx);
+        card.classList.remove('stack-pos-0', 'stack-pos-1', 'stack-pos-2', 'is-dismissing-next', 'is-dismissing-prev');
+        if (posInStack >= 0 && posInStack < 3) {
+          card.classList.add('stack-pos-' + posInStack);
         }
       });
 
-      // Update Swiper HUD Step Pills
-      stepPills.forEach((pill, idx) => {
-        if (idx === currentSlide) {
+      // Update active indicators
+      const activeIdx = stackOrder[0];
+      jumpPills.forEach(pill => {
+        const jumpIdx = parseInt(pill.getAttribute('data-jump'), 10);
+        if (jumpIdx === activeIdx) {
           pill.classList.add('is-active');
         } else {
           pill.classList.remove('is-active');
         }
       });
 
-      // Update Top Segmented Dock
-      dockTabs.forEach((tab, idx) => {
-        if (idx === currentSlide + 1) {
-          dockTabs.forEach(t => t.classList.remove('is-active'));
-          tab.classList.add('is-active');
+      indicatorPills.forEach(pill => {
+        const targetIdx = parseInt(pill.getAttribute('data-slide-target'), 10);
+        if (targetIdx === activeIdx) {
+          pill.classList.add('is-active');
+        } else {
+          pill.classList.remove('is-active');
         }
       });
     }
 
-    // Initialize first slide
-    goToSlide(0);
+    // Dismiss front card to the right, spring next card to front
+    function dismissNext() {
+      if (isAnimating || totalCards < 2) return;
+      isAnimating = true;
 
-    // Prev / Next Navigation Click
-    if (prevBtn) {
-      prevBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        goToSlide(currentSlide - 1);
-      });
+      // Purge any lingering inline styles
+      cards.forEach(c => { c.style.transform = ''; c.style.transition = ''; });
+
+      const frontCard = cards[stackOrder[0]];
+      const nextCard = cards[stackOrder[1]];
+      const backCard = cards[stackOrder[2]];
+
+      frontCard.classList.add('is-dismissing-next');
+
+      if (nextCard) {
+        nextCard.classList.remove('stack-pos-1');
+        nextCard.classList.add('stack-pos-0');
+      }
+
+      if (backCard) {
+        backCard.classList.remove('stack-pos-2');
+        backCard.classList.add('stack-pos-1');
+      }
+
+      setTimeout(() => {
+        const dismissedIdx = stackOrder.shift();
+        stackOrder.push(dismissedIdx);
+
+        applyStackClasses();
+        isAnimating = false;
+      }, 480);
     }
 
+    // Swoop back card in from left to front
+    function dismissPrev() {
+      if (isAnimating || totalCards < 2) return;
+      isAnimating = true;
+
+      cards.forEach(c => { c.style.transform = ''; c.style.transition = ''; });
+
+      const lastIdx = stackOrder.pop();
+      stackOrder.unshift(lastIdx);
+
+      const incomingCard = cards[lastIdx];
+      incomingCard.classList.remove('stack-pos-0', 'stack-pos-1', 'stack-pos-2');
+      incomingCard.classList.add('is-dismissing-prev');
+
+      void incomingCard.offsetWidth; // Force reflow to commit transition start
+
+      applyStackClasses();
+
+      setTimeout(() => {
+        isAnimating = false;
+      }, 480);
+    }
+
+    // Direct Jump
+    function jumpTo(targetIdx) {
+      if (isAnimating || targetIdx < 0 || targetIdx >= totalCards) return;
+      const currentFront = stackOrder[0];
+      if (targetIdx === currentFront) return;
+
+      const posInStack = stackOrder.indexOf(targetIdx);
+      if (posInStack === 1) {
+        dismissNext();
+      } else if (posInStack === 2) {
+        dismissPrev();
+      } else {
+        while (stackOrder[0] !== targetIdx) {
+          stackOrder.push(stackOrder.shift());
+        }
+        applyStackClasses();
+      }
+    }
+
+    // Prev / Next button listeners
     if (nextBtn) {
       nextBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        goToSlide(currentSlide + 1);
+        dismissNext();
       });
     }
 
-    // Indicator Step Pills Click
-    stepPills.forEach(pill => {
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dismissPrev();
+      });
+    }
+
+    // Jump Pills
+    jumpPills.forEach(pill => {
       pill.addEventListener('click', (e) => {
         e.preventDefault();
-        const slideIdx = parseInt(pill.getAttribute('data-slide'), 10);
-        if (!isNaN(slideIdx)) {
-          goToSlide(slideIdx);
+        const jumpIdx = parseInt(pill.getAttribute('data-jump'), 10);
+        jumpTo(jumpIdx);
+      });
+    });
+
+    // Indicator Droplet Pills
+    indicatorPills.forEach(pill => {
+      pill.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetIdx = parseInt(pill.getAttribute('data-slide-target'), 10);
+        jumpTo(targetIdx);
+      });
+    });
+
+    // Direct Card Click (visible edge of card behind brings it to the front)
+    cards.forEach((card, idx) => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a, button, input')) return;
+
+        const posInStack = stackOrder.indexOf(idx);
+        if (posInStack === 1) {
+          dismissNext();
+        } else if (posInStack === 2) {
+          dismissPrev();
         }
       });
     });
 
-    // Top Quick-Jump Navigation Dock
-    dockTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const filter = tab.getAttribute('data-filter');
-        if (filter === 'all' || filter === 'shree-karni') {
-          goToSlide(0);
-        } else if (filter === 'code-canvas') {
-          goToSlide(1);
-        } else if (filter === 'my-voice') {
-          goToSlide(2);
-        }
-      });
-    });
-
-    // Mobile Touch Swipe Gesture Support
-    if (deckStage) {
+    // Mobile Touch Gesture Support (Butter-smooth, zero layout thrashing)
+    if (viewport) {
       let touchStartX = 0;
       let touchStartY = 0;
-      let touchEndX = 0;
-      let touchEndY = 0;
 
-      deckStage.addEventListener('touchstart', (e) => {
+      viewport.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].clientX;
         touchStartY = e.changedTouches[0].clientY;
       }, { passive: true });
 
-      deckStage.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].clientX;
-        touchEndY = e.changedTouches[0].clientY;
-
+      viewport.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
         const diffX = touchStartX - touchEndX;
         const diffY = touchStartY - touchEndY;
 
-        // Horizontal swipe threshold
-        if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (Math.abs(diffX) > 42 && Math.abs(diffX) > Math.abs(diffY)) {
           if (diffX > 0) {
-            goToSlide(currentSlide + 1);
+            dismissNext();
           } else {
-            goToSlide(currentSlide - 1);
+            dismissPrev();
           }
         }
       }, { passive: true });
     }
 
-    // 3D Specular Tilt on Desktop Hover — Optimized with Cached Rect & rAF
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      projectCards.forEach(card => {
-        let cardRect = null;
-        let cardRaf = null;
-
-        card.addEventListener('mouseenter', () => {
-          cardRect = card.getBoundingClientRect();
-        });
-
-        card.addEventListener('mousemove', (e) => {
-          if (!cardRect) cardRect = card.getBoundingClientRect();
-          if (cardRaf) cancelAnimationFrame(cardRaf);
-          cardRaf = requestAnimationFrame(() => {
-            if (!cardRect) return;
-            const x = e.clientX - cardRect.left;
-            const y = e.clientY - cardRect.top;
-            const centerX = cardRect.width / 2;
-            const centerY = cardRect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -2.5;
-            const rotateY = ((x - centerX) / centerX) * 2.5;
-            card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
-          });
-        });
-
-        card.addEventListener('mouseleave', () => {
-          if (cardRaf) cancelAnimationFrame(cardRaf);
-          cardRect = null;
-          card.style.transform = '';
-        });
-      });
-    }
+    // Initial stack layout
+    applyStackClasses();
   }
 
-  initInquireInteractions();
-  initProjectsShowcase();
+  function init3DCardStackEngines() {
+    // 1. Projects Stack Deck
+    createCardStackDeck({
+      deckId: 'projectsCardStack',
+      viewportId: 'projectsStackViewport',
+      prevBtnId: 'projStackPrev',
+      nextBtnId: 'projStackNext',
+      jumpBarId: 'projectsJumpBar',
+      indicatorId: 'projStackIndicators'
+    });
+
+    // 2. Research Works Stack Deck
+    createCardStackDeck({
+      deckId: 'researchCardStack',
+      viewportId: 'researchStackViewport',
+      prevBtnId: 'researchStackPrev',
+      nextBtnId: 'researchStackNext',
+      jumpBarId: 'researchJumpBar',
+      indicatorId: 'researchStackIndicators'
+    });
+  }
+
+  init3DCardStackEngines();
 
 });
-
