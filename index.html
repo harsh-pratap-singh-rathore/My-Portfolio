@@ -102,7 +102,7 @@
         </div>
 
         <!-- Dropify Flagship Audio Node Pill -->
-        <a href="#projects" class="header-dropify-badge magnetic-element" title="Flagship: Dropify Audiophile DSP (Click to view)">
+        <a href="#projects" class="header-dropify-badge magnetic-element" title="Flagship: Dropify Android & Windows Audio Engine (Click to view)">
           <img src="assets/projects/dropify_logo.png" alt="Dropify Logo" class="header-dropify-logo-icon" />
           <span class="audio-wave-bars" aria-hidden="true">
             <span class="wave-bar wb-1"></span>
@@ -110,7 +110,7 @@
             <span class="wave-bar wb-3"></span>
             <span class="wave-bar wb-4"></span>
           </span>
-          <span class="dropify-badge-label">DROPIFY // HI-RES</span>
+          <span class="dropify-badge-label">DROPIFY // ANDROID &amp; PC</span>
         </a>
 
         <!-- Desktop Navigation: iOS Liquid Glass Floating Dock with Elastic Stretching Capsule -->
@@ -209,7 +209,7 @@
             </div>
             <div class="spec-row">
               <span class="spec-term">FLAGSHIP</span>
-              <span class="spec-val text-accent"><span class="status-dot-mini ruby"></span> DROPIFY // AUDIOPHILE DSP &amp; STREAMING</span>
+              <span class="spec-val text-accent"><span class="status-dot-mini ruby"></span> DROPIFY // ANDROID &amp; WINDOWS PC [v1.0.2]</span>
             </div>
             <div class="spec-row">
               <span class="spec-term">CORE STACK</span>
@@ -229,7 +229,7 @@
         <!-- MERN + AI Editorial Statement Area -->
         <div class="hero-statement-area" style="position: relative;">
           <p class="editorial-lead-para">
-            Architecting production-grade web platforms, audiophile streaming systems (<strong>Dropify</strong>), and <span class="italic-serif text-accent">autonomous AI engineering</span>. Deeply specializing in the <strong>MERN ecosystem</strong>—constructing resilient distributed backends, reactive React frontends, high-performance Web Audio DSP pipelines, and low-latency LLM agents.
+            Architecting production-grade web platforms, audiophile music players (<strong>Dropify</strong> for Android &amp; Windows), and <span class="italic-serif text-accent">autonomous AI engineering</span>. Deeply specializing in the <strong>MERN ecosystem</strong>—constructing resilient distributed backends, reactive React frontends, high-performance audio DSP pipelines, and low-latency LLM agents.
           </p>
           <div class="cta-strip">
             <a href="#projects" class="editorial-btn magnetic-element">
@@ -310,15 +310,15 @@
             <span class="dot yellow"></span>
             <span class="dot green"></span>
           </div>
-          <span class="code-shell-title">dropifyDsp.ts</span>
-          <span class="code-shell-badge">WEB AUDIO DSP</span>
+          <span class="code-shell-title">DropifyEngine.kt</span>
+          <span class="code-shell-badge">10-BAND DSP · KOTLIN</span>
         </div>
         <div class="code-shell-body">
-          <pre><code><span class="code-keyword">const</span> dsp = <span class="code-keyword">new</span> <span class="code-fn">AudiophileChain</span>({
-  bands: <span class="code-number">10</span>, stereoWidth: <span class="code-number">1.35</span>,
-  eqPreset: <span class="code-string">"bass-boost"</span>
-});
-<span class="code-keyword">export const</span> audio = dsp.<span class="code-fn">process</span>(stream);</code></pre>
+          <pre><code><span class="code-keyword">val</span> audioChain = <span class="code-fn">AudiophileChain</span>(
+  bands = <span class="code-number">10</span>, sampleRate = <span class="code-number">48000</span>,
+  platform = <span class="code-string">"Android &amp; Windows"</span>
+)
+<span class="code-keyword">val</span> playback = audioChain.<span class="code-fn">renderHighRes</span>()</code></pre>
         </div>
       </div>
     </section>
@@ -441,7 +441,7 @@
             <span class="jump-pill-dot"></span>
             <span class="jump-pill-idx">01 //</span>
             <span class="jump-pill-name">DROPIFY</span>
-            <span class="jump-pill-badge">AUDIOPHILE</span>
+            <span class="jump-pill-badge">ANDROID / PC</span>
           </button>
           <button type="button" class="bubble-jump-pill" data-jump="1" aria-label="Select Shree Karni Textiles">
             <span class="jump-pill-dot"></span>
@@ -472,7 +472,7 @@
           <article class="deck-card stack-pos-0" data-card-idx="0" data-card-id="dropify">
             <div class="deck-card-substrate" aria-hidden="true"></div>
             <div class="deck-card-media-box">
-              <img src="assets/projects/dropify.jpg" alt="Dropify Audiophile Music Platform &amp; Cross-Platform Streaming" class="deck-card-photo" loading="eager" />
+              <img src="assets/projects/dropify.jpg" alt="Dropify Native Audiophile Music Player for Android &amp; Windows PC" class="deck-card-photo" loading="eager" />
               <div class="deck-card-specular-sheen" aria-hidden="true"></div>
               
               <!-- Floating Top Telemetry Pill -->
@@ -480,7 +480,7 @@
                 <span class="badge-bubble-idx">01 //</span>
                 <span class="badge-bubble-live"><span class="badge-live-pulse" style="background:#22c55e;box-shadow:0 0 10px #22c55e;"></span> FLAGSHIP ACTIVE</span>
                 <span class="badge-bubble-sep">/</span>
-                <span class="badge-bubble-meta">AUDIOPHILE DSP &amp; STREAMING</span>
+                <span class="badge-bubble-meta">NATIVE ANDROID &amp; WINDOWS PC</span>
               </div>
             </div>
 
@@ -494,63 +494,33 @@
                       <img src="assets/projects/dropify_logo.png" alt="Dropify Logo" class="card-brand-logo-img" />
                       <h3 class="smoky-card-heading">DROPIFY</h3>
                     </div>
-                    <span class="smoky-card-subheading">Next-Gen Audiophile Web Music Player &amp; Cross-Platform Client</span>
+                    <span class="smoky-card-subheading">High-Fidelity Audiophile Music Player for Android &amp; Windows PC</span>
                   </div>
                   <div class="smoky-telemetry-badge">
-                    <span class="telemetry-pin">🎛️ 10-BAND DSP</span>
+                    <span class="telemetry-pin">📱 ANDROID &amp; WIN</span>
                     <span class="telemetry-sep">·</span>
-                    <span class="telemetry-speed">48kHz HI-RES</span>
-                  </div>
-                </div>
-
-                <!-- Live Interactive Audio DSP Visualizer Bar & EQ Control inside Card -->
-                <div class="card-dsp-visualizer-bar">
-                  <div class="dsp-bar-header">
-                    <span class="dsp-label">LIVE 10-BAND WEB AUDIO DSP SPECTRUM</span>
-                    <div class="dsp-chips-wrap">
-                      <button type="button" class="dsp-chip active" data-eq="bass">BASS BOOST</button>
-                      <button type="button" class="dsp-chip" data-eq="vocal">VOCAL</button>
-                      <button type="button" class="dsp-chip" data-eq="flat">FLAT HI-RES</button>
-                    </div>
-                  </div>
-                  <div class="dsp-spectrum-bars" id="dropifySpectrumBars" aria-label="Dropify Live Audio Spectrum Visualizer">
-                    <span class="s-bar" style="--h: 60%"></span>
-                    <span class="s-bar" style="--h: 85%"></span>
-                    <span class="s-bar" style="--h: 45%"></span>
-                    <span class="s-bar" style="--h: 95%"></span>
-                    <span class="s-bar" style="--h: 70%"></span>
-                    <span class="s-bar" style="--h: 30%"></span>
-                    <span class="s-bar" style="--h: 80%"></span>
-                    <span class="s-bar" style="--h: 100%"></span>
-                    <span class="s-bar" style="--h: 75%"></span>
-                    <span class="s-bar" style="--h: 55%"></span>
-                    <span class="s-bar" style="--h: 90%"></span>
-                    <span class="s-bar" style="--h: 65%"></span>
-                    <span class="s-bar" style="--h: 40%"></span>
-                    <span class="s-bar" style="--h: 85%"></span>
-                    <span class="s-bar" style="--h: 50%"></span>
-                    <span class="s-bar" style="--h: 70%"></span>
+                    <span class="telemetry-speed">🎛️ 10-BAND DSP</span>
                   </div>
                 </div>
 
                 <div class="smoky-about-block">
                   <span class="smoky-about-eyebrow">// ABOUT PROJECT · HARSH'S #1 MAIN WORKING PROJECT</span>
                   <p class="smoky-about-copy">
-                    Audiophile music streaming platform featuring a custom 10-band Web Audio API DSP equalizer, dynamic stereo spatializer, LRCLIB synchronized lyrics engine, YouTube stream decoding via InnerTube, and cross-platform clients (Web, Android APK v1.0.2, and Electron desktop). Engineered with an ultra-responsive liquid glass aesthetic and Nothing OS design language.
+                    High-fidelity local and streaming music player built natively for Android (APK v1.0.2) and Windows PC. Features a hardware-accelerated 10-band DSP equalizer, LRCLIB synchronized real-time lyrics, YouTube audio stream extraction, and Nothing OS liquid glass aesthetics.
                   </p>
                 </div>
 
                 <div class="smoky-footer-strip">
                   <div class="smoky-tags-cluster">
-                    <span class="smoky-pill-tag">REACT 18</span>
-                    <span class="smoky-pill-tag">WEB AUDIO DSP</span>
-                    <span class="smoky-pill-tag">NODE.js / EXPRESS</span>
-                    <span class="smoky-pill-tag">KOTLIN ANDROID</span>
-                    <span class="smoky-pill-tag">LRCLIB SYNC</span>
+                    <span class="smoky-pill-tag">ANDROID (APK)</span>
+                    <span class="smoky-pill-tag">WINDOWS (x64)</span>
+                    <span class="smoky-pill-tag">10-BAND DSP</span>
+                    <span class="smoky-pill-tag">LRCLIB LYRICS</span>
+                    <span class="smoky-pill-tag">NOTHING OS UI</span>
                   </div>
                   <div class="smoky-actions-group">
-                    <a href="https://dropify.vercel.app" target="_blank" rel="noopener noreferrer" class="bubble-glass-action-btn primary-action">
-                      <span>LAUNCH DROPIFY</span>
+                    <a href="https://github.com/harsh-pratap-singh-rathore/Dropify/releases" target="_blank" rel="noopener noreferrer" class="bubble-glass-action-btn primary-action">
+                      <span>DOWNLOAD RELEASES</span>
                       <span class="btn-arr-bubble">↗</span>
                     </a>
                     <a href="https://github.com/harsh-pratap-singh-rathore/Dropify" target="_blank" rel="noopener noreferrer" class="bubble-glass-action-btn secondary-action">
@@ -1774,7 +1744,7 @@
             </div>
             <!-- Quick Intent Selector Pills -->
             <div class="dispatch-intent-pills">
-              <button type="button" class="intent-pill active" data-subject="Dropify &amp; Audio DSP Architecture Inquiry">🎧 Dropify Audio DSP</button>
+              <button type="button" class="intent-pill active" data-subject="Dropify Android &amp; Windows App Inquiry">🎧 Dropify App (Android / PC)</button>
               <button type="button" class="intent-pill" data-subject="Full-Stack Engineering Project Inquiry">⚡ Full-Stack Project</button>
               <button type="button" class="intent-pill" data-subject="Agentic AI &amp; Vector System Architecture">🤖 Agentic AI System</button>
               <button type="button" class="intent-pill" data-subject="Consulting &amp; Engineering Contract Inquiry">💼 Contract / Hire</button>

@@ -20,4 +20,10 @@ artifacts/
 brain/
 file_*.png
 .backup_original/
+resume*
+build_resume.py
+Harsh_Rathore_Resume.pdf
 
+
+.vercel
+.env*

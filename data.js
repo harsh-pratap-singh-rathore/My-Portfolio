@@ -30,7 +30,7 @@ const portfolioData = {
 
   learningProgress: {
     currentFocus: "MERN Stack Architecture & High-Performance Audio DSP",
-    currentlyBuilding: "Dropify (Audiophile DSP Web Platform) & Real-Time Data Pipelines",
+    currentlyBuilding: "Dropify (Audiophile Android & Windows PC Player) & Real-Time Data Pipelines",
     skills: [
       {
         id: "js-engine",
@@ -74,21 +74,21 @@ const portfolioData = {
     {
       id: "dropify",
       number: "01 //",
-      tag: "AUDIOPHILE STREAMING & DSP ENGINE",
+      tag: "NATIVE ANDROID & WINDOWS PC",
       title: "DROPIFY",
-      purpose: "Next-generation audiophile web music platform & cross-platform client featuring browser-native 10-band parametric DSP, synced lyrics, and on-device circadian taste intelligence.",
-      problemSolved: "Reverse-engineers native high-performance audio pipelines into an ad-free, low-latency web, desktop, and mobile platform with zero tracking and sub-50ms stream initiation.",
-      involvement: "Full-Stack & Native Audio Engineering (Web Audio API DSP, InnerTube Core, Android Kotlin)",
+      purpose: "High-fidelity audiophile music player engineered natively for Android and Windows PC with a custom 10-band DSP equalizer and LRCLIB real-time synchronized lyrics.",
+      problemSolved: "Delivers an ad-free, local and streaming music ecosystem with low-latency hardware audio decoding, Nothing OS liquid glass UI, and zero subscription barriers.",
+      involvement: "Audio DSP Engineering, Android App (Kotlin), Windows Desktop (Electron), and Stream Extraction Pipeline",
       features: [
-        "10-Band Parametric Equalizer with ±12dB biquad IIR peaking filters & audiophile presets",
-        "Mid/Side Stereo Widener expanding acoustic soundstage without phase cancellation",
-        "Multi-source real-time millisecond synchronized lyrics engine (LRCLIB resolver)",
-        "Echo Brain on-device circadian taste engine with mathematical scoring & auto-mixes",
-        "Cross-platform ecosystem across Web (React 18), Electron desktop, and Android APK"
+        "10-Band Hardware-Accelerated Equalizer with ±12dB biquad filters and audiophile presets",
+        "Mid/Side Stereo Expander widening acoustic spatial depth without phase cancellation",
+        "Real-time millisecond-synchronized lyrics resolver powered by LRCLIB",
+        "Native Android APK (v1.0.2) and Windows PC installer packages",
+        "Zero-telemetry privacy architecture and high-performance offline caching"
       ],
-      technologies: ["React 18", "Web Audio API", "Node.js", "Express", "InnerTube", "Kotlin", "Electron", "Tailwind CSS"],
+      technologies: ["Android (Kotlin)", "Windows (Electron)", "Audio DSP Engine", "Node.js", "LRCLIB API", "Tailwind CSS"],
       year: "2026",
-      liveUrl: "https://dropify.vercel.app",
+      liveUrl: "https://github.com/harsh-pratap-singh-rathore/Dropify/releases",
       githubUrl: "https://github.com/harsh-pratap-singh-rathore/Dropify"
     },
     {

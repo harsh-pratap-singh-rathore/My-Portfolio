@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const typingTextEl = document.getElementById('typing-text');
   if (typingTextEl) {
     const phrases = [
-      "Dropify Audiophile DSP & Streaming",
+      "Dropify Android & Windows Music Player",
       "MERN & Agentic AI Systems",
       "Autonomous LLM Pipelines",
       "React 19 & Scalable Node.js",

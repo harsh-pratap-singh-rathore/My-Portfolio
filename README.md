@@ -28,7 +28,7 @@ Rejecting generic web templates. Embracing extreme intent, fluid liquidity, and 
 
 3. **Selected Works // Visual Product Stages**:
    - Translucent liquid acrylic exhibition cards (`backdrop-filter: blur(44px) saturate(220%)`) with 3D card deck physics and touch gestures.
-   - **Dropify (Flagship #1)**: Next-gen audiophile web music player & cross-platform client with custom 10-band Web Audio DSP equalizer, dynamic live spectrum visualizer, LRCLIB synced lyrics, and cross-platform clients (Web, Android APK v1.0.2, Electron).
+   - **Dropify (Flagship #1)**: High-fidelity audiophile music player built natively for Android (APK v1.0.2) and Windows PC with hardware-accelerated 10-band DSP equalizer, LRCLIB synchronized lyrics, and Nothing OS liquid glass design language.
    - **Shree Karni Textiles**: Enterprise wholesale fabric procurement portal indexing 10,000+ m² inventory with multi-layered Redis caching and 48ms TTFB.
    - **Code Canvas**: Interactive CSS Studio workbench with real-time UI component canvas and live compiled CSS terminal panel.
    - **My Voice**: Real-time municipal incident triage pipeline mockup with live status pills (`94.2% RESOLVED`, `18 IN TRIAGE`, `42 DISPATCHED`).
