@@ -34,9 +34,11 @@ Rejecting generic web templates. Embracing extreme intent, fluid liquidity, and 
    - **My Voice**: Real-time municipal incident triage pipeline mockup with live status pills (`94.2% RESOLVED`, `18 IN TRIAGE`, `42 DISPATCHED`).
    - Mobile touch swipe gestures with direction thresholds and 3D specular hover tilt on desktop.
 
-4. **Section 03 // Research & Papers (Editorial Archive)**:
-   - Dedicated editorial research gallery featuring 3 frosted glass monograph reservation cards (*Autonomous LLM Agent Architectures*, *Dense Vector Retrieval*, *Resilient Asynchronous Pipelines*).
-   - Structured abstract callouts, embargo status indicators, and clean topic tags ready for publication links.
+4. **Section 03 // Peer-Reviewed Research Publications**:
+   - 3D physical monograph stack showcasing 4 published research papers across international journals (IRJMETS & IJRASET).
+   - Direct PDF viewing/download buttons and verified DOI publication links.
+   - Dedicated technical highlight boxes for Models Used, Technologies/Frameworks, and Empirical Benchmarks.
+   - Covers YOLO11n multi-class waste detection (TACO), spatial vs. frequency CNN deepfake detection, 8-angle vehicle recognition (ResNet50), and CIFAR-100 CNN fine-grained benchmarking.
 
 5. **Fast Dispatch Console & Inquire Suite**:
    - 1-tap clipboard email copier with dynamic status pill feedback.

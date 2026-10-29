@@ -2178,6 +2178,54 @@ body.shake-active {
   max-width: 920px;
 }
 
+/* ── Research Spec Boxes: Models Used & Tech Used ── */
+.research-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 6px 0 8px 0;
+}
+
+@media (max-width: 860px) {
+  .research-spec-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+.research-spec-box {
+  background: rgba(13, 13, 16, 0.035);
+  border: 1px solid rgba(13, 13, 16, 0.08);
+  border-radius: 12px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: all 0.25s ease;
+}
+
+.deck-card:hover .research-spec-box {
+  background: rgba(13, 13, 16, 0.065);
+  border-color: rgba(158, 26, 43, 0.22);
+}
+
+.spec-box-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-color, #9e1a2b);
+  text-transform: uppercase;
+}
+
+.spec-box-value {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #1a1a20;
+  line-height: 1.35;
+}
+
 .smoky-footer-strip {
   display: flex;
   align-items: center;

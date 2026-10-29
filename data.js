@@ -152,55 +152,64 @@ const portfolioData = {
 
   researchPapers: [
     {
-      id: "agentic-llm-orchestration",
+      id: "waste-object-detection",
       number: "01 //",
-      tag: "AI SYSTEMS / AGENT ARCHITECTURE",
-      date: "2026 TECHNICAL REPORT",
-      title: "AUTONOMOUS LLM AGENT ARCHITECTURES",
-      subtitle: "Deterministic State Machines & Low-Latency Tool Orchestration in Web Systems",
-      abstract: "Investigates the convergence of deterministic finite state machines with probabilistic large language models to eliminate unbounded tool execution loops and hallucinations in asynchronous web applications. Proposes a strict tiered JSON schema validation boundary coupled with speculative tool dispatch, achieving sub-200ms round-trip latency.",
-      takeaways: [
-        "Deterministic execution bounds preventing runaway tool calls",
-        "Strict JSON schema enforcement with self-healing heuristic correction",
-        "Context window caching and sub-250ms speculative tool dispatch"
-      ],
-      field: "LLM Systems · Agent Routing · Deterministic AI",
-      readUrl: "https://github.com/harsh-pratap-singh-rathore",
-      repoUrl: "https://github.com/harsh-pratap-singh-rathore"
+      tag: "COMPUTER VISION · OBJECT DETECTION",
+      date: "IRJMETS · SEPT 2026",
+      title: "MULTI-CLASS WASTE OBJECT DETECTION USING YOLO11N: A DEEP LEARNING APPROACH FOR INTELLIGENT WASTE SEGREGATION",
+      subtitle: "Transfer Learning & Multi-Class Evaluation Across 60 Categories on the TACO Dataset",
+      abstract: "Implements a deep learning object detection framework using YOLO11n on the TACO dataset (1,500 images, 4,784 annotations, 60 waste classes). Converts COCO annotations to normalized YOLO coordinates, fine-tunes with transfer learning on NVIDIA Tesla T4 GPU, achieving 45.63% Precision and 13.45% mAP@50 under real-world cluttered conditions.",
+      modelsUsed: "YOLO11n (Ultralytics) · Backbone + PAN-FPN + Detection Head",
+      techUsed: "PyTorch · CUDA Acceleration · TACO Dataset · AdamW Optimizer",
+      keyMetrics: "45.63% Precision · 13.45% mAP@50 · 60 Waste Categories",
+      field: "Object Detection · Waste Segregation · Computer Vision",
+      pdfUrl: "assets/research/papers/waste-object-detection-yolo11n.pdf",
+      doiUrl: "https://www.doi.org/10.56726/IRJMETS102755"
     },
     {
-      id: "dense-vector-retrieval",
+      id: "ai-image-detection",
       number: "02 //",
-      tag: "RETRIEVAL / VECTOR EMBEDDINGS",
-      date: "2025 BENCHMARK REPORT",
-      title: "DENSE VECTOR RETRIEVAL IN DOCUMENT STORES",
-      subtitle: "Optimizing Semantic Embedding Pipelines & Hybrid RAG in MongoDB Atlas",
-      abstract: "Analyzes semantic retrieval precision across unstructured text chunks inside high-throughput document stores. Formulates a hybrid retrieval pipeline pairing BM25 keyword matching with dense cosine vector embeddings, elevating semantic recall by 41% while maintaining zero third-party vector database overhead.",
-      takeaways: [
-        "Hierarchical semantic chunking preserving cross-sentence token context",
-        "Reciprocal Rank Fusion (RRF) combining lexical and vector scores",
-        "Sub-50ms query latency profiling under sustained document throughput"
-      ],
-      field: "Vector Search · RAG Architecture · MongoDB Atlas",
-      readUrl: "https://github.com/harsh-pratap-singh-rathore",
-      repoUrl: "https://github.com/harsh-pratap-singh-rathore"
+      tag: "IMAGE FORENSICS · DEEP LEARNING",
+      date: "IJRASET · DEC 2025",
+      title: "A COMPARATIVE STUDY OF SPATIAL AND FREQUENCY-DOMAIN CNN MODELS FOR DETECTING AI-GENERATED IMAGES",
+      subtitle: "Evaluating Baseline Spatial CNN vs. Hybrid Fast Fourier Transform (FFT) Models",
+      abstract: "Conducts an empirical comparative study between a baseline spatial-domain CNN and a hybrid CNN integrating Fast Fourier Transform (FFT) frequency features across 60,000 images (30,000 real, 30,000 synthetic). Demonstrates that spatial-domain CNNs achieve 85.3% test accuracy, outperforming frequency hybrids (76–78%) under realistic social-media compression.",
+      modelsUsed: "Spatial-Domain CNN · CNN + FFT Dual-Branch Hybrid Architecture",
+      techUsed: "TensorFlow / Keras · Fast Fourier Transform (FFT) · Magnitude Spectrum · GPU",
+      keyMetrics: "85.3% Spatial Test Accuracy vs. 76-78% Hybrid · 60,000 Images",
+      field: "AI-Generated Image Detection · Image Forensics · Frequency Domain Analysis",
+      pdfUrl: "assets/research/papers/spatial-frequency-cnn-ai-images.pdf",
+      doiUrl: "https://doi.org/10.22214/ijraset.2025.76618"
     },
     {
-      id: "async-fullstack-state",
+      id: "car-model-classification",
       number: "03 //",
-      tag: "DISTRIBUTED SYSTEMS / EVENT LOOPS",
-      date: "2025 SPECIFICATION",
-      title: "RESILIENT ASYNCHRONOUS PIPELINES",
-      subtitle: "Deterministic State Synchronization Across React & Node.js Runtimes",
-      abstract: "Explores the mitigation of race conditions and memory leaks across full-stack JavaScript architectures. Establishes a lightweight transactional state bus that enforces eventual consistency between client-side optimistic UI updates and server-side document transactions over high-latency networks.",
-      takeaways: [
-        "Transactional rollback state machines for optimistic UI states",
-        "Non-blocking Node.js stream backpressure management under high burst",
-        "Zero-dependency isomorphic contract verification"
-      ],
-      field: "MERN Stack · Event Loop · Concurrency Controls",
-      readUrl: "https://github.com/harsh-pratap-singh-rathore",
-      repoUrl: "https://github.com/harsh-pratap-singh-rathore"
+      tag: "FINE-GRAINED VISION · ITS",
+      date: "IRJMETS · SEPT 2025",
+      title: "ANALYSING THE EFFECTIVENESS OF DEEP LEARNING MODELS FOR CAR MODEL CLASSIFICATION: A COMPARATIVE APPROACH",
+      subtitle: "Multi-Angle Perspective Recognition Across 16 Vehicle Models via Pretrained Deep CNNs",
+      abstract: "Evaluates VGG16, MobileNetV2, and ResNet50 for vehicle model recognition across 7,463 images spanning 16 car models and 8 distinct camera viewpoints. Demonstrates that ResNet50 achieved the highest overall accuracy of 95.8% (100% on front-right angles), establishing benchmark criteria for Intelligent Transportation Systems.",
+      modelsUsed: "ResNet50 (Residual Skip Connections) · MobileNetV2 · VGG16 Baseline",
+      techUsed: "TensorFlow / Keras · 8-Angle Multi-Viewpoint Dataset · Transfer Learning",
+      keyMetrics: "95.8% ResNet50 Accuracy · 100% Front-Right View · 8 Viewing Angles",
+      field: "Vehicle Model Recognition · Intelligent Transportation · Deep CNNs",
+      pdfUrl: "assets/research/papers/car-model-classification-cnn.pdf",
+      doiUrl: "https://www.doi.org/10.56726/IRJMETS82757"
+    },
+    {
+      id: "cifar100-benchmarking",
+      number: "04 //",
+      tag: "BENCHMARKING · ARCHITECTURAL STUDY",
+      date: "IJRASET · NOV 2025",
+      title: "PERFORMANCE BENCHMARKING OF CNN ARCHITECTURES FOR FINE-GRAINED IMAGE CLASSIFICATION ON CIFAR-100",
+      subtitle: "Controlled Evaluation of ResNet-18, EfficientNet-B0, and GoogLeNet Without Pretraining Bias",
+      abstract: "Benchmarked three popular CNN architectures (ResNet-18, GoogLeNet, EfficientNet-B0) trained from scratch strictly under identical conditions on CIFAR-100 (60,000 images, 100 classes, 32×32). ResNet-18 achieved the highest accuracy of 65%, outperforming EfficientNet (62%) and GoogLeNet (42%), confirming the power of residual connections on constrained resolutions.",
+      modelsUsed: "ResNet-18 (Residual Flow) · EfficientNet-B0 (Compound Scaling) · GoogLeNet (Inception)",
+      techUsed: "TensorFlow / Keras · CIFAR-100 Benchmark · Adam Optimizer · GPU Acceleration",
+      keyMetrics: "65% ResNet-18 vs. 62% EfficientNet vs. 42% GoogLeNet · 100 Classes",
+      field: "Fine-Grained Classification · CNN Benchmarking · CIFAR-100",
+      pdfUrl: "assets/research/papers/cifar100-cnn-benchmarking.pdf",
+      doiUrl: "https://doi.org/10.22214/ijraset.2025.75713"
     }
   ],
 
@@ -210,8 +219,8 @@ const portfolioData = {
     location: "SURAT, GUJARAT, INDIA",
     summary: "Full-Stack Web Developer & AI Systems Engineer specializing in MERN stack architectures, robust RESTful APIs, and autonomous LLM agent integrations. Passionate about building resilient software systems with clean code boundaries and thoughtful human interfaces.",
     skillsHighlight: "React 19, JavaScript (ES6+), Node.js, Express, MongoDB, RESTful APIs, LLM Agents, Vector Search, Git/GitHub, Linux",
-    downloadUrl: "https://github.com/harsh-pratap-singh-rathore",
-    viewUrl: "https://github.com/harsh-pratap-singh-rathore"
+    downloadUrl: "./Harsh_Rathore_Resume.pdf",
+    viewUrl: "./Harsh_Rathore_Resume.pdf"
   },
 
   expertise: [
