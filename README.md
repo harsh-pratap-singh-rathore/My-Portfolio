@@ -27,8 +27,9 @@ Rejecting generic web templates. Embracing extreme intent, fluid liquidity, and 
    - **Mobile (Smartphones)**: Ergonomic floating iOS glass bottom dock (`#iosBottomDock`) with haptic-styled touch feedback and synchronized capsule glides.
 
 3. **Selected Works // Visual Product Stages**:
-   - Replaced flat text bullets with translucent liquid acrylic exhibition cards (`backdrop-filter: blur(44px) saturate(220%)`).
-   - **Shree Karni Textiles**: Live simulated wholesale textile search bar, dynamic category chips, and live telemetry badges (`10,000+ m² Indexed`, `48ms TTFB`).
+   - Translucent liquid acrylic exhibition cards (`backdrop-filter: blur(44px) saturate(220%)`) with 3D card deck physics and touch gestures.
+   - **Dropify (Flagship #1)**: Next-gen audiophile web music player & cross-platform client with custom 10-band Web Audio DSP equalizer, dynamic live spectrum visualizer, LRCLIB synced lyrics, and cross-platform clients (Web, Android APK v1.0.2, Electron).
+   - **Shree Karni Textiles**: Enterprise wholesale fabric procurement portal indexing 10,000+ m² inventory with multi-layered Redis caching and 48ms TTFB.
    - **Code Canvas**: Interactive CSS Studio workbench with real-time UI component canvas and live compiled CSS terminal panel.
    - **My Voice**: Real-time municipal incident triage pipeline mockup with live status pills (`94.2% RESOLVED`, `18 IN TRIAGE`, `42 DISPATCHED`).
    - Mobile touch swipe gestures with direction thresholds and 3D specular hover tilt on desktop.

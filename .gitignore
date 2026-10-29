@@ -11,6 +11,9 @@ Thumbs.db
 *.sln
 *.swp
 
+# Vercel
+.vercel/
+
 # Model logs / Temporary artifacts
 .gemini/
 artifacts/

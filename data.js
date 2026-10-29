@@ -11,7 +11,7 @@ const portfolioData = {
     name: "HARSH RATHORE",
     role: "FULL-STACK & AI SYSTEMS ENGINEER",
     discipline: "FULL-STACK & AI SYSTEMS ENGINEERING",
-    stack: "MERN ECOSYSTEM · AGENTIC AI & LLMS",
+    stack: "MERN ECOSYSTEM · AUDIOPHILE DSP · AGENTIC AI & LLMS",
     location: "SURAT, GUJARAT, IN",
     timezone: "GMT+0530 (IST)",
     availability: "ACTIVE & DISPATCH READY",
@@ -29,8 +29,8 @@ const portfolioData = {
   },
 
   learningProgress: {
-    currentFocus: "MERN Stack Architecture & RESTful Systems",
-    currentlyBuilding: "Full-Stack Web Applications & Real-Time Data Pipelines",
+    currentFocus: "MERN Stack Architecture & High-Performance Audio DSP",
+    currentlyBuilding: "Dropify (Audiophile DSP Web Platform) & Real-Time Data Pipelines",
     skills: [
       {
         id: "js-engine",
@@ -72,8 +72,28 @@ const portfolioData = {
 
   projects: [
     {
-      id: "shree-karni",
+      id: "dropify",
       number: "01 //",
+      tag: "AUDIOPHILE STREAMING & DSP ENGINE",
+      title: "DROPIFY",
+      purpose: "Next-generation audiophile web music platform & cross-platform client featuring browser-native 10-band parametric DSP, synced lyrics, and on-device circadian taste intelligence.",
+      problemSolved: "Reverse-engineers native high-performance audio pipelines into an ad-free, low-latency web, desktop, and mobile platform with zero tracking and sub-50ms stream initiation.",
+      involvement: "Full-Stack & Native Audio Engineering (Web Audio API DSP, InnerTube Core, Android Kotlin)",
+      features: [
+        "10-Band Parametric Equalizer with ±12dB biquad IIR peaking filters & audiophile presets",
+        "Mid/Side Stereo Widener expanding acoustic soundstage without phase cancellation",
+        "Multi-source real-time millisecond synchronized lyrics engine (LRCLIB resolver)",
+        "Echo Brain on-device circadian taste engine with mathematical scoring & auto-mixes",
+        "Cross-platform ecosystem across Web (React 18), Electron desktop, and Android APK"
+      ],
+      technologies: ["React 18", "Web Audio API", "Node.js", "Express", "InnerTube", "Kotlin", "Electron", "Tailwind CSS"],
+      year: "2026",
+      liveUrl: "https://dropify.vercel.app",
+      githubUrl: "https://github.com/harsh-pratap-singh-rathore/Dropify"
+    },
+    {
+      id: "shree-karni",
+      number: "02 //",
       tag: "FULL-STACK E-COMMERCE",
       title: "SHREE KARNI TEXTILES",
       purpose: "Enterprise e-commerce platform delivering dynamic catalog exploration and secure transaction management for custom textile distribution.",
@@ -92,7 +112,7 @@ const portfolioData = {
     },
     {
       id: "code-canvas",
-      number: "02 //",
+      number: "03 //",
       tag: "DEVELOPER TOOLING / UI ENGINE",
       title: "CODE CANVAS",
       purpose: "Interactive visual creation suite designed for developers to prototype, configure, and inspect responsive layouts in real time.",
@@ -111,7 +131,7 @@ const portfolioData = {
     },
     {
       id: "my-voice",
-      number: "03 //",
+      number: "04 //",
       tag: "CIVIC TECH / DATA PIPELINE",
       title: "MY VOICE",
       purpose: "Community issue reporting platform enabling citizens to submit, track, and monitor public infrastructure reports to local authorities.",

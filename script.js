@@ -204,6 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const typingTextEl = document.getElementById('typing-text');
   if (typingTextEl) {
     const phrases = [
+      "Dropify Audiophile DSP & Streaming",
       "MERN & Agentic AI Systems",
       "Autonomous LLM Pipelines",
       "React 19 & Scalable Node.js",
@@ -943,7 +944,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const jumpPills = jumpBarId ? Array.from(document.querySelectorAll('#' + jumpBarId + ' .bubble-jump-pill')) : [];
     const indicatorPills = indicatorId ? Array.from(document.querySelectorAll('#' + indicatorId + ' .bubble-droplet-pill')) : [];
 
-    // Apply clean stack position classes: pos-0 (front), pos-1 (behind), pos-2 (deepest)
+    // Apply clean stack position classes: pos-0 (front), pos-1 (behind), pos-2 (deepest), pos-hidden
     function applyStackClasses() {
       cards.forEach((card, originalIdx) => {
         // ALWAYS purge inline transform/transition overrides so CSS classes have 100% authority
@@ -951,9 +952,11 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.transition = '';
 
         const posInStack = stackOrder.indexOf(originalIdx);
-        card.classList.remove('stack-pos-0', 'stack-pos-1', 'stack-pos-2', 'is-dismissing-next', 'is-dismissing-prev');
+        card.classList.remove('stack-pos-0', 'stack-pos-1', 'stack-pos-2', 'stack-pos-3', 'stack-pos-hidden', 'is-dismissing-next', 'is-dismissing-prev');
         if (posInStack >= 0 && posInStack < 3) {
           card.classList.add('stack-pos-' + posInStack);
+        } else {
+          card.classList.add('stack-pos-hidden');
         }
       });
 
@@ -989,6 +992,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const frontCard = cards[stackOrder[0]];
       const nextCard = cards[stackOrder[1]];
       const backCard = cards[stackOrder[2]];
+      const fourthCard = cards[stackOrder[3]];
 
       frontCard.classList.add('is-dismissing-next');
 
@@ -1000,6 +1004,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (backCard) {
         backCard.classList.remove('stack-pos-2');
         backCard.classList.add('stack-pos-1');
+      }
+
+      if (fourthCard) {
+        fourthCard.classList.remove('stack-pos-hidden');
+        fourthCard.classList.add('stack-pos-2');
       }
 
       setTimeout(() => {
@@ -1022,7 +1031,7 @@ document.addEventListener('DOMContentLoaded', () => {
       stackOrder.unshift(lastIdx);
 
       const incomingCard = cards[lastIdx];
-      incomingCard.classList.remove('stack-pos-0', 'stack-pos-1', 'stack-pos-2');
+      incomingCard.classList.remove('stack-pos-0', 'stack-pos-1', 'stack-pos-2', 'stack-pos-3', 'stack-pos-hidden');
       incomingCard.classList.add('is-dismissing-prev');
 
       void incomingCard.offsetWidth; // Force reflow to commit transition start
@@ -1040,17 +1049,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const currentFront = stackOrder[0];
       if (targetIdx === currentFront) return;
 
-      const posInStack = stackOrder.indexOf(targetIdx);
-      if (posInStack === 1) {
-        dismissNext();
-      } else if (posInStack === 2) {
-        dismissPrev();
-      } else {
-        while (stackOrder[0] !== targetIdx) {
-          stackOrder.push(stackOrder.shift());
-        }
-        applyStackClasses();
+      while (stackOrder[0] !== targetIdx) {
+        stackOrder.push(stackOrder.shift());
       }
+      applyStackClasses();
     }
 
     // Prev / Next button listeners
@@ -1096,6 +1098,8 @@ document.addEventListener('DOMContentLoaded', () => {
           dismissNext();
         } else if (posInStack === 2) {
           dismissPrev();
+        } else if (posInStack >= 3) {
+          jumpTo(idx);
         }
       });
     });
@@ -1130,6 +1134,57 @@ document.addEventListener('DOMContentLoaded', () => {
     applyStackClasses();
   }
 
+  /* ─────────────────────────────────────────────
+     16. Interactive Dropify DSP Spectrum Visualizer Engine
+     ───────────────────────────────────────────── */
+  function initDropifyVisualizer() {
+    const barsContainer = document.getElementById('dropifySpectrumBars');
+    if (!barsContainer) return;
+
+    const bars = Array.from(barsContainer.querySelectorAll('.s-bar'));
+    const chips = Array.from(document.querySelectorAll('.dsp-chip'));
+
+    const presets = {
+      bass: [75, 95, 100, 92, 80, 65, 55, 45, 38, 42, 50, 40, 35, 30, 25, 20],
+      vocal: [30, 40, 50, 65, 85, 98, 100, 94, 88, 76, 68, 60, 52, 45, 35, 30],
+      flat: [60, 62, 58, 65, 63, 60, 62, 64, 59, 61, 63, 60, 58, 62, 60, 59]
+    };
+
+    let currentPreset = 'bass';
+    let tick = 0;
+
+    function animateBars() {
+      tick += 0.08;
+      const baseCurve = presets[currentPreset] || presets.bass;
+
+      bars.forEach((bar, i) => {
+        const wave = Math.sin(tick + i * 0.45) * 16 + Math.cos(tick * 0.8 + i * 0.3) * 10;
+        const targetH = Math.min(100, Math.max(12, baseCurve[i % baseCurve.length] + wave));
+        bar.style.height = `${targetH.toFixed(1)}%`;
+      });
+
+      requestAnimationFrame(animateBars);
+    }
+
+    animateBars();
+
+    // Preset selector chips
+    chips.forEach(chip => {
+      chip.addEventListener('click', (e) => {
+        e.stopPropagation();
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const eqType = chip.getAttribute('data-eq');
+        if (presets[eqType]) {
+          currentPreset = eqType;
+          if (typeof showToast === 'function') {
+            showToast(`DROPIFY DSP // PRESET APPLIED: ${chip.textContent.trim()}`);
+          }
+        }
+      });
+    });
+  }
+
   function init3DCardStackEngines() {
     // 1. Projects Stack Deck
     createCardStackDeck({
@@ -1153,5 +1208,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   init3DCardStackEngines();
+  initDropifyVisualizer();
 
 });
