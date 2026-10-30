@@ -9,13 +9,14 @@
 const portfolioData = {
   profile: {
     name: "HARSH RATHORE",
-    role: "FULL-STACK & AI SYSTEMS ENGINEER",
-    discipline: "FULL-STACK & AI SYSTEMS ENGINEERING",
+    role: "MERN STACK DEVELOPER | FULL-STACK WEB ENGINEER",
+    discipline: "MERN ARCHITECTURE & AI-ACCELERATED ENGINEERING",
     stack: "MERN ECOSYSTEM · AUDIOPHILE DSP · AGENTIC AI & LLMS",
     location: "SURAT, GUJARAT, IN",
     timezone: "GMT+0530 (IST)",
     availability: "ACTIVE & DISPATCH READY",
     email: "harshpratapsinghrathore555@gmail.com",
+    portfolio: "https://harshrathore.vercel.app",
     github: "https://github.com/harsh-pratap-singh-rathore",
     linkedin: "https://www.linkedin.com/in/harsh-rathore-1597012aa/"
   },
@@ -24,7 +25,7 @@ const portfolioData = {
     lead: "Rejecting bloated templates. Engineering deliberate full-stack systems with autonomous AI precision.",
     paragraphs: [
       "I am a full-stack web developer and AI systems engineer focused on building digital platforms where thoughtful human interfaces converge with resilient, scalable engineering. Modern web applications require far more than surface styling; they demand rock-solid backend foundations, optimized document databases, and intuitive frontend states that operate in absolute harmony.",
-      "My primary development stack centers on the MERN ecosystem across the entire software lifecycle—leveraging React for component-driven UI architecture, Node.js and Express for high-throughput REST APIs and middleware pipelines, and MongoDB for flexible data modeling and vector search. I prioritize clean code boundaries, reliable authentication patterns, and maintainable architectures that scale cleanly from concept to deployment."
+      "My primary development stack centers on the MERN ecosystem across the entire software lifecycle—leveraging React for component-driven UI architecture, Node.js and Express for high-throughput REST APIs and middleware pipelines, and MongoDB for flexible document data modeling and aggregations. I prioritize clean code boundaries, reliable authentication patterns, and maintainable architectures that scale cleanly from concept to deployment."
     ]
   },
 
@@ -94,18 +95,18 @@ const portfolioData = {
     {
       id: "shree-karni",
       number: "02 //",
-      tag: "FULL-STACK E-COMMERCE",
+      tag: "CLIENT PRODUCTION · E-COMMERCE",
       title: "SHREE KARNI TEXTILES",
-      purpose: "Enterprise e-commerce platform delivering dynamic catalog exploration and secure transaction management for custom textile distribution.",
-      problemSolved: "Streamlined inventory categorization, customer checkout session validation, and responsive mobile-first shopping navigation.",
+      purpose: "Full-stack enterprise e-commerce platform for custom textile distribution, cataloging 10,000+ fabric SKUs with sub-second page delivery and transactional cart persistence.",
+      problemSolved: "Streamlined inventory categorization across 10,000+ fabric items, customer checkout session validation, and responsive mobile-first shopping navigation.",
       involvement: "Full-Stack Architecture (Frontend UI + Backend Data Handling)",
       features: [
-        "Dynamic product browsing and categorized inventory indexing",
-        "Secure session authorization state and cart persistence",
-        "Optimized asset loading with sub-second page delivery",
-        "Standardized dependency management and pathing mechanics"
+        "10,000+ fabric SKU cataloging with high-speed indexing and multi-parameter filters",
+        "Secure session authorization state and persistent transactional cart management",
+        "Optimized image delivery pipeline delivering sub-second page loads",
+        "Standardized Composer dependency management and responsive UI architecture"
       ],
-      technologies: ["PHP", "JavaScript", "CSS3", "Composer", "HTML5"],
+      technologies: ["PHP", "MySQL", "JavaScript (ES6+)", "CSS3", "Composer", "Responsive Design"],
       year: "2026",
       liveUrl: "https://shreekarnitextiles.com",
       githubUrl: "https://github.com/harsh-pratap-singh-rathore"
@@ -113,18 +114,18 @@ const portfolioData = {
     {
       id: "code-canvas",
       number: "03 //",
-      tag: "DEVELOPER TOOLING / UI ENGINE",
+      tag: "DEVELOPER TOOLING · AI WORKBENCH",
       title: "CODE CANVAS",
-      purpose: "Interactive visual creation suite designed for developers to prototype, configure, and inspect responsive layouts in real time.",
-      problemSolved: "Eliminates repetitive manual layout prototyping by providing live visual manipulation paired with instantaneous code output.",
+      purpose: "Interactive developer creation suite and AI-assisted workbench allowing users to visually manipulate and inspect responsive layouts at 60 FPS.",
+      problemSolved: "Eliminates repetitive manual layout prototyping by translating natural language design instructions into clean CSS/HTML markup via local AI workflows.",
       involvement: "Frontend Architecture & Engine Logic",
       features: [
+        "Zero-dependency vanilla JavaScript performance engine running at smooth 60 FPS",
+        "Local AI code generation (Antigravity & Claude Code workflows) translating design prompts to CSS/HTML",
         "Live interactive layout rendering canvas with instant viewport feedback",
-        "Dynamic code generator producing clean markup and stylesheet output",
-        "Strict brutalist typography and UI theme configuration matrix",
-        "Zero-dependency vanilla JavaScript performance engine"
+        "Dynamic code generator producing clean, production-ready stylesheets and markup"
       ],
-      technologies: ["JavaScript", "HTML5", "CSS3", "PHP"],
+      technologies: ["JavaScript (ES6+)", "HTML5 Canvas", "CSS3 Grid/Flexbox", "Local AI Workflows"],
       year: "2026",
       liveUrl: "https://codecanvas.page/public/index.html",
       githubUrl: "https://github.com/harsh-pratap-singh-rathore/CodeCanvas"
@@ -132,18 +133,18 @@ const portfolioData = {
     {
       id: "my-voice",
       number: "04 //",
-      tag: "CIVIC TECH / DATA PIPELINE",
+      tag: "CIVIC TECH · MUNICIPAL TRIAGE",
       title: "MY VOICE",
-      purpose: "Community issue reporting platform enabling citizens to submit, track, and monitor public infrastructure reports to local authorities.",
-      problemSolved: "Replaces fragmented communication channels with a centralized, verified reporting pipeline featuring role-based workflows.",
+      purpose: "Civic tech platform enabling citizens to report, geolocate, and track public infrastructure complaints directly to municipal authorities.",
+      problemSolved: "Replaces fragmented municipal communication channels with a centralized, verified incident pipeline featuring role-based triage workflows.",
       involvement: "Backend Engineering, Database Design & Frontend Integration",
       features: [
-        "Secure user authentication with session management and input sanitation",
-        "Relational MySQL database schema tracking issue status lifecycles",
-        "Admin review portal with report categorization and status updates",
-        "Responsive submission workflow optimized for mobile touchscreens"
+        "Normalized relational MySQL database tracking issue lifecycles (Reported, In Triage, Dispatched, Resolved)",
+        "Role-based administrative controls slashing ticket dispatch overhead by 40%",
+        "GPS-tagged incident reporting with multimedia attachments for civic complaints",
+        "Secure user authentication with session management and input sanitation"
       ],
-      technologies: ["PHP", "MySQL", "JavaScript", "CSS3", "HTML5"],
+      technologies: ["PHP", "MySQL", "JavaScript (ES6+)", "RESTful APIs", "Session Auth", "Bootstrap"],
       year: "2024",
       liveUrl: "https://myvoice.gt.tc/MyVoice/frontend/pages/index.php",
       githubUrl: "https://github.com/harsh-pratap-singh-rathore"
@@ -217,11 +218,27 @@ const portfolioData = {
     title: "HARSH RATHORE — CURRICULUM VITAE",
     edition: "2026 VERIFIED EDITION",
     location: "SURAT, GUJARAT, INDIA",
-    summary: "Full-Stack Web Developer & AI Systems Engineer specializing in MERN stack architectures, robust RESTful APIs, and autonomous LLM agent integrations. Passionate about building resilient software systems with clean code boundaries and thoughtful human interfaces.",
-    skillsHighlight: "React 19, JavaScript (ES6+), Node.js, Express, MongoDB, RESTful APIs, LLM Agents, Vector Search, Git/GitHub, Linux",
+    summary: "Full-Stack Web Developer specializing in MERN stack architectures, robust RESTful APIs, and practical Deep Learning / Computer Vision implementations. Passionate about building resilient software systems with clean code boundaries and thoughtful human interfaces.",
+    skillsHighlight: "React 19, JavaScript (ES6+), Node.js, Express, MongoDB, RESTful APIs, PyTorch, Deep Learning, Git/GitHub, Linux",
     downloadUrl: "./Harsh_Rathore_Resume.pdf",
     viewUrl: "./Harsh_Rathore_Resume.pdf"
   },
+
+  education: [
+    {
+      degree: "Master of Computer Applications (MCA)",
+      institution: "Uka Tarsadia University",
+      location: "Bardoli, Gujarat, India",
+      year: "2026 – 2028"
+    },
+    {
+      degree: "Bachelor of Computer Applications (BCA)",
+      institution: "Uka Tarsadia University",
+      location: "Bardoli, Gujarat, India",
+      score: "7.77 CGPA",
+      year: "2023 – 2026"
+    }
+  ],
 
   expertise: [
     {
@@ -262,19 +279,19 @@ const portfolioData = {
     },
     {
       categoryNumber: "03",
-      categoryTitle: "ENGINEERING & AI",
+      categoryTitle: "DEEP LEARNING & AI TOOLING",
       skills: [
         {
-          name: "AGENTIC AI & VECTOR SEARCH",
-          description: "LLM tool orchestration, prompt caching, semantic embeddings, and low-latency retrieval pipelines."
+          name: "DEEP LEARNING & PYTORCH",
+          description: "CNN architectures (ResNet, YOLO11, MobileNet), computer vision benchmarking, transfer learning."
         },
         {
-          name: "GIT & GITHUB",
-          description: "Semantic commit history, feature branching, merge strategies, release workflows."
+          name: "AI-ASSISTED DEVELOPMENT",
+          description: "Leveraging cutting-edge AI systems (Antigravity, Claude Code, Ollama local models) to accelerate site building."
         },
         {
-          name: "RESPONSIVE ARCHITECTURE",
-          description: "Fluid typography (clamp), CSS Grid, Flexbox, touch-first breakpoint adaptation, and accessibility."
+          name: "GIT & RESPONSIVE ARCHITECTURE",
+          description: "Git/GitHub semantic workflows, CSS Grid, Flexbox, touch-first breakpoint adaptation, and accessibility."
         }
       ]
     }
