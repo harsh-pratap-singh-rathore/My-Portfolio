@@ -398,6 +398,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let activeLink = document.querySelector('.bottom-dock-link.is-active') || dockLinks[0];
     let prevBottomLeft = 0;
+    let isBottomClickScrolling = false;
+    let bottomScrollTimeout = null;
 
     function moveBottomCapsule(targetEl, animate = true) {
       if (!targetEl) return;
@@ -451,12 +453,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Initial calculation after render
-    setTimeout(() => {
+    const updateInitialPosition = () => {
       setActiveDockLink(activeLink, false);
       requestAnimationFrame(() => {
         capsule.style.transition = '';
       });
-    }, 150);
+    };
+    setTimeout(updateInitialPosition, 150);
+    window.addEventListener('load', updateInitialPosition, { once: true });
 
     // Tab Click: smooth spring glide + smooth scroll to target section
     dockLinks.forEach(link => {
@@ -466,10 +470,10 @@ document.addEventListener('DOMContentLoaded', () => {
           const targetSection = document.querySelector(targetHref);
           if (targetSection) {
             e.preventDefault();
-            isClickScrolling = true;
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-              isClickScrolling = false;
+            isBottomClickScrolling = true;
+            clearTimeout(bottomScrollTimeout);
+            bottomScrollTimeout = setTimeout(() => {
+              isBottomClickScrolling = false;
             }, 850);
 
             setActiveDockLink(link, true);
@@ -486,10 +490,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const elementPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
             const offsetPosition = Math.max(0, elementPosition - headerOffset);
 
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-            });
+            try {
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+              });
+            } catch (_) {
+              window.scrollTo(0, offsetPosition);
+            }
           }
         }
       });
@@ -502,9 +510,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: true });
 
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        if (window.innerWidth <= 820) {
+          window.refreshBottomDockCapsule(false);
+        }
+      }, 100);
+    }, { passive: true });
+
     // Dynamic hook for ScrollSpy to glide the capsule on scroll
     window.updateBottomDockActive = (targetId) => {
-      if (isClickScrolling) return;
+      if (isBottomClickScrolling) return;
       const matching = document.querySelector(`.bottom-dock-link[href="#${targetId}"]`);
       if (matching && !matching.classList.contains('is-active')) {
         setActiveDockLink(matching, true);
