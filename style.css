@@ -651,104 +651,111 @@ body.shake-active {
   position: relative;
   display: flex;
   align-items: center;
+  /* 98% Crystal Clear Pure Optical Glass */
   background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.26) 0%,
-    rgba(255, 255, 255, 0.08) 45%,
-    rgba(255, 255, 255, 0.18) 100%
+    180deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.02) 40%,
+    rgba(255, 255, 255, 0.06) 100%
   );
-  backdrop-filter: blur(28px) saturate(230%) brightness(108%) contrast(102%);
-  -webkit-backdrop-filter: blur(28px) saturate(230%) brightness(108%) contrast(102%);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  border-top: 1.8px solid rgba(255, 255, 255, 0.98);
-  border-bottom: 1.2px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(2.5px) saturate(160%) contrast(108%) brightness(103%);
+  -webkit-backdrop-filter: blur(2.5px) saturate(160%) contrast(108%) brightness(103%);
+  border: 1.5px solid rgba(255, 255, 255, 0.92);
+  border-top: 2.2px solid #ffffff;
+  border-bottom: 1.6px solid rgba(255, 255, 255, 0.75);
   border-radius: 9999px;
   padding: 5px 6px;
   box-shadow: 
-    0 24px 50px -10px rgba(13, 13, 16, 0.16),
-    0 6px 16px -2px rgba(13, 13, 16, 0.06),
-    /* Meniscus Caustic Highlights */
-    inset 0 1.5px 2px rgba(255, 255, 255, 0.98),
-    inset 0 -1.5px 2px rgba(255, 255, 255, 0.45),
-    /* Prismatic Chromatic Water Fringe on Edges */
-    inset 2px 0 4px -1px rgba(150, 215, 255, 0.4),
-    inset -2px 0 4px -1px rgba(255, 185, 210, 0.4),
-    /* Deep Liquid Glow */
-    inset 0 0 16px rgba(255, 255, 255, 0.22);
-  overflow: hidden;
+    /* Deep 3D ambient shadow cast on underlying page */
+    0 24px 52px -8px rgba(0, 0, 0, 0.32),
+    0 8px 22px -3px rgba(0, 0, 0, 0.18),
+    /* Top cylindrical meniscus caustic rim */
+    inset 0 2px 2.5px 0 #ffffff,
+    inset 0 6px 12px -2px rgba(255, 255, 255, 0.65),
+    /* Bottom ground bounce caustic rim */
+    inset 0 -2px 2.5px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -6px 12px -2px rgba(255, 255, 255, 0.45),
+    /* Left cap chromatic dispersion prism (cyan/electric blue) */
+    inset 8px 0 16px -2px rgba(80, 195, 255, 0.85),
+    inset 16px 0 28px -4px rgba(35, 145, 255, 0.45),
+    /* Right cap chromatic dispersion prism (amber/warm golden) */
+    inset -8px 0 16px -2px rgba(255, 165, 75, 0.85),
+    inset -16px 0 28px -4px rgba(255, 115, 45, 0.45),
+    /* Internal liquid volume glow */
+    inset 0 0 22px rgba(255, 255, 255, 0.20);
+  overflow: visible;
 }
 
-/* Optical Refraction Meniscus Edge (The curved glass water bevel that stretches items at borders) */
+/* Top Cylindrical Glass Bevel / Refraction meniscus (The optical glass border reflection) */
 .bottom-dock-glass::before {
   content: '';
   position: absolute;
-  inset: 0;
-  border-radius: 9999px;
-  padding: 1.5px;
+  top: 1px;
+  left: 8px;
+  right: 8px;
+  height: 42%;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(255, 255, 255, 0.25) 25%,
-    rgba(255, 255, 255, 0.05) 50%,
-    rgba(255, 255, 255, 0.20) 75%,
-    rgba(255, 255, 255, 0.70) 100%
+    rgba(255, 255, 255, 0.80) 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0) 100%
   );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
   pointer-events: none;
-  z-index: 3;
+  z-index: 2;
 }
 
-/* Liquid Glare Sheen Reflection */
+/* Bottom Caustic Rim Reflection */
 .bottom-dock-glass::after {
   content: '';
   position: absolute;
-  top: 0;
+  bottom: 1px;
   left: 10%;
   right: 10%;
-  height: 48%;
+  height: 30%;
+  border-bottom-left-radius: 9999px;
+  border-bottom-right-radius: 9999px;
   background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.45) 0%,
-    rgba(255, 255, 255, 0.12) 40%,
+    0deg,
+    rgba(255, 255, 255, 0.55) 0%,
     rgba(255, 255, 255, 0) 100%
   );
-  border-top-left-radius: 9999px;
-  border-top-right-radius: 9999px;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
-/* Dynamic Active Liquid Glass Capsule Highlight (Apple Spring Eased Water Droplet Indicator) */
+/* Dynamic Active Liquid Glass Capsule Highlight (Apple iOS 27 Pure Water Droplet Indicator) */
 .bottom-dock-capsule {
   position: absolute;
-  top: 5px;
+  top: -4px;
   left: 0;
-  height: calc(100% - 10px);
+  height: calc(100% + 8px);
   width: 0;
   border-radius: 9999px;
-  /* Ultra-glassy water droplet transparency */
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.62) 0%,
-    rgba(255, 255, 255, 0.24) 48%,
-    rgba(255, 255, 255, 0.38) 100%
+  /* Crystal Clear Water Droplet */
+  background: radial-gradient(
+    ellipse at 50% 25%,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.04) 75%
   );
-  backdrop-filter: blur(16px) saturate(220%) contrast(106%);
-  -webkit-backdrop-filter: blur(16px) saturate(220%) contrast(106%);
-  border: 1.2px solid rgba(255, 255, 255, 0.95);
-  border-top: 1.8px solid #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(1.5px) saturate(180%) contrast(108%);
+  -webkit-backdrop-filter: blur(1.5px) saturate(180%) contrast(108%);
+  border: 2px solid rgba(255, 255, 255, 0.98);
   box-shadow: 
-    0 8px 22px -2px rgba(13, 13, 16, 0.14),
-    0 2px 6px rgba(13, 13, 16, 0.06),
+    0 8px 24px -2px rgba(0, 0, 0, 0.25),
+    0 2px 6px rgba(0, 0, 0, 0.12),
     /* Top water bead specular highlight */
-    inset 0 1.8px 2px #ffffff,
+    inset 0 2.5px 3px 0 #ffffff,
     /* Bottom refraction caustic */
-    inset 0 -1.5px 2px rgba(255, 255, 255, 0.65),
-    /* Inner water droplet depth */
-    inset 0 0 12px rgba(255, 255, 255, 0.35);
+    inset 0 -2.5px 3.5px 0 rgba(255, 255, 255, 0.85),
+    /* Chromatic edge glow */
+    inset 2px 0 5px rgba(120, 205, 255, 0.5),
+    inset -2px 0 5px rgba(255, 175, 120, 0.5),
+    /* Internal water volume clarity */
+    inset 0 0 14px rgba(255, 255, 255, 0.35),
+    /* Ambient outer water meniscus glow */
+    0 0 16px rgba(255, 255, 255, 0.65);
   pointer-events: none;
   z-index: 1;
   opacity: 0;
@@ -765,11 +772,11 @@ body.shake-active {
   content: '';
   position: absolute;
   top: 2px;
-  left: 15%;
-  right: 15%;
-  height: 42%;
+  left: 18%;
+  right: 18%;
+  height: 38%;
   border-radius: 9999px;
-  background: radial-gradient(ellipse at 50% 20%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 75%);
+  background: radial-gradient(ellipse at 50% 18%, #ffffff 0%, rgba(255, 255, 255, 0) 75%);
   pointer-events: none;
 }
 
@@ -802,11 +809,12 @@ body.shake-active {
   padding: 7px 4px 6px;
   border-radius: 9999px;
   text-decoration: none;
-  color: rgba(13, 13, 13, 0.52);
+  color: #111114;
   transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.34, 1.35, 0.64, 1);
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
   touch-action: manipulation;
+  text-shadow: 0 1px 1.5px rgba(255, 255, 255, 0.95);
 }
 
 .bottom-dock-link:active {
@@ -825,9 +833,10 @@ body.shake-active {
 .dock-icon {
   width: 20px;
   height: 20px;
-  stroke: currentColor;
-  stroke-width: 1.9px;
+  stroke: #111114;
+  stroke-width: 2.1px;
   transition: transform 0.36s cubic-bezier(0.34, 1.35, 0.64, 1), stroke 0.3s ease;
+  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.9));
 }
 
 .dock-label {
@@ -836,22 +845,24 @@ body.shake-active {
   font-weight: 700;
   letter-spacing: 0.05em;
   line-height: 1;
-  color: rgba(13, 13, 13, 0.6);
+  color: #111114;
   transition: color 0.3s ease, font-weight 0.3s ease;
+  text-shadow: 0 1px 1.5px rgba(255, 255, 255, 0.95);
 }
 
 /* Active Highlight Tab */
 .bottom-dock-link.is-active {
-  color: var(--accent-color);
+  color: #e02424;
 }
 
 .bottom-dock-link.is-active .dock-icon {
-  stroke: var(--accent-color);
-  transform: scale(1.12);
+  stroke: #e02424;
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 7px rgba(224, 36, 36, 0.6));
 }
 
 .bottom-dock-link.is-active .dock-label {
-  color: var(--text-color);
+  color: #0d0d0d;
   font-weight: 800;
 }
 
@@ -898,46 +909,47 @@ body.shake-active {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  /* 98% Crystal Clear Pure Optical Glass */
   background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.24) 0%,
-    rgba(255, 255, 255, 0.08) 50%,
-    rgba(255, 255, 255, 0.18) 100%
+    180deg,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.03) 45%,
+    rgba(255, 255, 255, 0.08) 100%
   );
-  backdrop-filter: blur(28px) saturate(230%) brightness(108%) contrast(102%);
-  -webkit-backdrop-filter: blur(28px) saturate(230%) brightness(108%) contrast(102%);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  border-top: 1.6px solid #ffffff;
-  border-bottom: 1.2px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(2.5px) saturate(160%) brightness(104%) contrast(104%);
+  -webkit-backdrop-filter: blur(2.5px) saturate(160%) brightness(104%) contrast(104%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-top: 2.2px solid #ffffff;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.7);
   border-radius: 9999px;
   padding: 5px 6px;
   box-shadow: 
-    0 16px 40px -8px rgba(13, 13, 16, 0.10),
-    0 2px 8px rgba(13, 13, 16, 0.03),
-    inset 0 1.5px 2px #ffffff,
-    inset 0 -1.5px 2px rgba(255, 255, 255, 0.5),
-    inset 2px 0 4px -1px rgba(150, 215, 255, 0.35),
-    inset -2px 0 4px -1px rgba(255, 185, 210, 0.35),
-    inset 0 0 16px rgba(255, 255, 255, 0.2);
+    0 20px 48px -8px rgba(0, 0, 0, 0.22),
+    0 6px 16px -2px rgba(0, 0, 0, 0.12),
+    inset 0 2px 2.5px 0 #ffffff,
+    inset 0 -1.8px 2.5px 0 rgba(255, 255, 255, 0.85),
+    inset 8px 0 16px -2px rgba(80, 195, 255, 0.7),
+    inset -8px 0 16px -2px rgba(255, 165, 75, 0.7),
+    inset 0 0 18px rgba(255, 255, 255, 0.22);
   position: relative;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .liquid-glass-dock:hover {
   background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.32) 0%,
-    rgba(255, 255, 255, 0.14) 50%,
-    rgba(255, 255, 255, 0.26) 100%
+    180deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.05) 45%,
+    rgba(255, 255, 255, 0.12) 100%
   );
-  border-color: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 1);
   box-shadow: 
-    0 22px 48px -6px rgba(13, 13, 16, 0.14),
-    0 4px 10px rgba(13, 13, 16, 0.04),
-    inset 0 1.8px 2px #ffffff,
-    inset 0 -1.5px 2px rgba(255, 255, 255, 0.6),
-    inset 0 0 20px rgba(255, 255, 255, 0.3);
+    0 24px 54px -6px rgba(0, 0, 0, 0.26),
+    0 8px 20px rgba(0, 0, 0, 0.14),
+    inset 0 2.2px 3px #ffffff,
+    inset 0 -2px 3px rgba(255, 255, 255, 0.9),
+    inset 0 0 22px rgba(255, 255, 255, 0.28);
 }
 
 /* Internal Capsule Track enclosing the links */
@@ -945,9 +957,9 @@ body.shake-active {
   position: relative;
   display: inline-flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.55);
   padding: 3px;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
 }
@@ -960,21 +972,19 @@ body.shake-active {
   height: calc(100% - 6px);
   width: 0;
   border-radius: 9999px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.65) 0%,
-    rgba(255, 255, 255, 0.24) 48%,
-    rgba(255, 255, 255, 0.42) 100%
+  background: radial-gradient(
+    ellipse at 50% 25%,
+    rgba(255, 255, 255, 0.32) 0%,
+    rgba(255, 255, 255, 0.06) 75%
   );
-  backdrop-filter: blur(16px) saturate(220%) contrast(106%);
-  -webkit-backdrop-filter: blur(16px) saturate(220%) contrast(106%);
-  border: 1.2px solid rgba(255, 255, 255, 0.95);
-  border-top: 1.6px solid #ffffff;
+  backdrop-filter: blur(1.5px) saturate(180%) contrast(108%);
+  -webkit-backdrop-filter: blur(1.5px) saturate(180%) contrast(108%);
+  border: 1.5px solid rgba(255, 255, 255, 0.98);
   box-shadow: 
-    0 6px 18px rgba(13, 13, 16, 0.10),
-    0 1px 3px rgba(13, 13, 16, 0.04),
-    inset 0 1.8px 2px #ffffff,
-    inset 0 -1.5px 2px rgba(255, 255, 255, 0.6),
+    0 6px 18px rgba(0, 0, 0, 0.15),
+    0 1px 3px rgba(0, 0, 0, 0.08),
+    inset 0 2px 2px #ffffff,
+    inset 0 -1.5px 2px rgba(255, 255, 255, 0.75),
     inset 0 0 10px rgba(255, 255, 255, 0.3);
   pointer-events: none;
   z-index: 1;
