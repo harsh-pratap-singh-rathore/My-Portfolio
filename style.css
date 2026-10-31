@@ -651,22 +651,76 @@ body.shake-active {
   position: relative;
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(30px) saturate(210%) contrast(98%);
-  -webkit-backdrop-filter: blur(30px) saturate(210%) contrast(98%);
-  border: 1px solid rgba(255, 255, 255, 0.82);
-  border-top: 1.5px solid rgba(255, 255, 255, 0.98);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.26) 0%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(255, 255, 255, 0.18) 100%
+  );
+  backdrop-filter: blur(28px) saturate(230%) brightness(108%) contrast(102%);
+  -webkit-backdrop-filter: blur(28px) saturate(230%) brightness(108%) contrast(102%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-top: 1.8px solid rgba(255, 255, 255, 0.98);
+  border-bottom: 1.2px solid rgba(255, 255, 255, 0.45);
   border-radius: 9999px;
   padding: 5px 6px;
   box-shadow: 
-    0 20px 42px -8px rgba(13, 13, 13, 0.16),
-    0 4px 12px rgba(13, 13, 13, 0.05),
-    inset 0 1px 2.5px rgba(255, 255, 255, 0.95),
-    inset 0 -1px 2px rgba(13, 13, 13, 0.04);
+    0 24px 50px -10px rgba(13, 13, 16, 0.16),
+    0 6px 16px -2px rgba(13, 13, 16, 0.06),
+    /* Meniscus Caustic Highlights */
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.98),
+    inset 0 -1.5px 2px rgba(255, 255, 255, 0.45),
+    /* Prismatic Chromatic Water Fringe on Edges */
+    inset 2px 0 4px -1px rgba(150, 215, 255, 0.4),
+    inset -2px 0 4px -1px rgba(255, 185, 210, 0.4),
+    /* Deep Liquid Glow */
+    inset 0 0 16px rgba(255, 255, 255, 0.22);
+  overflow: hidden;
 }
 
-/* Dynamic Active Liquid Glass Capsule Highlight (Apple Spring Eased Indicator) */
+/* Optical Refraction Meniscus Edge (The curved glass water bevel that stretches items at borders) */
+.bottom-dock-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  padding: 1.5px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.25) 25%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.20) 75%,
+    rgba(255, 255, 255, 0.70) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Liquid Glare Sheen Reflection */
+.bottom-dock-glass::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 48%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.12) 40%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Dynamic Active Liquid Glass Capsule Highlight (Apple Spring Eased Water Droplet Indicator) */
 .bottom-dock-capsule {
   position: absolute;
   top: 5px;
@@ -674,13 +728,27 @@ body.shake-active {
   height: calc(100% - 10px);
   width: 0;
   border-radius: 9999px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(246, 245, 240, 0.92) 100%);
-  border: 1px solid rgba(255, 255, 255, 1);
+  /* Ultra-glassy water droplet transparency */
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.62) 0%,
+    rgba(255, 255, 255, 0.24) 48%,
+    rgba(255, 255, 255, 0.38) 100%
+  );
+  backdrop-filter: blur(16px) saturate(220%) contrast(106%);
+  -webkit-backdrop-filter: blur(16px) saturate(220%) contrast(106%);
+  border: 1.2px solid rgba(255, 255, 255, 0.95);
+  border-top: 1.8px solid #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: 
-    0 6px 16px rgba(13, 13, 13, 0.12),
-    0 1px 4px rgba(13, 13, 13, 0.06),
-    inset 0 1px 1.8px #ffffff,
-    inset 0 -1px 1px rgba(13, 13, 13, 0.04);
+    0 8px 22px -2px rgba(13, 13, 16, 0.14),
+    0 2px 6px rgba(13, 13, 16, 0.06),
+    /* Top water bead specular highlight */
+    inset 0 1.8px 2px #ffffff,
+    /* Bottom refraction caustic */
+    inset 0 -1.5px 2px rgba(255, 255, 255, 0.65),
+    /* Inner water droplet depth */
+    inset 0 0 12px rgba(255, 255, 255, 0.35);
   pointer-events: none;
   z-index: 1;
   opacity: 0;
@@ -690,6 +758,19 @@ body.shake-active {
     width 0.44s cubic-bezier(0.34, 1.35, 0.64, 1),
     opacity 0.25s ease;
   will-change: transform, width;
+}
+
+/* Water drop top glare highlight */
+.bottom-dock-capsule::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 15%;
+  right: 15%;
+  height: 42%;
+  border-radius: 9999px;
+  background: radial-gradient(ellipse at 50% 20%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 75%);
+  pointer-events: none;
 }
 
 .bottom-dock-list {
@@ -817,32 +898,46 @@ body.shake-active {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.38);
-  backdrop-filter: blur(28px) saturate(190%) contrast(95%);
-  -webkit-backdrop-filter: blur(28px) saturate(190%) contrast(95%);
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  border-top: 1px solid rgba(255, 255, 255, 0.95);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.24) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.18) 100%
+  );
+  backdrop-filter: blur(28px) saturate(230%) brightness(108%) contrast(102%);
+  -webkit-backdrop-filter: blur(28px) saturate(230%) brightness(108%) contrast(102%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-top: 1.6px solid #ffffff;
+  border-bottom: 1.2px solid rgba(255, 255, 255, 0.45);
   border-radius: 9999px;
   padding: 5px 6px;
   box-shadow: 
-    0 16px 36px -8px rgba(13, 13, 13, 0.08),
-    0 2px 6px rgba(13, 13, 13, 0.02),
-    inset 0 1px 2px rgba(255, 255, 255, 0.95),
-    inset 0 -1px 2px rgba(13, 13, 13, 0.03);
+    0 16px 40px -8px rgba(13, 13, 16, 0.10),
+    0 2px 8px rgba(13, 13, 16, 0.03),
+    inset 0 1.5px 2px #ffffff,
+    inset 0 -1.5px 2px rgba(255, 255, 255, 0.5),
+    inset 2px 0 4px -1px rgba(150, 215, 255, 0.35),
+    inset -2px 0 4px -1px rgba(255, 185, 210, 0.35),
+    inset 0 0 16px rgba(255, 255, 255, 0.2);
   position: relative;
-  transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.4s ease,
-              border-color 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
 }
 
 .liquid-glass-dock:hover {
-  background: rgba(255, 255, 255, 0.52);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.32) 0%,
+    rgba(255, 255, 255, 0.14) 50%,
+    rgba(255, 255, 255, 0.26) 100%
+  );
   border-color: rgba(255, 255, 255, 0.95);
   box-shadow: 
-    0 20px 42px -6px rgba(13, 13, 13, 0.11),
-    0 3px 8px rgba(13, 13, 13, 0.03),
-    inset 0 1px 2px #ffffff,
-    inset 0 -1px 2px rgba(13, 13, 13, 0.03);
+    0 22px 48px -6px rgba(13, 13, 16, 0.14),
+    0 4px 10px rgba(13, 13, 16, 0.04),
+    inset 0 1.8px 2px #ffffff,
+    inset 0 -1.5px 2px rgba(255, 255, 255, 0.6),
+    inset 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 /* Internal Capsule Track enclosing the links */
@@ -850,14 +945,14 @@ body.shake-active {
   position: relative;
   display: inline-flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.16);
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   padding: 3px;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
-/* Dynamic Active Liquid Glass Capsule (Spring Eased Indicator) */
+/* Dynamic Active Liquid Glass Capsule (Spring Eased Water Droplet Indicator) */
 .nav-active-capsule {
   position: absolute;
   top: 3px;
@@ -865,13 +960,22 @@ body.shake-active {
   height: calc(100% - 6px);
   width: 0;
   border-radius: 9999px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 246, 242, 0.88) 100%);
-  border: 1px solid rgba(255, 255, 255, 1);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(255, 255, 255, 0.24) 48%,
+    rgba(255, 255, 255, 0.42) 100%
+  );
+  backdrop-filter: blur(16px) saturate(220%) contrast(106%);
+  -webkit-backdrop-filter: blur(16px) saturate(220%) contrast(106%);
+  border: 1.2px solid rgba(255, 255, 255, 0.95);
+  border-top: 1.6px solid #ffffff;
   box-shadow: 
-    0 6px 16px rgba(13, 13, 13, 0.09),
-    0 1px 3px rgba(13, 13, 13, 0.04),
-    inset 0 1px 1.5px #ffffff,
-    inset 0 -1px 1px rgba(13, 13, 13, 0.05);
+    0 6px 18px rgba(13, 13, 16, 0.10),
+    0 1px 3px rgba(13, 13, 16, 0.04),
+    inset 0 1.8px 2px #ffffff,
+    inset 0 -1.5px 2px rgba(255, 255, 255, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
   pointer-events: none;
   z-index: 1;
   opacity: 0;

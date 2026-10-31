@@ -526,6 +526,38 @@ document.addEventListener('DOMContentLoaded', () => {
         setActiveDockLink(matching, true);
       }
     };
+
+    // iOS 27 Liquid Glass Water Meniscus Physics Engine (Scroll velocity & fluid tension elasticity)
+    let lastScrollY = window.pageYOffset;
+    let scrollRafId = null;
+    let resetDockTimeout = null;
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.pageYOffset;
+      const scrollVelocity = currentScrollY - lastScrollY;
+      lastScrollY = currentScrollY;
+
+      if (!scrollRafId && window.innerWidth <= 820) {
+        scrollRafId = requestAnimationFrame(() => {
+          scrollRafId = null;
+          const absVel = Math.min(80, Math.abs(scrollVelocity));
+          if (absVel > 4 && dock) {
+            // Optical water meniscus compression and fluid surface tension
+            const stretchX = 1 + absVel * 0.00065;
+            const compressY = Math.max(0.955, 1 - absVel * 0.00085);
+            const shear = Math.max(-1.8, Math.min(1.8, scrollVelocity * 0.035));
+            dock.style.transform = `translateX(-50%) scaleX(${stretchX.toFixed(4)}) scaleY(${compressY.toFixed(4)}) skewY(${shear.toFixed(2)}deg)`;
+            dock.style.transition = 'transform 0.08s ease-out';
+
+            clearTimeout(resetDockTimeout);
+            resetDockTimeout = setTimeout(() => {
+              dock.style.transition = 'transform 0.52s cubic-bezier(0.34, 1.56, 0.64, 1)';
+              dock.style.transform = 'translateX(-50%) scale(1)';
+            }, 120);
+          }
+        });
+      }
+    }, { passive: true });
   }
 
   initBottomDock();
