@@ -651,39 +651,32 @@ body.shake-active {
   position: relative;
   display: flex;
   align-items: center;
-  /* 98% Crystal Clear Pure Optical Glass */
+  /* Frosted Optical Liquid Glass - Elements melt organically on scroll */
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.12) 0%,
-    rgba(255, 255, 255, 0.02) 40%,
-    rgba(255, 255, 255, 0.06) 100%
+    rgba(255, 255, 255, 0.32) 0%,
+    rgba(255, 255, 255, 0.10) 50%,
+    rgba(255, 255, 255, 0.20) 100%
   );
-  backdrop-filter: blur(2.5px) saturate(160%) contrast(108%) brightness(103%);
-  -webkit-backdrop-filter: blur(2.5px) saturate(160%) contrast(108%) brightness(103%);
-  border: 1.5px solid rgba(255, 255, 255, 0.92);
-  border-top: 2.2px solid #ffffff;
-  border-bottom: 1.6px solid rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(18px) saturate(200%) brightness(104%) contrast(104%);
+  -webkit-backdrop-filter: blur(18px) saturate(200%) brightness(104%) contrast(104%);
+  border: 1.2px solid rgba(255, 255, 255, 0.95);
+  border-top: 2px solid #ffffff;
+  border-bottom: 1.2px solid rgba(255, 255, 255, 0.5);
   border-radius: 9999px;
   padding: 5px 6px;
   box-shadow: 
     /* Deep 3D ambient shadow cast on underlying page */
-    0 24px 52px -8px rgba(0, 0, 0, 0.32),
-    0 8px 22px -3px rgba(0, 0, 0, 0.18),
+    0 16px 36px -6px rgba(0, 0, 0, 0.22),
+    0 4px 12px -2px rgba(0, 0, 0, 0.10),
     /* Top cylindrical meniscus caustic rim */
-    inset 0 2px 2.5px 0 #ffffff,
-    inset 0 6px 12px -2px rgba(255, 255, 255, 0.65),
+    inset 0 1.8px 2px 0 #ffffff,
+    inset 0 4px 10px -2px rgba(255, 255, 255, 0.55),
     /* Bottom ground bounce caustic rim */
-    inset 0 -2px 2.5px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -6px 12px -2px rgba(255, 255, 255, 0.45),
-    /* Left cap chromatic dispersion prism (cyan/electric blue) */
-    inset 8px 0 16px -2px rgba(80, 195, 255, 0.85),
-    inset 16px 0 28px -4px rgba(35, 145, 255, 0.45),
-    /* Right cap chromatic dispersion prism (amber/warm golden) */
-    inset -8px 0 16px -2px rgba(255, 165, 75, 0.85),
-    inset -16px 0 28px -4px rgba(255, 115, 45, 0.45),
-    /* Internal liquid volume glow */
-    inset 0 0 22px rgba(255, 255, 255, 0.20);
-  overflow: visible;
+    inset 0 -1.5px 2px 0 rgba(255, 255, 255, 0.65),
+    /* Pure monochromatic internal liquid volume glow */
+    inset 0 0 16px rgba(255, 255, 255, 0.20);
+  overflow: hidden;
 }
 
 /* Top Cylindrical Glass Bevel / Refraction meniscus (The optical glass border reflection) */
@@ -698,8 +691,8 @@ body.shake-active {
   border-top-right-radius: 9999px;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.80) 0%,
-    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.10) 50%,
     rgba(255, 255, 255, 0) 100%
   );
   pointer-events: none;
@@ -718,52 +711,50 @@ body.shake-active {
   border-bottom-right-radius: 9999px;
   background: linear-gradient(
     0deg,
-    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.35) 0%,
     rgba(255, 255, 255, 0) 100%
   );
   pointer-events: none;
   z-index: 2;
 }
 
-/* Dynamic Active Liquid Glass Capsule Highlight (Apple iOS 27 Pure Water Droplet Indicator) */
+/* Dynamic Active Liquid Glass Capsule Highlight (Pure Neutral Water Droplet) */
 .bottom-dock-capsule {
   position: absolute;
-  top: -4px;
+  top: 3px;
   left: 0;
-  height: calc(100% + 8px);
+  height: calc(100% - 6px);
   width: 0;
   border-radius: 9999px;
-  /* Crystal Clear Water Droplet */
-  background: radial-gradient(
-    ellipse at 50% 25%,
-    rgba(255, 255, 255, 0.25) 0%,
-    rgba(255, 255, 255, 0.04) 75%
+  /* Frosted White Water Droplet */
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0.45) 100%
   );
-  backdrop-filter: blur(1.5px) saturate(180%) contrast(108%);
-  -webkit-backdrop-filter: blur(1.5px) saturate(180%) contrast(108%);
-  border: 2px solid rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px) saturate(220%) contrast(106%);
+  -webkit-backdrop-filter: blur(12px) saturate(220%) contrast(106%);
+  border: 1.2px solid rgba(255, 255, 255, 0.98);
+  border-top: 1.6px solid #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: 
-    0 8px 24px -2px rgba(0, 0, 0, 0.25),
-    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 14px -1px rgba(0, 0, 0, 0.12),
+    0 1px 3px rgba(0, 0, 0, 0.05),
     /* Top water bead specular highlight */
-    inset 0 2.5px 3px 0 #ffffff,
+    inset 0 1.8px 2px #ffffff,
     /* Bottom refraction caustic */
-    inset 0 -2.5px 3.5px 0 rgba(255, 255, 255, 0.85),
-    /* Chromatic edge glow */
-    inset 2px 0 5px rgba(120, 205, 255, 0.5),
-    inset -2px 0 5px rgba(255, 175, 120, 0.5),
-    /* Internal water volume clarity */
-    inset 0 0 14px rgba(255, 255, 255, 0.35),
-    /* Ambient outer water meniscus glow */
-    0 0 16px rgba(255, 255, 255, 0.65);
+    inset 0 -1.5px 2px rgba(255, 255, 255, 0.6),
+    /* Pure monochromatic internal liquid clarity */
+    inset 0 0 12px rgba(255, 255, 255, 0.28);
   pointer-events: none;
   z-index: 1;
   opacity: 0;
   transform: translate3d(0, 0, 0);
   transition: 
-    transform 0.44s cubic-bezier(0.34, 1.35, 0.64, 1),
-    width 0.44s cubic-bezier(0.34, 1.35, 0.64, 1),
-    opacity 0.25s ease;
+    transform 0.36s cubic-bezier(0.2, 0.9, 0.3, 1),
+    width 0.36s cubic-bezier(0.2, 0.9, 0.3, 1),
+    opacity 0.2s ease;
   will-change: transform, width;
 }
 
@@ -909,47 +900,46 @@ body.shake-active {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  /* 98% Crystal Clear Pure Optical Glass */
+  /* Frosted Optical Liquid Glass - Elements melt organically on scroll */
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.14) 0%,
-    rgba(255, 255, 255, 0.03) 45%,
-    rgba(255, 255, 255, 0.08) 100%
+    rgba(255, 255, 255, 0.32) 0%,
+    rgba(255, 255, 255, 0.10) 50%,
+    rgba(255, 255, 255, 0.20) 100%
   );
-  backdrop-filter: blur(2.5px) saturate(160%) brightness(104%) contrast(104%);
-  -webkit-backdrop-filter: blur(2.5px) saturate(160%) brightness(104%) contrast(104%);
-  border: 1.5px solid rgba(255, 255, 255, 0.95);
-  border-top: 2.2px solid #ffffff;
-  border-bottom: 1.5px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(18px) saturate(200%) brightness(104%) contrast(104%);
+  -webkit-backdrop-filter: blur(18px) saturate(200%) brightness(104%) contrast(104%);
+  border: 1.2px solid rgba(255, 255, 255, 0.95);
+  border-top: 2px solid #ffffff;
+  border-bottom: 1.2px solid rgba(255, 255, 255, 0.5);
   border-radius: 9999px;
   padding: 5px 6px;
   box-shadow: 
-    0 20px 48px -8px rgba(0, 0, 0, 0.22),
-    0 6px 16px -2px rgba(0, 0, 0, 0.12),
-    inset 0 2px 2.5px 0 #ffffff,
-    inset 0 -1.8px 2.5px 0 rgba(255, 255, 255, 0.85),
-    inset 8px 0 16px -2px rgba(80, 195, 255, 0.7),
-    inset -8px 0 16px -2px rgba(255, 165, 75, 0.7),
-    inset 0 0 18px rgba(255, 255, 255, 0.22);
+    0 16px 36px -6px rgba(0, 0, 0, 0.14),
+    0 4px 12px -2px rgba(0, 0, 0, 0.06),
+    inset 0 1.8px 2px 0 #ffffff,
+    inset 0 4px 10px -2px rgba(255, 255, 255, 0.55),
+    inset 0 -1.5px 2px 0 rgba(255, 255, 255, 0.65),
+    inset 0 0 16px rgba(255, 255, 255, 0.18);
   position: relative;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: visible;
+  overflow: hidden;
 }
 
 .liquid-glass-dock:hover {
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.18) 0%,
-    rgba(255, 255, 255, 0.05) 45%,
-    rgba(255, 255, 255, 0.12) 100%
+    rgba(255, 255, 255, 0.38) 0%,
+    rgba(255, 255, 255, 0.14) 50%,
+    rgba(255, 255, 255, 0.26) 100%
   );
   border-color: rgba(255, 255, 255, 1);
   box-shadow: 
-    0 24px 54px -6px rgba(0, 0, 0, 0.26),
-    0 8px 20px rgba(0, 0, 0, 0.14),
-    inset 0 2.2px 3px #ffffff,
-    inset 0 -2px 3px rgba(255, 255, 255, 0.9),
-    inset 0 0 22px rgba(255, 255, 255, 0.28);
+    0 20px 44px -6px rgba(0, 0, 0, 0.18),
+    0 6px 14px rgba(0, 0, 0, 0.08),
+    inset 0 2px 2.5px #ffffff,
+    inset 0 -1.8px 2.5px rgba(255, 255, 255, 0.8),
+    inset 0 0 20px rgba(255, 255, 255, 0.24);
 }
 
 /* Internal Capsule Track enclosing the links */

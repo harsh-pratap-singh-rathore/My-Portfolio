@@ -418,22 +418,9 @@ document.addEventListener('DOMContentLoaded', () => {
         capsule.style.transform = `translate3d(${leftOffset}px, 0, 0)`;
         capsule.style.width = `${targetWidth}px`;
       } else {
-        // ColorOS Aqua Dynamics & iOS Liquid Glass Elastic Stretching
-        if (Math.abs(dx) > 8) {
-          const stretch = Math.min(1.22, 1 + Math.abs(dx) * 0.0016);
-          const compressY = Math.max(0.88, 1 - (stretch - 1) * 0.55);
-          capsule.style.transition = 'transform 0.46s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.42s cubic-bezier(0.34, 1.45, 0.64, 1), opacity 0.25s ease';
-          capsule.style.transform = `translate3d(${leftOffset}px, 0, 0) scaleX(${stretch.toFixed(3)}) scaleY(${compressY.toFixed(3)})`;
-          capsule.style.width = `${targetWidth}px`;
-
-          setTimeout(() => {
-            capsule.style.transform = `translate3d(${leftOffset}px, 0, 0) scale(1)`;
-          }, 220);
-        } else {
-          capsule.style.transition = 'transform 0.42s cubic-bezier(0.34, 1.45, 0.64, 1), width 0.42s cubic-bezier(0.34, 1.45, 0.64, 1), opacity 0.25s ease';
-          capsule.style.transform = `translate3d(${leftOffset}px, 0, 0) scale(1)`;
-          capsule.style.width = `${targetWidth}px`;
-        }
+        capsule.style.transition = 'transform 0.36s cubic-bezier(0.2, 0.9, 0.3, 1), width 0.36s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.2s ease';
+        capsule.style.transform = `translate3d(${leftOffset}px, 0, 0)`;
+        capsule.style.width = `${targetWidth}px`;
       }
 
       capsule.style.opacity = '1';
@@ -526,38 +513,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setActiveDockLink(matching, true);
       }
     };
-
-    // iOS 27 Liquid Glass Water Meniscus Physics Engine (Scroll velocity & fluid tension elasticity)
-    let lastScrollY = window.pageYOffset;
-    let scrollRafId = null;
-    let resetDockTimeout = null;
-
-    window.addEventListener('scroll', () => {
-      const currentScrollY = window.pageYOffset;
-      const scrollVelocity = currentScrollY - lastScrollY;
-      lastScrollY = currentScrollY;
-
-      if (!scrollRafId && window.innerWidth <= 820) {
-        scrollRafId = requestAnimationFrame(() => {
-          scrollRafId = null;
-          const absVel = Math.min(80, Math.abs(scrollVelocity));
-          if (absVel > 4 && dock) {
-            // Optical water meniscus compression and fluid surface tension
-            const stretchX = 1 + absVel * 0.00065;
-            const compressY = Math.max(0.955, 1 - absVel * 0.00085);
-            const shear = Math.max(-1.8, Math.min(1.8, scrollVelocity * 0.035));
-            dock.style.transform = `translateX(-50%) scaleX(${stretchX.toFixed(4)}) scaleY(${compressY.toFixed(4)}) skewY(${shear.toFixed(2)}deg)`;
-            dock.style.transition = 'transform 0.08s ease-out';
-
-            clearTimeout(resetDockTimeout);
-            resetDockTimeout = setTimeout(() => {
-              dock.style.transition = 'transform 0.52s cubic-bezier(0.34, 1.56, 0.64, 1)';
-              dock.style.transform = 'translateX(-50%) scale(1)';
-            }, 120);
-          }
-        });
-      }
-    }, { passive: true });
   }
 
   initBottomDock();
@@ -622,22 +577,9 @@ document.addEventListener('DOMContentLoaded', () => {
         capsule.style.transform = `translate3d(${leftOffset}px, 0, 0)`;
         capsule.style.width = `${targetWidth}px`;
       } else {
-        // ColorOS Aqua Dynamics & iOS Liquid Glass Elastic Stretching Mechanics
-        if (Math.abs(dx) > 10) {
-          const stretch = Math.min(1.24, 1 + Math.abs(dx) * 0.0018);
-          const compressY = Math.max(0.86, 1 - (stretch - 1) * 0.6);
-          capsule.style.transition = 'transform 0.48s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.44s cubic-bezier(0.34, 1.45, 0.64, 1), opacity 0.25s ease';
-          capsule.style.transform = `translate3d(${leftOffset}px, 0, 0) scaleX(${stretch.toFixed(3)}) scaleY(${compressY.toFixed(3)})`;
-          capsule.style.width = `${targetWidth}px`;
-
-          setTimeout(() => {
-            capsule.style.transform = `translate3d(${leftOffset}px, 0, 0) scale(1)`;
-          }, 240);
-        } else {
-          capsule.style.transition = 'transform 0.44s cubic-bezier(0.34, 1.45, 0.64, 1), width 0.44s cubic-bezier(0.34, 1.45, 0.64, 1), opacity 0.25s ease';
-          capsule.style.transform = `translate3d(${leftOffset}px, 0, 0) scale(1)`;
-          capsule.style.width = `${targetWidth}px`;
-        }
+        capsule.style.transition = 'transform 0.36s cubic-bezier(0.2, 0.9, 0.3, 1), width 0.36s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.2s ease';
+        capsule.style.transform = `translate3d(${leftOffset}px, 0, 0)`;
+        capsule.style.width = `${targetWidth}px`;
       }
 
       capsule.style.opacity = '1';
