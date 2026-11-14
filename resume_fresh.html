@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harsh Rathore - Full Stack Developer | MERN Stack | AI</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 8.5mm 11.5mm 8.5mm 11.5mm;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    font-size: 8.65pt;
+    line-height: 1.30;
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    color: #1d4ed8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* HEADER */
+  .header {
+    border-bottom: 2.2px solid #0f172a;
+    padding-bottom: 5px;
+    margin-bottom: 6px;
+  }
+
+  .name {
+    font-size: 21pt;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+
+  .role-title {
+    font-size: 9.8pt;
+    font-weight: 750;
+    color: #1d4ed8;
+    margin-top: 2px;
+    margin-bottom: 3.5px;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+  }
+
+  .contact-row {
+    font-size: 8.1pt;
+    color: #475569;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+
+  .contact-sep {
+    color: #94a3b8;
+    margin: 0 4.5px;
+    font-weight: normal;
+  }
+
+  /* SECTION STYLING */
+  .section {
+    margin-bottom: 5.5px;
+  }
+
+  .section:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-title {
+    font-size: 8.95pt;
+    font-weight: 800;
+    color: #0f172a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 1.2px solid #cbd5e1;
+    padding-bottom: 1.5px;
+    margin-bottom: 3.2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .section-title .tagline {
+    font-size: 7.2pt;
+    font-weight: 600;
+    color: #1d4ed8;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  /* SUMMARY */
+  .summary-text {
+    font-size: 8.3pt;
+    line-height: 1.31;
+    color: #334155;
+    text-align: justify;
+  }
+
+  .summary-text strong {
+    color: #0f172a;
+  }
+
+  /* TECHNICAL SKILLS TABLE */
+  .skills-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .skills-table td {
+    padding: 1px 0;
+    vertical-align: top;
+    font-size: 8.2pt;
+    line-height: 1.28;
+  }
+
+  .skills-cat {
+    width: 154px;
+    font-weight: 750;
+    color: #0f172a;
+  }
+
+  .skills-val {
+    color: #334155;
+  }
+
+  .skills-val strong {
+    color: #0f172a;
+    font-weight: 600;
+  }
+
+  /* PROJECTS */
+  .project-item {
+    margin-bottom: 4.5px;
+  }
+
+  .project-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .project-title {
+    font-size: 8.85pt;
+    font-weight: 750;
+    color: #0f172a;
+  }
+
+  .project-type {
+    font-size: 7.8pt;
+    font-weight: 600;
+    color: #1d4ed8;
+  }
+
+  .project-meta {
+    font-size: 7.8pt;
+    color: #64748b;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .pill {
+    display: inline-block;
+    padding: 0.5px 4.5px;
+    background: #eff6ff;
+    border: 0.5px solid #bfdbfe;
+    border-radius: 2.5px;
+    font-size: 7.1pt;
+    font-weight: 600;
+    color: #1d4ed8;
+    margin-right: 2.5px;
+  }
+
+  .project-tech {
+    font-size: 7.6pt;
+    font-weight: 600;
+    color: #475569;
+    margin-top: 0.5px;
+    margin-bottom: 1.2px;
+  }
+
+  .project-tech span {
+    color: #1d4ed8;
+  }
+
+  ul.bullets {
+    margin: 0;
+    padding-left: 14px;
+    list-style-type: square;
+  }
+
+  ul.bullets li {
+    font-size: 8.15pt;
+    line-height: 1.28;
+    color: #334155;
+    margin-bottom: 1.3px;
+    text-align: justify;
+  }
+
+  ul.bullets li:last-child {
+    margin-bottom: 0;
+  }
+
+  ul.bullets strong {
+    color: #0f172a;
+    font-weight: 600;
+  }
+
+  /* RESEARCH PAPERS */
+  .research-list {
+    margin: 0;
+    padding-left: 14px;
+    list-style-type: square;
+  }
+
+  .research-list li {
+    font-size: 8.1pt;
+    line-height: 1.27;
+    color: #334155;
+    margin-bottom: 1.8px;
+    text-align: justify;
+  }
+
+  .research-list li:last-child {
+    margin-bottom: 0;
+  }
+
+  .paper-title {
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .paper-venue {
+    font-weight: 600;
+    color: #1d4ed8;
+  }
+
+  .doi-pill {
+    display: inline-block;
+    padding: 0 3.5px;
+    background: #f1f5f9;
+    border: 0.5px solid #cbd5e1;
+    border-radius: 2px;
+    font-size: 7pt;
+    font-weight: 600;
+    color: #1d4ed8;
+    margin-left: 2px;
+  }
+
+  /* EDUCATION ROW */
+  .edu-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 9px 0;
+    margin-left: -9px;
+    margin-right: -9px;
+  }
+
+  .edu-cell {
+    width: 50%;
+    background: #f8fafc;
+    border: 0.5px solid #e2e8f0;
+    border-radius: 3px;
+    padding: 3.5px 8px;
+    vertical-align: top;
+  }
+
+  .edu-deg {
+    font-size: 8.5pt;
+    font-weight: 750;
+    color: #0f172a;
+  }
+
+  .edu-school {
+    font-size: 7.95pt;
+    font-weight: 600;
+    color: #1d4ed8;
+  }
+
+  .edu-meta {
+    font-size: 7.55pt;
+    color: #64748b;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.2px;
+  }
+
+  .edu-meta strong {
+    color: #0f172a;
+  }
+
+  @media print {
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1 class="name">Harsh Rathore</h1>
+    <div class="role-title">Full Stack Developer | MERN Stack | AI</div>
+    <div class="contact-row">
+      <span>Surat, Gujarat, India</span>
+      <span class="contact-sep">&bull;</span>
+      <span><a href="tel:+919586099555">+91 9586099555</a></span>
+      <span class="contact-sep">&bull;</span>
+      <span><a href="mailto:harshpratapsinghrathore555@gmail.com">harshpratapsinghrathore555@gmail.com</a></span>
+      <span class="contact-sep">&bull;</span>
+      <span><a href="https://www.linkedin.com/in/harsh-rathore-1597012aa/" target="_blank">LinkedIn</a></span>
+      <span class="contact-sep">&bull;</span>
+      <span><a href="https://github.com/harsh-pratap-singh-rathore" target="_blank">GitHub</a></span>
+      <span class="contact-sep">&bull;</span>
+      <span><a href="https://harshrathore.vercel.app" target="_blank">Portfolio</a></span>
+    </div>
+  </header>
+
+  <!-- PROFESSIONAL SUMMARY -->
+  <section class="section">
+    <div class="section-title">
+      Professional Summary
+      <span class="tagline">Production Web Systems &bull; Core CS Foundations &bull; Practical AI Integration</span>
+    </div>
+    <p class="summary-text">
+      <strong>Full Stack &amp; MERN-focused Web Developer</strong> and MCA candidate with solid foundations in <strong>JavaScript (ES6+)</strong>, <strong>React.js</strong>, <strong>Node.js</strong>, <strong>Express</strong>, and <strong>database architecture (MySQL &amp; MongoDB)</strong>. Hands-on experience delivering commercial client software (custom e-commerce store with persistent cart and admin dashboard in PHP/MySQL), building local GPU-accelerated AI tools (CodeCanvas running local LLMs via Ollama with zero API fees), and developing native Android applications with background playback services (Dropify in Kotlin &amp; Jetpack Compose). Published author of <strong>4 peer-reviewed research papers</strong> in applied deep learning across international journals (IRJMETS, IJRASET). Seeking a <strong>MERN Stack / Full Stack Internship</strong>.
+    </p>
+  </section>
+
+  <!-- TECHNICAL SKILLS -->
+  <section class="section">
+    <div class="section-title">Technical Skills</div>
+    <table class="skills-table">
+      <tr>
+        <td class="skills-cat">Frontend Development:</td>
+        <td class="skills-val"><strong>React.js</strong>, <strong>JavaScript (ES6+)</strong>, Jetpack Compose (Kotlin), HTML5 Canvas, CSS3, Tailwind CSS, Responsive Web Design, Component State Management, DOM APIs.</td>
+      </tr>
+      <tr>
+        <td class="skills-cat">Backend &amp; Databases:</td>
+        <td class="skills-val"><strong>Node.js</strong>, <strong>Express.js</strong>, RESTful API Architecture, <strong>MongoDB</strong> (Mongoose, Schema Modeling), <strong>MySQL</strong> (Relational Design &amp; Queries), PHP, Session &amp; JWT Auth, Middleware.</td>
+      </tr>
+      <tr>
+        <td class="skills-cat">AI Systems &amp; Tooling:</td>
+        <td class="skills-val">Local LLMs (Ollama with Gemma/DeepSeek), AI-Assisted Development, Claude Code, Antigravity, Git &amp; GitHub, Postman, Linux/CLI, Vercel Deployment.</td>
+      </tr>
+      <tr>
+        <td class="skills-cat">Deep Learning &amp; Vision:</td>
+        <td class="skills-val"><strong>PyTorch</strong>, <strong>TensorFlow/Keras</strong>, YOLO11 (Object Detection), CNNs (ResNet, MobileNet, EfficientNet), Transfer Learning, Model Evaluation &amp; Benchmarking.</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- ENGINEERING PROJECTS -->
+  <section class="section">
+    <div class="section-title">
+      Engineering Projects
+      <span class="tagline">Client Production &bull; Local AI Portfolio Maker &bull; Native Audio Streaming</span>
+    </div>
+
+    <!-- PROJECT 1: SHREE KARNI TEXTILES -->
+    <div class="project-item">
+      <div class="project-header">
+        <div>
+          <span class="project-title">Shree Karni Textiles</span>
+          <span class="project-type">&mdash; Commercial Client E-Commerce Website</span>
+        </div>
+        <div class="project-meta">
+          <a href="https://shreekarnitextiles.com" target="_blank" class="pill">Live Site ↗</a>
+          <a href="https://github.com/harsh-pratap-singh-rathore" target="_blank" class="pill">GitHub ↗</a>
+          <span>2026</span>
+        </div>
+      </div>
+      <div class="project-tech"><span>Stack:</span> PHP, MySQL, JavaScript, HTML5/CSS3, Bootstrap, Apache</div>
+      <ul class="bullets">
+        <li>Built and launched a custom e-commerce web platform for an Indian textile shop client to showcase fabric collections and take customer orders online.</li>
+        <li>Implemented product catalog browsing with category filtering, persistent shopping cart state, and customer order inquiry/checkout workflow.</li>
+        <li>Developed an administrative dashboard enabling the shop owner to manage product listings, track incoming customer orders, and update inventory status.</li>
+        <li>Designed normalized relational MySQL database schemas for products, categories, cart sessions, and customer inquiries with secure session auth.</li>
+      </ul>
+    </div>
+
+    <!-- PROJECT 2: CODECANVAS -->
+    <div class="project-item">
+      <div class="project-header">
+        <div>
+          <span class="project-title">CodeCanvas</span>
+          <span class="project-type">&mdash; Local AI-Powered Website &amp; Portfolio Builder</span>
+        </div>
+        <div class="project-meta">
+          <a href="https://codecanvas.page/public/index.html" target="_blank" class="pill">Live Demo ↗</a>
+          <a href="https://github.com/harsh-pratap-singh-rathore/CodeCanvas" target="_blank" class="pill">GitHub ↗</a>
+          <span>2026</span>
+        </div>
+      </div>
+      <div class="project-tech"><span>Stack:</span> Local AI (Ollama), PHP, MySQL, JavaScript (ES6+), HTML5 Canvas, CSS3, Google OAuth</div>
+      <ul class="bullets">
+        <li>Developed an AI portfolio and website builder that runs locally on the user's system with <strong>zero cloud API costs</strong>.</li>
+        <li>Integrated local LLMs via Ollama (Gemma, DeepSeek) executing directly on local GPUs to translate natural language design prompts into clean HTML/CSS code.</li>
+        <li>Built full-stack project management with PHP REST APIs, user accounts with Google OAuth, and MySQL database to save, edit, and duplicate project blueprints.</li>
+        <li>Engineered an interactive live preview canvas with real-time responsive testing and 1-click code export.</li>
+      </ul>
+    </div>
+
+    <!-- PROJECT 3: DROPIFY -->
+    <div class="project-item">
+      <div class="project-header">
+        <div>
+          <span class="project-title">Dropify</span>
+          <span class="project-type">&mdash; Native Android Music Streaming &amp; Playback App</span>
+        </div>
+        <div class="project-meta">
+          <a href="https://github.com/harsh-pratap-singh-rathore/Dropify/releases" target="_blank" class="pill">Releases ↗</a>
+          <a href="https://github.com/harsh-pratap-singh-rathore/Dropify" target="_blank" class="pill">GitHub ↗</a>
+          <span>2026</span>
+        </div>
+      </div>
+      <div class="project-tech"><span>Stack:</span> Kotlin, Jetpack Compose, AndroidX Media3 (ExoPlayer), Audio Equalizer, Retrofit, DataStore, LRCLIB API</div>
+      <ul class="bullets">
+        <li>Engineered an ad-free, native Android music streaming and playback application (compiled APK) utilizing <strong>Kotlin</strong> and <strong>Jetpack Compose</strong>.</li>
+        <li>Built robust background audio playback using <strong>AndroidX Media3 (ExoPlayer)</strong>, MediaSession controls, and system notification integration.</li>
+        <li>Integrated a custom 10-band hardware equalizer (&plusmn;12dB biquad filters) for fine-tuned acoustic control and LRCLIB REST API for real-time synchronized lyrics.</li>
+        <li>Implemented persistent playlist queue management, dynamic album-art theming, and low-latency audio stream playback.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- RESEARCH PUBLICATIONS -->
+  <section class="section">
+    <div class="section-title">
+      Research Publications (04 Peer-Reviewed Papers)
+      <span class="tagline">Applied Deep Learning &bull; Computer Vision &bull; Model Forensics</span>
+    </div>
+    <ul class="research-list">
+      <li>
+        <span class="paper-title">Multi-Class Waste Object Detection Using YOLO11n:</span> Fine-tuned YOLO11n on the TACO dataset (1,500 images, 4,784 annotations across 60 categories); achieved 45.63% precision for municipal waste segregation. Published in <span class="paper-venue">IRJMETS (Sept 2026)</span> <a href="https://www.doi.org/10.56726/IRJMETS102755" target="_blank" class="doi-pill">DOI: 10.56726/IRJMETS102755 ↗</a>
+      </li>
+      <li>
+        <span class="paper-title">Spatial vs. Frequency-Domain CNN Models for Detecting AI-Generated Images:</span> Empirical comparative study evaluating baseline spatial CNN vs. hybrid Fast Fourier Transform (FFT) across 60,000 images; achieved 85.3% test accuracy. Published in <span class="paper-venue">IJRASET (Dec 2025)</span> <a href="https://doi.org/10.22214/ijraset.2025.76618" target="_blank" class="doi-pill">DOI: 10.22214/ijraset.2025.76618 ↗</a>
+      </li>
+      <li>
+        <span class="paper-title">Effectiveness of Deep Learning Models for Car Model Classification:</span> Comparative evaluation of ResNet50, MobileNetV2, and VGG16 across 7,463 images spanning 16 models and 8 camera angles; ResNet50 achieved 95.8% accuracy. Published in <span class="paper-venue">IRJMETS (Sept 2025)</span> <a href="https://www.doi.org/10.56726/IRJMETS82757" target="_blank" class="doi-pill">DOI: 10.56726/IRJMETS82757 ↗</a>
+      </li>
+      <li>
+        <span class="paper-title">Performance Benchmarking of CNN Architectures on CIFAR-100:</span> Controlled evaluation of ResNet-18, EfficientNet-B0, and GoogLeNet trained from scratch without pretraining bias on CIFAR-100; ResNet-18 reached 65% accuracy. Published in <span class="paper-venue">IJRASET (Nov 2025)</span> <a href="https://doi.org/10.22214/ijraset.2025.75713" target="_blank" class="doi-pill">DOI: 10.22214/ijraset.2025.75713 ↗</a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section" style="margin-bottom: 0;">
+    <div class="section-title">Education</div>
+    <table class="edu-table">
+      <tr>
+        <td class="edu-cell">
+          <div class="edu-deg">Master of Computer Applications (MCA)</div>
+          <div class="edu-school">Uka Tarsadia University, Bardoli, Gujarat</div>
+          <div class="edu-meta">
+            <span>Web Architecture, Distributed Systems &amp; Advanced Algorithms</span>
+            <span><strong>2026 &ndash; 2028</strong></span>
+          </div>
+        </td>
+        <td class="edu-cell">
+          <div class="edu-deg">Bachelor of Computer Applications (BCA)</div>
+          <div class="edu-school">Uka Tarsadia University, Bardoli, Gujarat</div>
+          <div class="edu-meta">
+            <span>Software Engineering, Database Management &amp; Core CS | <strong>7.77 CGPA</strong></span>
+            <span><strong>2023 &ndash; 2026</strong></span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+</body>
+</html>

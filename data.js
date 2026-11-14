@@ -75,19 +75,19 @@ const portfolioData = {
     {
       id: "dropify",
       number: "01 //",
-      tag: "NATIVE ANDROID & WINDOWS PC",
+      tag: "ANDROID APP · KOTLIN & MEDIA3",
       title: "DROPIFY",
-      purpose: "High-fidelity audiophile music player engineered natively for Android and Windows PC with a custom 10-band DSP equalizer and LRCLIB real-time synchronized lyrics.",
-      problemSolved: "Delivers an ad-free, local and streaming music ecosystem with low-latency hardware audio decoding, Nothing OS liquid glass UI, and zero subscription barriers.",
-      involvement: "Audio DSP Engineering, Android App (Kotlin), Windows Desktop (Electron), and Stream Extraction Pipeline",
+      purpose: "Ad-free, high-fidelity music streaming and playback application engineered natively for Android.",
+      problemSolved: "Provides a clean, ad-free listening experience with background audio playback, hardware equalizer, synced lyrics, and playlist management with zero subscription barriers.",
+      involvement: "Android Development (Kotlin & Jetpack Compose), Audio Playback Pipeline, and REST API Integration",
       features: [
-        "10-Band Hardware-Accelerated Equalizer with ±12dB biquad filters and audiophile presets",
-        "Mid/Side Stereo Expander widening acoustic spatial depth without phase cancellation",
-        "Real-time millisecond-synchronized lyrics resolver powered by LRCLIB",
-        "Native Android APK (v1.0.2) and Windows PC installer packages",
-        "Zero-telemetry privacy architecture and high-performance offline caching"
+        "Background audio playback using AndroidX Media3 (ExoPlayer) with full system media notifications",
+        "Custom 10-band hardware equalizer (±12dB biquad filters) for fine-tuned acoustic control",
+        "Real-time synchronized lyrics integration via LRCLIB REST API",
+        "Modern Jetpack Compose UI with dynamic album-art theming and persistent playlist queue",
+        "Native Android APK build with low-latency audio stream playback"
       ],
-      technologies: ["Android (Kotlin)", "Windows (Electron)", "Audio DSP Engine", "Node.js", "LRCLIB API", "Tailwind CSS"],
+      technologies: ["Kotlin", "Jetpack Compose", "AndroidX Media3 (ExoPlayer)", "Audio Equalizer", "Retrofit", "LRCLIB API", "DataStore"],
       year: "2026",
       liveUrl: "https://github.com/harsh-pratap-singh-rathore/Dropify/releases",
       githubUrl: "https://github.com/harsh-pratap-singh-rathore/Dropify"
@@ -95,18 +95,19 @@ const portfolioData = {
     {
       id: "shree-karni",
       number: "02 //",
-      tag: "CLIENT PRODUCTION · E-COMMERCE",
+      tag: "CLIENT E-COMMERCE · PHP & MYSQL",
       title: "SHREE KARNI TEXTILES",
-      purpose: "Full-stack enterprise e-commerce platform for custom textile distribution, cataloging 10,000+ fabric SKUs with sub-second page delivery and transactional cart persistence.",
-      problemSolved: "Streamlined inventory categorization across 10,000+ fabric items, customer checkout session validation, and responsive mobile-first shopping navigation.",
-      involvement: "Full-Stack Architecture (Frontend UI + Backend Data Handling)",
+      purpose: "Online e-commerce website built for an Indian textile shop client to showcase fabrics and receive customer orders.",
+      problemSolved: "Helped a local textile shop transition online with a digital catalog, persistent shopping cart, and an admin dashboard to manage products and customer orders.",
+      involvement: "Full-Stack Development (Frontend UI, PHP Backend, MySQL Database & Admin Panel)",
       features: [
-        "10,000+ fabric SKU cataloging with high-speed indexing and multi-parameter filters",
-        "Secure session authorization state and persistent transactional cart management",
-        "Optimized image delivery pipeline delivering sub-second page loads",
-        "Standardized Composer dependency management and responsive UI architecture"
+        "Product catalog with categories, fabric details, variants, and responsive mobile browsing",
+        "Persistent shopping cart and customer order inquiry/checkout workflow",
+        "Admin dashboard for the shop owner to add, edit, and organize products and track orders",
+        "Normalized MySQL database design for products, categories, customer details, and carts",
+        "Secure session-based authentication and mobile-friendly responsive layout"
       ],
-      technologies: ["PHP", "MySQL", "JavaScript (ES6+)", "CSS3", "Composer", "Responsive Design"],
+      technologies: ["PHP", "MySQL", "JavaScript", "HTML5 / CSS3", "Bootstrap", "Apache"],
       year: "2026",
       liveUrl: "https://shreekarnitextiles.com",
       githubUrl: "https://github.com/harsh-pratap-singh-rathore"
@@ -114,18 +115,19 @@ const portfolioData = {
     {
       id: "code-canvas",
       number: "03 //",
-      tag: "DEVELOPER TOOLING · AI WORKBENCH",
+      tag: "AI PORTFOLIO BUILDER · RUNS LOCALLY",
       title: "CODE CANVAS",
-      purpose: "Interactive developer creation suite and AI-assisted workbench allowing users to visually manipulate and inspect responsive layouts at 60 FPS.",
-      problemSolved: "Eliminates repetitive manual layout prototyping by translating natural language design instructions into clean CSS/HTML markup via local AI workflows.",
-      involvement: "Frontend Architecture & Engine Logic",
+      purpose: "Local AI-powered portfolio and website maker that generates code directly on your system with zero API costs.",
+      problemSolved: "Enables developers to quickly generate custom portfolio and landing page layouts from natural language prompts without paying for cloud AI subscriptions.",
+      involvement: "Full-Stack AI Application Development (Ollama Integration, PHP Backend, MySQL & UI Canvas)",
       features: [
-        "Zero-dependency vanilla JavaScript performance engine running at smooth 60 FPS",
-        "Local AI code generation (Antigravity & Claude Code workflows) translating design prompts to CSS/HTML",
-        "Live interactive layout rendering canvas with instant viewport feedback",
-        "Dynamic code generator producing clean, production-ready stylesheets and markup"
+        "Local AI generation using Ollama (Gemma, DeepSeek) executing on your system's GPU for zero API fees",
+        "Prompt-to-code engine creating clean HTML and CSS layouts from design instructions",
+        "Full-stack project management with PHP REST APIs, user accounts, and MySQL blueprint storage",
+        "Interactive live layout preview with real-time responsive testing and instant code export",
+        "Optional cloud AI fallback (Groq) for flexibility across different hardware setups"
       ],
-      technologies: ["JavaScript (ES6+)", "HTML5 Canvas", "CSS3 Grid/Flexbox", "Local AI Workflows"],
+      technologies: ["Local AI (Ollama)", "PHP", "MySQL", "JavaScript (ES6+)", "HTML5 Canvas", "CSS3", "Google OAuth"],
       year: "2026",
       liveUrl: "https://codecanvas.page/public/index.html",
       githubUrl: "https://github.com/harsh-pratap-singh-rathore/CodeCanvas"
